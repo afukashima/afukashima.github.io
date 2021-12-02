@@ -13159,6 +13159,20 @@ $( document ).ready(function(){
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -13190,7 +13204,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Revise or Create a model? Enter Yes (y) or No (n): &quot;</span><span class="p">)</span> 
@@ -13227,7 +13241,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save-related functions</span>
@@ -13273,7 +13287,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set the number of display</span>
@@ -13310,7 +13324,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://github.com/jbmouret/matplotlib_for_papers/blob/master/src/plot_variance_matplotlib_white.py</span>
@@ -13348,7 +13362,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df0</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/df_data_step3b_EDA.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tradeTime&#39;</span><span class="p">])</span>
@@ -13360,29 +13374,10 @@ $( document ).ready(function(){
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/IPython/core/interactiveshell.py:3170: DtypeWarning: Columns (1) have mixed types.Specify dtype option on import or set low_memory=False.
-  interactivity=interactivity, compiler=compiler, result=result)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_sales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13398,7 +13393,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13499,7 +13494,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df0</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;url&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;Cid&#39;</span><span class="p">,</span><span class="s1">&#39;tradeTime&#39;</span><span class="p">,</span> <span class="s1">&#39;totalPrice&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -13512,7 +13507,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="mi">2017</span><span class="p">]</span>
@@ -13540,7 +13535,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># List all the columns that are non-numeric.</span>
@@ -13554,7 +13549,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Mke dummy columns</span>
@@ -13568,7 +13563,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Revise data</span>
@@ -13589,7 +13584,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -13603,7 +13598,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -13616,7 +13611,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -13636,7 +13631,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Normalization</span>
@@ -13659,7 +13654,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -13690,7 +13685,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
@@ -13720,7 +13715,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">cross_validate</span><span class="p">,</span> <span class="n">GridSearchCV</span><span class="p">,</span><span class="n">RandomizedSearchCV</span><span class="p">,</span> <span class="n">learning_curve</span>
@@ -13733,7 +13728,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check available attributes</span>
@@ -13750,7 +13745,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -13781,7 +13776,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># With regards to selectkbest__k, we set a range of k to investigate </span>
@@ -13799,7 +13794,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">load_CVmodel</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span><span class="n">expected_model_version</span> <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span><span class="p">):</span>
@@ -13833,7 +13828,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define expected model info</span>
@@ -13872,24 +13867,22 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -13898,8 +13891,6 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -13921,11 +13912,23 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -13936,10 +13939,14 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -13952,8 +13959,10 @@ $( document ).ready(function(){
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -13968,6 +13977,12 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -13996,20 +14011,28 @@ $( document ).ready(function(){
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14019,11 +14042,7 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14033,17 +14052,11 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14060,20 +14073,14 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14086,16 +14093,12 @@ $( document ).ready(function(){
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
@@ -14110,6 +14113,8 @@ $( document ).ready(function(){
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14125,23 +14130,25 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14162,14 +14169,16 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14180,6 +14189,8 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14202,12 +14213,12 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14216,12 +14227,6 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14254,12 +14259,14 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14268,16 +14275,12 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14288,21 +14291,13 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
@@ -14310,17 +14305,17 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
@@ -14328,12 +14323,20 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14344,10 +14347,6 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14377,8 +14376,6 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
@@ -14386,26 +14383,46 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14429,8 +14446,6 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
@@ -14438,12 +14453,12 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14458,12 +14473,16 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14476,12 +14495,22 @@ $( document ).ready(function(){
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
@@ -14492,10 +14521,16 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14505,11 +14540,17 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14524,20 +14565,18 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
@@ -14552,10 +14591,6 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14568,18 +14603,18 @@ $( document ).ready(function(){
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14602,16 +14637,22 @@ $( document ).ready(function(){
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14620,18 +14661,26 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14642,7 +14691,13 @@ $( document ).ready(function(){
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
@@ -14683,33 +14738,15 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14717,17 +14754,7 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14749,15 +14776,7 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14767,6 +14786,8 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
@@ -14774,14 +14795,10 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14796,6 +14813,8 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14820,9 +14839,13 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
@@ -14833,7 +14856,19 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14846,10 +14881,8 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14876,9 +14909,7 @@ $( document ).ready(function(){
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
@@ -14886,12 +14917,8 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
@@ -14899,13 +14926,7 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14922,16 +14943,26 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+  corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
+  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14947,25 +14978,17 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14974,16 +14997,12 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -14996,40 +15015,22 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -15037,11 +15038,7 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
@@ -15059,8 +15056,6 @@ $( document ).ready(function(){
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
@@ -15076,20 +15071,16 @@ $( document ).ready(function(){
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
-  corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
   F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: divide by zero encountered in true_divide
   corr /= X_norms
-/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
-  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 /Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:302: RuntimeWarning: invalid value encountered in true_divide
   corr /= X_norms
+/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/feature_selection/_univariate_selection.py:307: RuntimeWarning: invalid value encountered in true_divide
+  F = corr ** 2 / (1 - corr ** 2) * degrees_of_freedom
 </pre>
 </div>
 </div>
@@ -15100,7 +15091,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">score_mean</span> <span class="o">=</span> <span class="n">lr_grid_cv</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span>
@@ -15115,7 +15106,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Print the `best_params_` attribute of `lr_grid_cv`</span>
@@ -15132,7 +15123,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -15149,7 +15140,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -15184,7 +15175,7 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="output_38_0.png"
+<img src="output_39_0.png"
 >
 </div>
 
@@ -15196,7 +15187,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A logical mask of the features selected</span>
@@ -15210,7 +15201,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr_grid_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">named_steps</span><span class="o">.</span><span class="n">selectkbest</span>
@@ -15226,13 +15217,13 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[28]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>SelectKBest(k=49, score_func=&lt;function f_regression at 0x7faf8898aa70&gt;)</pre>
+<pre>SelectKBest(k=49, score_func=&lt;function f_regression at 0x7fb465b7f9e0&gt;)</pre>
 </div>
 
 </div>
@@ -15251,7 +15242,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">coefs</span> <span class="o">=</span> <span class="n">lr_grid_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">named_steps</span><span class="o">.</span><span class="n">linearregression</span><span class="o">.</span><span class="n">coef_</span>
@@ -15273,7 +15264,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot a barplot of the random forest&#39;s feature importances</span>
@@ -15305,7 +15296,7 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="output_44_0.png"
+<img src="output_45_0.png"
 >
 </div>
 
@@ -15327,7 +15318,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">lr_grid_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
@@ -15340,7 +15331,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -15374,7 +15365,7 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="output_47_0.png"
+<img src="output_48_0.png"
 >
 </div>
 
@@ -15393,7 +15384,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">&#39;Model name&#39;</span><span class="p">:</span><span class="s1">&#39;LinearRegression&#39;</span><span class="p">,</span>
@@ -15416,7 +15407,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[32]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -15483,7 +15474,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">save_CVmodel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">modelname</span><span class="p">,</span><span class="n">modelpath</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="p">):</span>
@@ -15510,7 +15501,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save a model</span>
@@ -15545,7 +15536,7 @@ Writing file.  &#34;../models/LinearRegression_GridCV.pkl&#34;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save the ModelComparison</span>
