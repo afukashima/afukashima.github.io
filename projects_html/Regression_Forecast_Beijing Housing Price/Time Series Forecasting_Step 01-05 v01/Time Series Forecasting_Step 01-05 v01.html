@@ -13128,7 +13128,7 @@ div#notebook {
 <script>
 $( document ).ready(function(){
 
-            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "165px"}, "toc_section_display": true, "toc_window_display": true};
+            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "165px"}, "toc_section_display": true, "toc_window_display": false};
 
             // fire the main function with these parameters
             require(['nbextensions/toc2/toc2'], function (toc2) {
@@ -14721,13 +14721,13 @@ $( document ).ready(function(){
 
  
  
-<div id="55bbe018-9a66-4869-aca8-044fb2ad4985"></div>
+<div id="445ef6fc-2c2a-4ff8-aafb-e286b744e58b"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#55bbe018-9a66-4869-aca8-044fb2ad4985');
+var element = $('#445ef6fc-2c2a-4ff8-aafb-e286b744e58b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d319ffb77fa642cb8053329c0df35a60", "version_major": 2, "version_minor": 0}
+{"model_id": "1c157cd488c14082b8eb8aa65494f648", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -16059,7 +16059,7 @@ parameter F test:         F=4.3305  , p=0.0551  , df_denom=5, df_num=22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">market</span><span class="p">[[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">,</span><span class="s1">&#39;10yrBond&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">]</span>
@@ -16149,7 +16149,7 @@ parameter F test:         F=4.3305  , p=0.0551  , df_denom=5, df_num=22
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Performing stepwise search to minimize aic
  ARIMA(2,0,2)(0,0,0)[0] intercept   : AIC=1106.350, Time=0.03 sec
- ARIMA(0,0,0)(0,0,0)[0] intercept   : AIC=1110.370, Time=0.01 sec
+ ARIMA(0,0,0)(0,0,0)[0] intercept   : AIC=1110.370, Time=0.00 sec
  ARIMA(1,0,0)(0,0,0)[0] intercept   : AIC=1101.423, Time=0.01 sec
  ARIMA(0,0,1)(0,0,0)[0] intercept   : AIC=1101.358, Time=0.01 sec
  ARIMA(0,0,0)(0,0,0)[0]             : AIC=1165.177, Time=0.00 sec
@@ -16183,7 +16183,7 @@ Total fit time: 0.096 seconds
   <th>Date:</th>            <td>Sun, 05 Dec 2021</td> <th>  AIC                </th> <td>1101.358</td>
 </tr>
 <tr>
-  <th>Time:</th>                <td>02:00:03</td>     <th>  BIC                </th> <td>1106.108</td>
+  <th>Time:</th>                <td>12:22:44</td>     <th>  BIC                </th> <td>1106.108</td>
 </tr>
 <tr>
   <th>Sample:</th>                  <td>0</td>        <th>  HQIC               </th> <td>1103.016</td>
@@ -16796,7 +16796,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">error_mse</span><span class="p">,</span> <span class="n">error_rmse</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">evaluate_sarimax_model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">exog</span><span class="o">=</span><span class="n">exog1</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="n">best_odrder1</span><span class="p">,</span><span class="n">seasonal_order</span><span class="o">=</span><span class="n">best_sesonal_order1</span><span class="p">)</span>
@@ -16828,7 +16828,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions</span><span class="o">=</span> <span class="n">data_test</span><span class="p">[[]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -16842,7 +16842,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot predictions against known values</span>
@@ -16893,7 +16893,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
@@ -16926,7 +16926,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">error_mse</span><span class="p">,</span> <span class="n">error_rmse</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">evaluate_sarimax_model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">exog</span><span class="o">=</span><span class="n">exog1</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="n">best_odrder2</span><span class="p">,</span><span class="n">seasonal_order</span><span class="o">=</span><span class="n">best_sesonal_order2</span><span class="p">,)</span>
@@ -16956,22 +16956,17 @@ Total fit time: 0.096 seconds
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">This</span> <span class="n">error</span> <span class="ow">is</span> 
-</pre></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This error is the lowest ever.</p>
 
-    </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">addModel</span><span class="p">(</span><span class="n">ModelComparison</span><span class="p">,</span><span class="s1">&#39;SARIMAX with Grid Search&#39;</span><span class="p">,</span><span class="n">best_score2</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">best_odrder2</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">best_sesonal_order2</span><span class="p">))</span>
@@ -16988,7 +16983,7 @@ Total fit time: 0.096 seconds
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[91]:</div>
+    <div class="prompt output_prompt">Out[68]:</div>
 
 
 
@@ -17048,7 +17043,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Refit the model</span>
@@ -17063,7 +17058,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot predictions against known values</span>
@@ -17112,7 +17107,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -17127,7 +17122,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">(</span>
@@ -17267,7 +17262,7 @@ Iteration 74. Log joint probability =    45.9304. Improved by 4.14009e-09.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">plot_components</span><span class="p">(</span><span class="n">forecast</span><span class="p">)</span>
@@ -17301,7 +17296,7 @@ Iteration 74. Log joint probability =    45.9304. Improved by 4.14009e-09.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fbprophet.plot</span> <span class="kn">import</span> <span class="n">add_changepoints_to_plot</span>
@@ -17345,7 +17340,7 @@ Iteration 74. Log joint probability =    45.9304. Improved by 4.14009e-09.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">data_train</span><span class="p">)</span>
@@ -17361,7 +17356,7 @@ Iteration 74. Log joint probability =    45.9304. Improved by 4.14009e-09.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[101]:</div>
+    <div class="prompt output_prompt">Out[75]:</div>
 
 
 
@@ -17378,7 +17373,7 @@ Iteration 74. Log joint probability =    45.9304. Improved by 4.14009e-09.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_test</span><span class="p">[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">]</span>
@@ -17394,7 +17389,7 @@ Iteration 74. Log joint probability =    45.9304. Improved by 4.14009e-09.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[102]:</div>
+    <div class="prompt output_prompt">Out[76]:</div>
 
 
 
@@ -17419,7 +17414,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data_train</span><span class="p">)</span>
@@ -17462,7 +17457,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">addModel</span><span class="p">(</span><span class="n">ModelComparison</span><span class="p">,</span><span class="s2">&quot;Facebook&#39;s Prophet&quot;</span><span class="p">,</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span><span class="n">data_test</span><span class="p">[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">]),</span><span class="kc">None</span><span class="p">)</span>
@@ -17479,7 +17474,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[104]:</div>
+    <div class="prompt output_prompt">Out[78]:</div>
 
 
 
@@ -17559,7 +17554,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[105]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
@@ -17572,7 +17567,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[106]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
@@ -17585,7 +17580,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
@@ -17601,7 +17596,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[107]:</div>
+    <div class="prompt output_prompt">Out[81]:</div>
 
 
 
@@ -17618,7 +17613,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">scaled_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
@@ -17639,7 +17634,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.preprocessing.sequence</span> <span class="kn">import</span> <span class="n">TimeseriesGenerator</span>
@@ -17670,7 +17665,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_input</span> <span class="o">=</span> <span class="mi">12</span>
@@ -17697,7 +17692,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[111]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
@@ -17712,7 +17707,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[112]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define model</span>
@@ -17736,9 +17731,9 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2021-12-05 11:48:08.251760: I tensorflow/core/platform/cpu_feature_guard.cc:145] This TensorFlow binary is optimized with Intel(R) MKL-DNN to use the following CPU instructions in performance critical operations:  SSE4.1 SSE4.2
+<pre>2021-12-05 16:55:53.772516: I tensorflow/core/platform/cpu_feature_guard.cc:145] This TensorFlow binary is optimized with Intel(R) MKL-DNN to use the following CPU instructions in performance critical operations:  SSE4.1 SSE4.2
 To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriate compiler flags.
-2021-12-05 11:48:08.252739: I tensorflow/core/common_runtime/process_util.cc:115] Creating new thread pool with default inter op setting: 8. Tune using inter_op_parallelism_threads for best performance.
+2021-12-05 16:55:53.773969: I tensorflow/core/common_runtime/process_util.cc:115] Creating new thread pool with default inter op setting: 8. Tune using inter_op_parallelism_threads for best performance.
 </pre>
 </div>
 </div>
@@ -17749,7 +17744,7 @@ To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriat
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
@@ -17791,7 +17786,7 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[114]:</div>
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># fit model</span>
@@ -17813,218 +17808,218 @@ _________________________________________________________________
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/100
-16/16 [==============================] - 1s 85ms/step - loss: 0.2102
+16/16 [==============================] - 7s 419ms/step - loss: 0.2014
 Epoch 2/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0912
+16/16 [==============================] - 5s 302ms/step - loss: 0.0907
 Epoch 3/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0775
+16/16 [==============================] - 7s 443ms/step - loss: 0.0949
 Epoch 4/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0920
+16/16 [==============================] - 5s 310ms/step - loss: 0.0836
 Epoch 5/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0827
+16/16 [==============================] - 6s 348ms/step - loss: 0.0819
 Epoch 6/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0804
+16/16 [==============================] - 6s 403ms/step - loss: 0.0818
 Epoch 7/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0817
+16/16 [==============================] - 6s 394ms/step - loss: 0.0934
 Epoch 8/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0801
+16/16 [==============================] - 7s 433ms/step - loss: 0.0933
 Epoch 9/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0806
+16/16 [==============================] - 5s 325ms/step - loss: 0.0926
 Epoch 10/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0833
+16/16 [==============================] - 7s 458ms/step - loss: 0.0787
 Epoch 11/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0871
+16/16 [==============================] - 5s 309ms/step - loss: 0.0798
 Epoch 12/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0829
+16/16 [==============================] - 6s 398ms/step - loss: 0.0811
 Epoch 13/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0926
+16/16 [==============================] - 8s 486ms/step - loss: 0.0770
 Epoch 14/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0805
+16/16 [==============================] - 5s 326ms/step - loss: 0.0800
 Epoch 15/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0783
+16/16 [==============================] - 6s 385ms/step - loss: 0.0790
 Epoch 16/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0806
+16/16 [==============================] - 9s 573ms/step - loss: 0.0773
 Epoch 17/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0816
+16/16 [==============================] - 10s 647ms/step - loss: 0.0773
 Epoch 18/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0794
+16/16 [==============================] - 7s 436ms/step - loss: 0.0781
 Epoch 19/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0814
+16/16 [==============================] - 5s 328ms/step - loss: 0.0777
 Epoch 20/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0829
+16/16 [==============================] - 5s 293ms/step - loss: 0.0865
 Epoch 21/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0733
+16/16 [==============================] - 5s 286ms/step - loss: 0.0742
 Epoch 22/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0805
+16/16 [==============================] - 5s 339ms/step - loss: 0.0775
 Epoch 23/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0753
+16/16 [==============================] - 6s 364ms/step - loss: 0.0782
 Epoch 24/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0810
+16/16 [==============================] - 5s 315ms/step - loss: 0.0777
 Epoch 25/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0855
+16/16 [==============================] - 5s 284ms/step - loss: 0.0761
 Epoch 26/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0737
+16/16 [==============================] - 5s 305ms/step - loss: 0.0796
 Epoch 27/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0777
+16/16 [==============================] - 6s 347ms/step - loss: 0.0759
 Epoch 28/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0744
+16/16 [==============================] - 6s 403ms/step - loss: 0.0773
 Epoch 29/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0797
+16/16 [==============================] - 5s 337ms/step - loss: 0.0749
 Epoch 30/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0798
+16/16 [==============================] - 6s 352ms/step - loss: 0.0764
 Epoch 31/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0729
+16/16 [==============================] - 5s 312ms/step - loss: 0.0778
 Epoch 32/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0752
+16/16 [==============================] - 5s 312ms/step - loss: 0.0832
 Epoch 33/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0760
+16/16 [==============================] - 5s 326ms/step - loss: 0.0746
 Epoch 34/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0782
+16/16 [==============================] - 4s 258ms/step - loss: 0.0763
 Epoch 35/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0726
+16/16 [==============================] - 4s 262ms/step - loss: 0.0789
 Epoch 36/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0727
+16/16 [==============================] - 4s 236ms/step - loss: 0.0748
 Epoch 37/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0743
+16/16 [==============================] - 5s 344ms/step - loss: 0.0771
 Epoch 38/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0750
+16/16 [==============================] - 5s 322ms/step - loss: 0.0714
 Epoch 39/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0733
+16/16 [==============================] - 6s 347ms/step - loss: 0.0742
 Epoch 40/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0758
+16/16 [==============================] - 4s 275ms/step - loss: 0.0785
 Epoch 41/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0762
+16/16 [==============================] - 5s 286ms/step - loss: 0.0800
 Epoch 42/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0719
+16/16 [==============================] - 5s 302ms/step - loss: 0.0870
 Epoch 43/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0731
+16/16 [==============================] - 4s 262ms/step - loss: 0.0760
 Epoch 44/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0750
+16/16 [==============================] - 5s 326ms/step - loss: 0.0738
 Epoch 45/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0732
+16/16 [==============================] - 6s 344ms/step - loss: 0.0727
 Epoch 46/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0762
+16/16 [==============================] - 4s 272ms/step - loss: 0.0711
 Epoch 47/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0740
+16/16 [==============================] - 3s 216ms/step - loss: 0.0731
 Epoch 48/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0788
+16/16 [==============================] - 4s 262ms/step - loss: 0.0757
 Epoch 49/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0707
+16/16 [==============================] - 4s 238ms/step - loss: 0.0776
 Epoch 50/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0739
+16/16 [==============================] - 4s 273ms/step - loss: 0.0691
 Epoch 51/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0693
+16/16 [==============================] - 4s 271ms/step - loss: 0.0714
 Epoch 52/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0704
+16/16 [==============================] - 7s 439ms/step - loss: 0.0704
 Epoch 53/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0752
+16/16 [==============================] - 4s 248ms/step - loss: 0.0714
 Epoch 54/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0783
+16/16 [==============================] - 4s 262ms/step - loss: 0.0693
 Epoch 55/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0709
+16/16 [==============================] - 4s 279ms/step - loss: 0.0767
 Epoch 56/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0666
+16/16 [==============================] - 4s 274ms/step - loss: 0.0751
 Epoch 57/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0737
+16/16 [==============================] - 5s 286ms/step - loss: 0.0725
 Epoch 58/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0784
+16/16 [==============================] - 4s 275ms/step - loss: 0.0720
 Epoch 59/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0736
+16/16 [==============================] - 4s 253ms/step - loss: 0.0682
 Epoch 60/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0677
+16/16 [==============================] - 4s 241ms/step - loss: 0.0680
 Epoch 61/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0663
+16/16 [==============================] - 2s 136ms/step - loss: 0.0683
 Epoch 62/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0685
+16/16 [==============================] - 1s 84ms/step - loss: 0.0723
 Epoch 63/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0658
+16/16 [==============================] - 1s 48ms/step - loss: 0.0669
 Epoch 64/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0675
+16/16 [==============================] - 1s 46ms/step - loss: 0.0665
 Epoch 65/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0623
+16/16 [==============================] - 1s 49ms/step - loss: 0.0663
 Epoch 66/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0658
+16/16 [==============================] - 1s 45ms/step - loss: 0.0684
 Epoch 67/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0632
+16/16 [==============================] - 1s 51ms/step - loss: 0.0648
 Epoch 68/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0728
+16/16 [==============================] - 1s 46ms/step - loss: 0.0682
 Epoch 69/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0663
+16/16 [==============================] - 1s 49ms/step - loss: 0.0598
 Epoch 70/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0601
+16/16 [==============================] - 1s 45ms/step - loss: 0.0650
 Epoch 71/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0592
+16/16 [==============================] - 1s 51ms/step - loss: 0.0612
 Epoch 72/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0598
+16/16 [==============================] - 1s 48ms/step - loss: 0.0637
 Epoch 73/100
-16/16 [==============================] - 0s 26ms/step - loss: 0.0609
+16/16 [==============================] - 1s 50ms/step - loss: 0.0596
 Epoch 74/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0567
+16/16 [==============================] - 1s 46ms/step - loss: 0.0624
 Epoch 75/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0636
+16/16 [==============================] - 1s 47ms/step - loss: 0.0567
 Epoch 76/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0611
+16/16 [==============================] - 1s 47ms/step - loss: 0.0630
 Epoch 77/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0612
+16/16 [==============================] - 1s 45ms/step - loss: 0.0527
 Epoch 78/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0569
+16/16 [==============================] - 1s 46ms/step - loss: 0.0655
 Epoch 79/100
-16/16 [==============================] - 0s 25ms/step - loss: 0.0535
+16/16 [==============================] - 1s 48ms/step - loss: 0.0617
 Epoch 80/100
-16/16 [==============================] - 0s 23ms/step - loss: 0.0522
+16/16 [==============================] - 1s 47ms/step - loss: 0.0584
 Epoch 81/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0548
+16/16 [==============================] - 1s 49ms/step - loss: 0.0555
 Epoch 82/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0612
+16/16 [==============================] - 1s 47ms/step - loss: 0.0583
 Epoch 83/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0542
+16/16 [==============================] - 1s 49ms/step - loss: 0.0495
 Epoch 84/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0567
+16/16 [==============================] - 1s 47ms/step - loss: 0.0466
 Epoch 85/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0629
+16/16 [==============================] - 1s 46ms/step - loss: 0.0554
 Epoch 86/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0457
+16/16 [==============================] - 1s 50ms/step - loss: 0.0468
 Epoch 87/100
-16/16 [==============================] - 0s 21ms/step - loss: 0.0558
+16/16 [==============================] - 1s 46ms/step - loss: 0.0462
 Epoch 88/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0509
+16/16 [==============================] - 1s 48ms/step - loss: 0.0565
 Epoch 89/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0521
+16/16 [==============================] - 1s 44ms/step - loss: 0.0789
 Epoch 90/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0462
+16/16 [==============================] - 1s 52ms/step - loss: 0.0693
 Epoch 91/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0472
+16/16 [==============================] - 1s 55ms/step - loss: 0.0551
 Epoch 92/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0452
+16/16 [==============================] - 1s 57ms/step - loss: 0.0522
 Epoch 93/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0499
+16/16 [==============================] - 1s 62ms/step - loss: 0.0487
 Epoch 94/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0469
+16/16 [==============================] - 1s 56ms/step - loss: 0.0483
 Epoch 95/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0470
+16/16 [==============================] - 1s 69ms/step - loss: 0.0449
 Epoch 96/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0493
+16/16 [==============================] - 1s 53ms/step - loss: 0.0449
 Epoch 97/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0462
+16/16 [==============================] - 1s 45ms/step - loss: 0.0472
 Epoch 98/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0540
+16/16 [==============================] - 1s 48ms/step - loss: 0.0447
 Epoch 99/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0471
+16/16 [==============================] - 1s 47ms/step - loss: 0.0509
 Epoch 100/100
-16/16 [==============================] - 0s 22ms/step - loss: 0.0413
+16/16 [==============================] - 1s 47ms/step - loss: 0.0439
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[114]:</div>
+    <div class="prompt output_prompt">Out[88]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.callbacks.History at 0x7fb5ba837d50&gt;</pre>
+<pre>&lt;keras.callbacks.callbacks.History at 0x7fbec36d1a90&gt;</pre>
 </div>
 
 </div>
@@ -18035,7 +18030,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -18051,7 +18046,7 @@ Epoch 100/100
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[115]:</div>
+    <div class="prompt output_prompt">Out[89]:</div>
 
 
 
@@ -18068,7 +18063,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">loss_per_epoch</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
@@ -18085,13 +18080,13 @@ Epoch 100/100
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[116]:</div>
+    <div class="prompt output_prompt">Out[90]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fb5ba6b2f10&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fbea017e910&gt;]</pre>
 </div>
 
 </div>
@@ -18123,7 +18118,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[117]:</div>
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_eval_batch</span> <span class="o">=</span> <span class="n">scaled_train</span><span class="p">[</span><span class="o">-</span><span class="n">split</span><span class="p">:]</span>
@@ -18136,7 +18131,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[118]:</div>
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_eval_batch</span>
@@ -18152,7 +18147,7 @@ Epoch 100/100
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[118]:</div>
+    <div class="prompt output_prompt">Out[92]:</div>
 
 
 
@@ -18196,7 +18191,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[119]:</div>
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_eval_batch</span> <span class="o">=</span> <span class="n">first_eval_batch</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">split</span><span class="p">,</span> <span class="n">n_features</span><span class="p">))</span>
@@ -18209,7 +18204,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[120]:</div>
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate predictions into the same time stamps as the test set</span>
@@ -18239,7 +18234,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[121]:</div>
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Inverse Transformations and Compare</span>
@@ -18256,20 +18251,20 @@ Epoch 100/100
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[121]:</div>
+    <div class="prompt output_prompt">Out[95]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[array([0.03877616], dtype=float32),
- array([0.16261359], dtype=float32),
- array([0.45708227], dtype=float32),
- array([0.7725152], dtype=float32),
- array([0.74859893], dtype=float32),
- array([0.2952835], dtype=float32),
- array([0.1659652], dtype=float32),
- array([0.2603987], dtype=float32)]</pre>
+<pre>[array([0.45778683], dtype=float32),
+ array([0.6885685], dtype=float32),
+ array([0.9778905], dtype=float32),
+ array([1.1875604], dtype=float32),
+ array([0.9594357], dtype=float32),
+ array([0.25748938], dtype=float32),
+ array([0.19613841], dtype=float32),
+ array([0.36290795], dtype=float32)]</pre>
 </div>
 
 </div>
@@ -18280,7 +18275,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[122]:</div>
+<div class="prompt input_prompt">In&nbsp;[96]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">true_predictions</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">test_predictions</span><span class="p">)</span>
@@ -18293,7 +18288,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[123]:</div>
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">true_predictions</span>
@@ -18309,20 +18304,20 @@ Epoch 100/100
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[123]:</div>
+    <div class="prompt output_prompt">Out[97]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[ 754344.75557583],
-       [1314479.66808796],
-       [2646404.85114007],
-       [4073154.28584071],
-       [3964977.59385673],
-       [1914565.19032839],
-       [1329639.510686  ],
-       [1756776.06111786]])</pre>
+<pre>array([[2649591.6647506 ],
+       [3693450.99117829],
+       [5002097.04068065],
+       [5950465.05623423],
+       [4918623.31028926],
+       [1743616.85699537],
+       [1466117.38835234],
+       [2220440.52401337]])</pre>
 </div>
 
 </div>
@@ -18341,7 +18336,7 @@ Epoch 100/100
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[124]:</div>
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;Predictions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">true_predictions</span>
@@ -18358,7 +18353,7 @@ Epoch 100/100
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[124]:</div>
+    <div class="prompt output_prompt">Out[98]:</div>
 
 
 
@@ -18380,7 +18375,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[125]:</div>
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_test</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span>
@@ -18414,7 +18409,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[126]:</div>
+<div class="prompt input_prompt">In&nbsp;[100]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot predictions against known values</span>
@@ -18463,7 +18458,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[127]:</div>
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mse </span><span class="si">%.5e</span><span class="s1">&#39;</span><span class="o">%</span> <span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;Predictions&#39;</span><span class="p">],</span><span class="n">y_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])))</span>
@@ -18483,7 +18478,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>mse 1.98518e+12
+<pre>mse 7.29665e+12
 </pre>
 </div>
 </div>
@@ -18494,7 +18489,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[128]:</div>
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_test</span>
@@ -18510,7 +18505,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[128]:</div>
+    <div class="prompt output_prompt">Out[102]:</div>
 
 
 
@@ -18541,42 +18536,42 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
     <tr>
       <th>2017-05-01</th>
       <td>832191.8000</td>
-      <td>754344.7556</td>
+      <td>2649591.6648</td>
     </tr>
     <tr>
       <th>2017-06-01</th>
       <td>905690.5000</td>
-      <td>1314479.6681</td>
+      <td>3693450.9912</td>
     </tr>
     <tr>
       <th>2017-07-01</th>
       <td>1240611.7000</td>
-      <td>2646404.8511</td>
+      <td>5002097.0407</td>
     </tr>
     <tr>
       <th>2017-08-01</th>
       <td>1307715.0000</td>
-      <td>4073154.2858</td>
+      <td>5950465.0562</td>
     </tr>
     <tr>
       <th>2017-09-01</th>
       <td>1590959.3000</td>
-      <td>3964977.5939</td>
+      <td>4918623.3103</td>
     </tr>
     <tr>
       <th>2017-10-01</th>
       <td>1269731.6000</td>
-      <td>1914565.1903</td>
+      <td>1743616.8570</td>
     </tr>
     <tr>
       <th>2017-11-01</th>
       <td>1491095.8000</td>
-      <td>1329639.5107</td>
+      <td>1466117.3884</td>
     </tr>
     <tr>
       <th>2017-12-01</th>
       <td>1676201.4000</td>
-      <td>1756776.0611</td>
+      <td>2220440.5240</td>
     </tr>
   </tbody>
 </table>
@@ -18591,7 +18586,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">addModel</span><span class="p">(</span><span class="n">ModelComparison</span><span class="p">,</span><span class="s1">&#39;RNN&#39;</span><span class="p">,</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;Predictions&#39;</span><span class="p">],</span><span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">]),</span><span class="kc">None</span><span class="p">)</span>
@@ -18609,7 +18604,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[129]:</div>
+    <div class="prompt output_prompt">Out[103]:</div>
 
 
 
@@ -18665,7 +18660,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
     <tr>
       <th>0</th>
       <td>RNN</td>
-      <td>1985176400236.3340</td>
+      <td>7296648253089.4648</td>
       <td>None</td>
     </tr>
   </tbody>
@@ -18682,24 +18677,39 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Based on ModelComparison, the best model was SARIMAX with Grid Search. Next, we use this model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Step-06-Two-months-Forecast">Step 06 Two months Forecast<a class="anchor-link" href="#Step-06-Two-months-Forecast">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[130]:</div>
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a </span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">exog</span><span class="o">=</span><span class="n">exog1</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">enforce_invertibility</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">exog</span><span class="o">=</span><span class="n">exog1</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span><span class="n">enforce_invertibility</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 
 <span class="n">exog_forecast</span> <span class="o">=</span> <span class="n">market</span><span class="p">[[</span><span class="s1">&#39;10yrBond&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">:]</span>
 <span class="n">fcast</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
                         <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span>
-                        <span class="n">exog</span><span class="o">=</span><span class="n">exog_forecast</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;SARIMAX(1, 1, 2) (1, 0, 0, 4) Forecast&#39;</span><span class="p">)</span>
+                        <span class="n">exog</span><span class="o">=</span><span class="n">exog_forecast</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;SARIMAX(2, 1, 2) (2, 0, 1, 12) Forecast&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -18709,7 +18719,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[131]:</div>
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;2 months Forecast&#39;</span>
@@ -18738,7 +18748,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_187_0.png"
+<img src="output_189_0.png"
 >
 </div>
 
@@ -18757,7 +18767,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[132]:</div>
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span>
@@ -18770,7 +18780,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[133]:</div>
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../data&#39;</span>
