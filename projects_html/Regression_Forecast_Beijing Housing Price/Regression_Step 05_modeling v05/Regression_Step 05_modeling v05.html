@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Regression_Step 05_modeling v04</title>
+<title>Regression_Step 05_modeling v05</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13128,7 +13128,7 @@ div#notebook {
 <script>
 $( document ).ready(function(){
 
-            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "227.594px"}, "toc_section_display": true, "toc_window_display": true};
+            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "227.594px"}, "toc_section_display": true, "toc_window_display": false};
 
             // fire the main function with these parameters
             require(['nbextensions/toc2/toc2'], function (toc2) {
@@ -13189,7 +13189,7 @@ $( document ).ready(function(){
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="o">%</span><span class="k">pdb</span> 1
+<span class="o">%</span><span class="k">pdb</span> 0
 </pre></div>
 
     </div>
@@ -13206,7 +13206,7 @@ $( document ).ready(function(){
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Automatic pdb calling has been turned ON
+<pre>Automatic pdb calling has been turned OFF
 </pre>
 </div>
 </div>
@@ -13267,6 +13267,7 @@ $( document ).ready(function(){
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set the number of display</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># or 199</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
 </pre></div>
@@ -13431,7 +13432,7 @@ $( document ).ready(function(){
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/df_data_step4_EDA.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/df_data_step4_EDA.csv&#39;</span><span class="p">)</span>
 
 <span class="n">df_sales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/time_sales_data_step3b_EDA.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
@@ -14476,9 +14477,6 @@ $( document ).ready(function(){
                 <span class="p">(</span><span class="s2">&quot;st_scaler&quot;</span><span class="p">,</span><span class="n">StandardScaler</span><span class="p">()),</span>
                 <span class="p">(</span><span class="s2">&quot;randomforestregressor&quot;</span><span class="p">,</span><span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
                 <span class="p">])</span>
-
-
-<span class="n">RF_pipe</span>
 </pre></div>
 
     </div>
@@ -14496,9 +14494,9 @@ $( document ).ready(function(){
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<style>div.sk-top-container {color: black;background-color: white;}div.sk-toggleable {background-color: white;}label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.2em 0.3em;box-sizing: border-box;text-align: center;}div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}div.sk-estimator {font-family: monospace;background-color: #f0f8ff;margin: 0.25em 0.25em;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;}div.sk-estimator:hover {background-color: #d4ebff;}div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;}div.sk-item {z-index: 1;}div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}div.sk-parallel-item:only-child::after {width: 0;}div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0.2em;box-sizing: border-box;padding-bottom: 0.1em;background-color: white;position: relative;}div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}div.sk-label-container {position: relative;z-index: 2;text-align: center;}div.sk-container {display: inline-block;position: relative;}</style><div class="sk-top-container"><div class="sk-container"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="97700caf-b3e2-4c1c-b64b-09808fd15d88" type="checkbox" ><label class="sk-toggleable__label" for="97700caf-b3e2-4c1c-b64b-09808fd15d88">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[('st_scaler', StandardScaler()),
+<style>div.sk-top-container {color: black;background-color: white;}div.sk-toggleable {background-color: white;}label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.2em 0.3em;box-sizing: border-box;text-align: center;}div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}div.sk-estimator {font-family: monospace;background-color: #f0f8ff;margin: 0.25em 0.25em;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;}div.sk-estimator:hover {background-color: #d4ebff;}div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;}div.sk-item {z-index: 1;}div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}div.sk-parallel-item:only-child::after {width: 0;}div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0.2em;box-sizing: border-box;padding-bottom: 0.1em;background-color: white;position: relative;}div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}div.sk-label-container {position: relative;z-index: 2;text-align: center;}div.sk-container {display: inline-block;position: relative;}</style><div class="sk-top-container"><div class="sk-container"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="18ddd341-771b-4097-b72f-a9a87375e22e" type="checkbox" ><label class="sk-toggleable__label" for="18ddd341-771b-4097-b72f-a9a87375e22e">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[('st_scaler', StandardScaler()),
                 ('randomforestregressor',
-                 RandomForestRegressor(random_state=42))])</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="c8764d62-b7e3-4ab1-8a83-480755491ab2" type="checkbox" ><label class="sk-toggleable__label" for="c8764d62-b7e3-4ab1-8a83-480755491ab2">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="10829002-6791-4480-97e7-34a05a336609" type="checkbox" ><label class="sk-toggleable__label" for="10829002-6791-4480-97e7-34a05a336609">RandomForestRegressor</label><div class="sk-toggleable__content"><pre>RandomForestRegressor(random_state=42)</pre></div></div></div></div></div></div></div>
+                 RandomForestRegressor(random_state=42))])</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="c4f8d3f6-af15-431d-a4fd-3dd949b00a36" type="checkbox" ><label class="sk-toggleable__label" for="c4f8d3f6-af15-431d-a4fd-3dd949b00a36">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="db6296f6-46e5-48bf-8a02-30a1c1e8f422" type="checkbox" ><label class="sk-toggleable__label" for="db6296f6-46e5-48bf-8a02-30a1c1e8f422">RandomForestRegressor</label><div class="sk-toggleable__content"><pre>RandomForestRegressor(random_state=42)</pre></div></div></div></div></div></div></div>
 </div>
 
 </div>
@@ -14950,11 +14948,11 @@ Expected model version doesn&#39;t match version loaded
 
 <span class="c1"># Create the parameter grid</span>
 <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;st_scaler&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="n">StandardScaler</span><span class="p">(),</span>
-        <span class="n">MinMaxScaler</span><span class="p">(),</span> 
+<span class="c1">#     &#39;st_scaler&#39;: [</span>
+<span class="c1">#         StandardScaler(),</span>
+<span class="c1">#         MinMaxScaler(), </span>
 <span class="c1">#         None,</span>
-                 <span class="p">],</span>
+<span class="c1">#                  ],</span>
     <span class="s1">&#39;gb_model__n_estimators&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">n_est</span><span class="p">),</span> <span class="c1"># learning rate per eta</span>
     <span class="s1">&#39;gb_model__max_depth&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="c1"># max depth per tree</span>
     <span class="s1">&#39;gb_model__learning_rate&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span>
@@ -15266,7 +15264,8 @@ Best model:  Pipeline(steps=[(&#39;st_scaler&#39;, MinMaxScaler()),
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Save-the-model">Save the model<a class="anchor-link" href="#Save-the-model">&#182;</a></h2>
+<p>v</p>
+
 </div>
 </div>
 </div>
@@ -16291,7 +16290,7 @@ Best model:  Pipeline(steps=[(&#39;st_scaler&#39;, StandardScaler()),
 <span class="c1"># Define expected model info</span>
 <span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;../models/CatBoostRegressor.pkl&#39;</span>
 
-<span class="c1"># Load a model, otherwise fit</span>
+<span class="c1"># Load a model if willReviseFlag is on, otherwise fit</span>
 <span class="k">if</span> <span class="n">willReviseFlag</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
     <span class="n">cb_rand_neg_mse</span> <span class="o">=</span> <span class="n">load_CVmodel</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
     <span class="n">revisedFlag</span><span class="o">=</span><span class="kc">False</span>
@@ -16325,7 +16324,7 @@ Expected model version doesn&#39;t match version loaded
 Lowest(Best) RMSE:  8000.846298687108
 Best model:  Pipeline(steps=[(&#39;st_scaler&#39;, MinMaxScaler()),
                 (&#39;cb_model&#39;,
-                 &lt;catboost.core.CatBoostRegressor object at 0x7fba9fc86810&gt;)])
+                 &lt;catboost.core.CatBoostRegressor object at 0x7f9d3da49c50&gt;)])
 </pre>
 </div>
 </div>
@@ -16838,9 +16837,9 @@ Best model:  Pipeline(steps=[(&#39;st_scaler&#39;, MinMaxScaler()),
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2021-12-06 16:49:40.176679: I tensorflow/core/platform/cpu_feature_guard.cc:145] This TensorFlow binary is optimized with Intel(R) MKL-DNN to use the following CPU instructions in performance critical operations:  SSE4.1 SSE4.2
+<pre>2021-12-08 16:08:11.577557: I tensorflow/core/platform/cpu_feature_guard.cc:145] This TensorFlow binary is optimized with Intel(R) MKL-DNN to use the following CPU instructions in performance critical operations:  SSE4.1 SSE4.2
 To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriate compiler flags.
-2021-12-06 16:49:40.178636: I tensorflow/core/common_runtime/process_util.cc:115] Creating new thread pool with default inter op setting: 8. Tune using inter_op_parallelism_threads for best performance.
+2021-12-08 16:08:11.579144: I tensorflow/core/common_runtime/process_util.cc:115] Creating new thread pool with default inter op setting: 8. Tune using inter_op_parallelism_threads for best performance.
 </pre>
 </div>
 </div>
@@ -17477,11 +17476,20 @@ To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriat
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Stacking">Stacking<a class="anchor-link" href="#Stacking">&#182;</a></h1><p>The codes used here are from</p>
-<ul>
-<li><a href='https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/'>"Stacking Ensemble Machine Learning With Python"</a></li>
-<li><a href='https://scikit-learn.org/stable/auto_examples/ensemble/plot_stack_predictors.html#'>Combine predictors using stacking</a></li>
-</ul>
+<h1 id="BayesSearchCV-">BayesSearchCV <a id="9" /><a class="anchor-link" href="#BayesSearchCV-">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We use this CV to explore the most promising hyperparameters in the problem-space</p>
+<p>These are the references for this BayesSearchCV.</p>
+<p><a href='http://blairhudson.com/blog/posts/optimising-hyper-parameters-efficiently-with-scikit-optimize/'>Optimising hyper-parameters efficiently with Scikit-Optimize</a></p>
+<p><a href='https://machinelearningmastery.com/scikit-optimize-for-hyperparameter-tuning-in-machine-learning/'>Machine Learning Mastery</a></p>
+<p><a href='https://towardsdatascience.com/optimizing-hyperparameters-the-right-way-3c9cafc279cc'>Optimizing Hyperparameters the right Way</a></p>
+<p><a href='https://scikit-optimize.github.io/stable/auto_examples/sklearn-gridsearchcv-replacement.html'>Scikit-learn hyperparameter search wrapper</a></p>
+<p><a href='https://scikit-optimize.github.io/stable/modules/generated/skopt.BayesSearchCV.html'>BayesSearchCV (Skopt document)</a></p>
 
 </div>
 </div>
@@ -17489,11 +17497,15 @@ To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriat
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Compare-new-models">Compare new models<a class="anchor-link" href="#Compare-new-models">&#182;</a></h2><ul>
-<li>KNeighborsRegressor</li>
-<li>DecisionTreeRegressor</li>
-</ul>
+<p>The parameters for each search should be the same as the one in RandomisedSearchCV, but my PC caused some errors in this cnoditions. So, please keep in mind that some search area is narrower than those in RandomisedSearchCV.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="RandomForestRegressor-w/-BayesSearchCV">RandomForestRegressor w/ BayesSearchCV<a class="anchor-link" href="#RandomForestRegressor-w/-BayesSearchCV">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -17502,250 +17514,58 @@ To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriat
 <div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # compare ensemble to each standalone models for regression</span>
-<span class="c1"># from numpy import mean</span>
-<span class="c1"># from numpy import std</span>
-<span class="c1"># from sklearn.datasets import make_regression</span>
-<span class="c1"># from sklearn.model_selection import cross_val_score</span>
-<span class="c1"># from sklearn.model_selection import RepeatedKFold</span>
-<span class="c1"># from sklearn.linear_model import LinearRegression</span>
-<span class="c1"># from sklearn.neighbors import KNeighborsRegressor</span>
-<span class="c1"># from sklearn.tree import DecisionTreeRegressor</span>
-<span class="c1"># from sklearn.svm import SVR</span>
-<span class="c1"># from sklearn.ensemble import StackingRegressor</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
 
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">,</span> <span class="n">Integer</span>
 
-
-<span class="c1"># # get a stacking ensemble of models</span>
-<span class="c1"># def get_stacking():</span>
-<span class="c1">#     # define the base models</span>
-<span class="c1">#     level0 = list()</span>
-<span class="c1">#     level0.append((&#39;knn&#39;, KNeighborsRegressor()))</span>
-<span class="c1">#     level0.append((&#39;cart&#39;, DecisionTreeRegressor()))</span>
-<span class="c1"># #     level0.append((&#39;svm&#39;, SVR()))</span>
-    
-    
-<span class="c1">#     # define meta learner model</span>
-<span class="c1">#     level1 = LinearRegression()</span>
-    
-<span class="c1">#     # define the stacking ensemble</span>
-<span class="c1">#     model = StackingRegressor(estimators=level0, final_estimator=level1, cv=5)</span>
-<span class="c1">#     return model</span>
- 
-<span class="c1"># # get a list of models to evaluate</span>
-<span class="c1"># def get_models():</span>
-<span class="c1">#     models = dict()</span>
-<span class="c1">#     models[&#39;knn&#39;] = KNeighborsRegressor()</span>
-<span class="c1">#     models[&#39;cart&#39;] = DecisionTreeRegressor()</span>
-<span class="c1"># #     models[&#39;svm&#39;] = SVR()</span>
-<span class="c1">#     models[&#39;stacking&#39;] = get_stacking()</span>
-<span class="c1">#     return models</span>
- 
-<span class="c1"># # evaluate a given model using cross-validation</span>
-<span class="c1"># def evaluate_model(model, X, y):</span>
-<span class="c1">#     cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1)</span>
-<span class="c1">#     scores = cross_val_score(model, X, y, scoring=&#39;neg_mean_absolute_error&#39;, cv=cv, n_jobs=-1, error_score=&#39;raise&#39;)</span>
-<span class="c1">#     return scores</span>
-
-<span class="c1"># # get the models to evaluate</span>
-<span class="c1"># models = get_models()</span>
-
-<span class="c1"># # evaluate the models and store results</span>
-<span class="c1"># results, names = list(), list()</span>
-<span class="c1"># for name, model in models.items():</span>
-<span class="c1">#     scores = evaluate_model(model, X_train, y_train)</span>
-<span class="c1">#     results.append(scores)</span>
-<span class="c1">#     names.append(name)</span>
-<span class="c1">#     print(&#39;&gt;%s %.3f (%.3f)&#39; % (name, mean(scores), std(scores)))</span>
-    
-<span class="c1"># # plot model performance for comparison</span>
-<span class="c1"># plt.boxplot(results, labels=names, showmeans=True)</span>
-<span class="c1"># plt.show()</span>
+<span class="c1"># Set the search parameter</span>
+<span class="n">rf_search</span> <span class="o">=</span> <span class="p">{</span>
+<span class="c1">#     &#39;rf__max_depth&#39;: Integer(1, 100, prior=&quot;log-uniform&quot;),</span>
+<span class="c1">#     &#39;rf__max_features&#39;: Categorical([&#39;auto&#39;, &#39;sqrt&#39;]),</span>
+<span class="c1">#     &#39;rf__min_samples_leaf&#39;: Integer(1, 4),</span>
+<span class="c1">#     &#39;rf__min_samples_split&#39;: Integer(2, 10),</span>
+    <span class="s1">&#39;rf__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s2">&quot;log-uniform&quot;</span><span class="p">),</span>
+<span class="p">}</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&gt;knn -16849.051 (229.102)
-&gt;cart -6673.485 (198.787)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
-<span class="ansi-green-fg">/var/folders/7c/_yk3k0gs7bs57bjc6fs1nmq00000gn/T/ipykernel_96285/563381199.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     50</span> results<span class="ansi-blue-fg">,</span> names <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> list<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     51</span> <span class="ansi-green-fg">for</span> name<span class="ansi-blue-fg">,</span> model <span class="ansi-green-fg">in</span> models<span class="ansi-blue-fg">.</span>items<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 52</span><span class="ansi-red-fg">     </span>scores <span class="ansi-blue-fg">=</span> evaluate_model<span class="ansi-blue-fg">(</span>model<span class="ansi-blue-fg">,</span> X_train<span class="ansi-blue-fg">,</span> y_train<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     53</span>     results<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>scores<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     54</span>     names<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/var/folders/7c/_yk3k0gs7bs57bjc6fs1nmq00000gn/T/ipykernel_96285/563381199.py</span> in <span class="ansi-cyan-fg">evaluate_model</span><span class="ansi-blue-fg">(model, X, y)</span>
-<span class="ansi-green-intense-fg ansi-bold">     41</span> <span class="ansi-green-fg">def</span> evaluate_model<span class="ansi-blue-fg">(</span>model<span class="ansi-blue-fg">,</span> X<span class="ansi-blue-fg">,</span> y<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     42</span>     cv <span class="ansi-blue-fg">=</span> RepeatedKFold<span class="ansi-blue-fg">(</span>n_splits<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">,</span> n_repeats<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span> random_state<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 43</span><span class="ansi-red-fg">     </span>scores <span class="ansi-blue-fg">=</span> cross_val_score<span class="ansi-blue-fg">(</span>model<span class="ansi-blue-fg">,</span> X<span class="ansi-blue-fg">,</span> y<span class="ansi-blue-fg">,</span> scoring<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;neg_mean_absolute_error&#39;</span><span class="ansi-blue-fg">,</span> cv<span class="ansi-blue-fg">=</span>cv<span class="ansi-blue-fg">,</span> n_jobs<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> error_score<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;raise&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     44</span>     <span class="ansi-green-fg">return</span> scores
-<span class="ansi-green-intense-fg ansi-bold">     45</span> 
-
-<span class="ansi-green-fg">~/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/utils/validation.py</span> in <span class="ansi-cyan-fg">inner_f</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     70</span>                           FutureWarning)
-<span class="ansi-green-intense-fg ansi-bold">     71</span>         kwargs<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">{</span>k<span class="ansi-blue-fg">:</span> arg <span class="ansi-green-fg">for</span> k<span class="ansi-blue-fg">,</span> arg <span class="ansi-green-fg">in</span> zip<span class="ansi-blue-fg">(</span>sig<span class="ansi-blue-fg">.</span>parameters<span class="ansi-blue-fg">,</span> args<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 72</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     73</span>     <span class="ansi-green-fg">return</span> inner_f
-<span class="ansi-green-intense-fg ansi-bold">     74</span> 
-
-<span class="ansi-green-fg">~/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/model_selection/_validation.py</span> in <span class="ansi-cyan-fg">cross_val_score</span><span class="ansi-blue-fg">(estimator, X, y, groups, scoring, cv, n_jobs, verbose, fit_params, pre_dispatch, error_score)</span>
-<span class="ansi-green-intense-fg ansi-bold">    404</span>                                 fit_params<span class="ansi-blue-fg">=</span>fit_params<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    405</span>                                 pre_dispatch<span class="ansi-blue-fg">=</span>pre_dispatch<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-fg">--&gt; 406</span><span class="ansi-red-fg">                                 error_score=error_score)
-</span><span class="ansi-green-intense-fg ansi-bold">    407</span>     <span class="ansi-green-fg">return</span> cv_results<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;test_score&#39;</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">    408</span> 
-
-<span class="ansi-green-fg">~/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/utils/validation.py</span> in <span class="ansi-cyan-fg">inner_f</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     70</span>                           FutureWarning)
-<span class="ansi-green-intense-fg ansi-bold">     71</span>         kwargs<span class="ansi-blue-fg">.</span>update<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">{</span>k<span class="ansi-blue-fg">:</span> arg <span class="ansi-green-fg">for</span> k<span class="ansi-blue-fg">,</span> arg <span class="ansi-green-fg">in</span> zip<span class="ansi-blue-fg">(</span>sig<span class="ansi-blue-fg">.</span>parameters<span class="ansi-blue-fg">,</span> args<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">---&gt; 72</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     73</span>     <span class="ansi-green-fg">return</span> inner_f
-<span class="ansi-green-intense-fg ansi-bold">     74</span> 
-
-<span class="ansi-green-fg">~/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/sklearn/model_selection/_validation.py</span> in <span class="ansi-cyan-fg">cross_validate</span><span class="ansi-blue-fg">(estimator, X, y, groups, scoring, cv, n_jobs, verbose, fit_params, pre_dispatch, return_train_score, return_estimator, error_score)</span>
-<span class="ansi-green-intense-fg ansi-bold">    246</span>             return_times<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span> return_estimator<span class="ansi-blue-fg">=</span>return_estimator<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    247</span>             error_score=error_score)
-<span class="ansi-green-fg">--&gt; 248</span><span class="ansi-red-fg">         for train, test in cv.split(X, y, groups))
-</span><span class="ansi-green-intense-fg ansi-bold">    249</span> 
-<span class="ansi-green-intense-fg ansi-bold">    250</span>     zipped_scores <span class="ansi-blue-fg">=</span> list<span class="ansi-blue-fg">(</span>zip<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>scores<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/joblib/parallel.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, iterable)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1052</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1053</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>_backend<span class="ansi-blue-fg">.</span>retrieval_context<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1054</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>retrieve<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1055</span>             <span class="ansi-red-fg"># Make sure that we get a last message telling us we are done</span>
-<span class="ansi-green-intense-fg ansi-bold">   1056</span>             elapsed_time <span class="ansi-blue-fg">=</span> time<span class="ansi-blue-fg">.</span>time<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> self<span class="ansi-blue-fg">.</span>_start_time
-
-<span class="ansi-green-fg">~/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/joblib/parallel.py</span> in <span class="ansi-cyan-fg">retrieve</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    931</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    932</span>                 <span class="ansi-green-fg">if</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_backend<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;supports_timeout&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 933</span><span class="ansi-red-fg">                     </span>self<span class="ansi-blue-fg">.</span>_output<span class="ansi-blue-fg">.</span>extend<span class="ansi-blue-fg">(</span>job<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span>timeout<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>timeout<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    934</span>                 <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    935</span>                     self<span class="ansi-blue-fg">.</span>_output<span class="ansi-blue-fg">.</span>extend<span class="ansi-blue-fg">(</span>job<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/opt/anaconda3/envs/mypython3/lib/python3.7/site-packages/joblib/_parallel_backends.py</span> in <span class="ansi-cyan-fg">wrap_future_result</span><span class="ansi-blue-fg">(future, timeout)</span>
-<span class="ansi-green-intense-fg ansi-bold">    540</span>         AsyncResults.get from multiprocessing.&#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    541</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 542</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> future<span class="ansi-blue-fg">.</span>result<span class="ansi-blue-fg">(</span>timeout<span class="ansi-blue-fg">=</span>timeout<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    543</span>         <span class="ansi-green-fg">except</span> CfTimeoutError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    544</span>             <span class="ansi-green-fg">raise</span> TimeoutError <span class="ansi-green-fg">from</span> e
-
-<span class="ansi-green-fg">~/opt/anaconda3/envs/mypython3/lib/python3.7/concurrent/futures/_base.py</span> in <span class="ansi-cyan-fg">result</span><span class="ansi-blue-fg">(self, timeout)</span>
-<span class="ansi-green-intense-fg ansi-bold">    428</span>                 <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__get_result<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    429</span> 
-<span class="ansi-green-fg">--&gt; 430</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>_condition<span class="ansi-blue-fg">.</span>wait<span class="ansi-blue-fg">(</span>timeout<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    431</span> 
-<span class="ansi-green-intense-fg ansi-bold">    432</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_state <span class="ansi-green-fg">in</span> <span class="ansi-blue-fg">[</span>CANCELLED<span class="ansi-blue-fg">,</span> CANCELLED_AND_NOTIFIED<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/opt/anaconda3/envs/mypython3/lib/python3.7/threading.py</span> in <span class="ansi-cyan-fg">wait</span><span class="ansi-blue-fg">(self, timeout)</span>
-<span class="ansi-green-intense-fg ansi-bold">    294</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>    <span class="ansi-red-fg"># restore state no matter what (e.g., KeyboardInterrupt)</span>
-<span class="ansi-green-intense-fg ansi-bold">    295</span>             <span class="ansi-green-fg">if</span> timeout <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 296</span><span class="ansi-red-fg">                 </span>waiter<span class="ansi-blue-fg">.</span>acquire<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    297</span>                 gotit <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">True</span>
-<span class="ansi-green-intense-fg ansi-bold">    298</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&gt; <span class="ansi-green-fg">/Users/akiofukashima/opt/anaconda3/envs/mypython3/lib/python3.7/threading.py</span>(296)<span class="ansi-cyan-fg">wait</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">    294 </span><span class="ansi-red-fg">        </span><span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>    <span class="ansi-red-fg"># restore state no matter what (e.g., KeyboardInterrupt)</span>
-<span class="ansi-green-fg">    295 </span><span class="ansi-red-fg">            </span><span class="ansi-green-fg">if</span> timeout <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 296 </span><span class="ansi-red-fg">                </span>waiter<span class="ansi-blue-fg">.</span>acquire<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">    297 </span><span class="ansi-red-fg">                </span>gotit <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">True</span>
-<span class="ansi-green-fg">    298 </span><span class="ansi-red-fg">            </span><span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-
-ipdb&gt; q
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>These are worse than the our top, so we proceed on to make a better stacking ensemble model.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stacking-ensemble-with-top-2-of-the-best-existing-models">Stacking ensemble with top 2 of the best existing models<a class="anchor-link" href="#Stacking-ensemble-with-top-2-of-the-best-existing-models">&#182;</a></h2><p>Based on the table, ModelComparison, the top 2 models are followings.</p>
-<ul>
-<li>RandomForestRegressor w/ RandomisedSearchCV (rf_rand_best)</li>
-<li>GradientBoostingRegressor w/ RandomisedSearchCV (gb_rand_best)</li>
-</ul>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/45074698/how-to-pass-elegantly-sklearns-gridseachcvs-best-parameters-to-another-model</span>
-<span class="c1"># get a stacking ensemble of models</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
+<span class="c1"># Build a pipeline</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+<span class="c1">#     (&#39;gb&#39;, GradientBoostingRegressor()),</span>
+    <span class="p">(</span><span class="s1">&#39;rf&#39;</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">()),</span>
+<span class="p">])</span>
 
-<span class="c1"># define the base models</span>
-<span class="n">level0</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;rf_rand_best&#39;</span><span class="p">,</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">MinMaxScaler</span><span class="p">(),</span><span class="n">rf_rand_best</span><span class="p">)),</span>
-    <span class="p">(</span><span class="s1">&#39;gb_rand_best&#39;</span><span class="p">,</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">MinMaxScaler</span><span class="p">(),</span><span class="n">gb_rand_best</span><span class="p">)),</span>
-<span class="p">]</span>
+<span class="c1"># Fit a ByesSearch</span>
+<span class="n">rf_opt</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
+    <span class="n">pipe</span><span class="p">,</span>
+    <span class="p">[(</span><span class="n">rf_search</span><span class="p">,</span> <span class="mi">20</span><span class="p">),],</span>
+    <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="c1"># define meta learner model</span>
-<span class="n">level1</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-
-<span class="c1"># define the stacking ensemble</span>
-<span class="n">stack</span> <span class="o">=</span> <span class="n">StackingRegressor</span><span class="p">(</span><span class="n">estimators</span><span class="o">=</span><span class="n">level0</span><span class="p">,</span> <span class="n">final_estimator</span><span class="o">=</span><span class="n">level1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-
-
-
-<span class="c1"># Fit the regressor to the training data</span>
-<span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;../models/Stacking ensemble.pkl&#39;</span>
+<span class="c1"># Load a model if willReviseFlag is True, otherwise fit</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;../models/rf_BayesSearchCV.pkl&#39;</span>
 <span class="k">if</span> <span class="n">willReviseFlag</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
-    
-    <span class="n">stack</span> <span class="o">=</span> <span class="n">load_CVmodel</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+    <span class="n">rf_opt</span> <span class="o">=</span> <span class="n">load_CVmodel</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
     <span class="n">revisedFlag</span><span class="o">=</span><span class="kc">False</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="c1"># And fit</span>
-    <span class="n">stack</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="c1"># Fit the estimator</span>
+    <span class="n">rf_opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
     <span class="n">revisedFlag</span><span class="o">=</span><span class="kc">True</span>
 </pre></div>
 
@@ -17778,10 +17598,35 @@ Expected model version doesn&#39;t match version loaded
 <div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">skopt.plots</span> <span class="kn">import</span> <span class="n">plot_objective</span><span class="p">,</span> <span class="n">plot_histogram</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;val. score: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">rf_opt</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test score: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">rf_opt</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best params: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">rf_opt</span><span class="o">.</span><span class="n">best_params_</span><span class="p">))</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>val. score: -55202112.26426339
+test score: -50700374.668401875
+best params: OrderedDict([(&#39;rf__n_estimators&#39;, 88)])
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -17791,11 +17636,11 @@ Expected model version doesn&#39;t match version loaded
 <div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Our predictions</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-
-<span class="c1"># Perfect predictions</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Partial Dependence plot of the objective function for a Machine Learning model</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plot_objective</span><span class="p">(</span><span class="n">rf_opt</span><span class="o">.</span><span class="n">optimizer_results_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                   <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">],</span>
+                   <span class="n">n_minimum_search</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -17824,9 +17669,70 @@ Expected model version doesn&#39;t match version loaded
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Evaluation-on-Test-Data">Evaluation on Test Data<a class="anchor-link" href="#Evaluation-on-Test-Data">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Keep the best learning model for stacking model</span>
+<span class="n">rf_opt_best</span> <span class="o">=</span> <span class="n">rf_opt</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;rf&#39;</span><span class="p">]</span>
+<span class="c1"># Get values for test</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">rf_opt</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Our predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Perfect predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_145_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sns.distplot(errors)</span>
@@ -17850,7 +17756,7 @@ Expected model version doesn&#39;t match version loaded
 
 
 <div class="output_png output_subarea ">
-<img src="output_143_0.png"
+<img src="output_146_0.png"
 >
 </div>
 
@@ -17869,10 +17775,10 @@ Expected model version doesn&#39;t match version loaded
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">addModel</span><span class="p">(</span><span class="n">ModelComparison</span><span class="p">,</span><span class="s1">&#39;Stacking ensemble&#39;</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">addModel</span><span class="p">(</span><span class="n">ModelComparison</span><span class="p">,</span><span class="s1">&#39;RandomForestRegressor w/ BayesSearchCV&#39;</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">rf_opt</span><span class="p">)</span>
 <span class="n">ModelComparison</span>
 </pre></div>
 
@@ -17886,7 +17792,7 @@ Expected model version doesn&#39;t match version loaded
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[90]:</div>
+    <div class="prompt output_prompt">Out[92]:</div>
 
 
 
@@ -17975,10 +17881,922 @@ Expected model version doesn&#39;t match version loaded
     </tr>
     <tr>
       <th>7</th>
+      <td>RandomForestRegressor w/ BayesSearchCV</td>
+      <td>4600.4812</td>
+      <td>7120.4196</td>
+      <td>0.9138</td>
+      <td>{'rf__n_estimators': 88}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is slightly better than the one with RandomisedSearchCV by around 100 in the MAE unit.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Save-the-model">Save the model<a class="anchor-link" href="#Save-the-model">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save a model, otherwise fit</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;../models/rf_BayesSearchCV.pkl&#39;</span>
+<span class="n">saveFunc</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span> <span class="n">rf_opt</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The model was Not revised
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="GradientBoostingRegressor-w/-BayesSearchCV">GradientBoostingRegressor w/ BayesSearchCV<a class="anchor-link" href="#GradientBoostingRegressor-w/-BayesSearchCV">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set the search parameter</span>
+<span class="n">gb_search</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gb__learning_rate&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s2">&quot;log-uniform&quot;</span><span class="p">),</span>
+    <span class="s1">&#39;gb__max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="c1"># max depth per tree</span>
+    <span class="s1">&#39;gb__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+<span class="c1">#     &#39;gb__loss&#39;: Categorical([&#39;ls&#39;, &#39;lad&#39;, &#39;quantile&#39;]) # {‘squared_error’, ‘ls’, ‘absolute_error’, ‘lad’, ‘huber’, ‘quantile’}, default=’ls’</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Build a pipeline</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;gb&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">()),</span>
+<span class="p">])</span>
+
+<span class="c1"># Fit a ByesSearch</span>
+<span class="n">gb_opt</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
+    <span class="n">pipe</span><span class="p">,</span>
+    <span class="p">[(</span><span class="n">gb_search</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>
+<span class="p">)</span>
+
+
+<span class="c1"># Load a model if willReviseFlag is True, otherwise fit</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;../models/gb_BayesSearchCV.pkl&#39;</span>
+<span class="k">if</span> <span class="n">willReviseFlag</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+    <span class="n">gb_opt</span> <span class="o">=</span> <span class="n">load_CVmodel</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+    <span class="n">revisedFlag</span><span class="o">=</span><span class="kc">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Fit the estimator</span>
+    <span class="n">gb_opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">revisedFlag</span><span class="o">=</span><span class="kc">True</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Expected model version has been loaded
+Expected model version doesn&#39;t match version loaded
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">skopt.plots</span> <span class="kn">import</span> <span class="n">plot_objective</span><span class="p">,</span> <span class="n">plot_histogram</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;val. score: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">gb_opt</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test score: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">gb_opt</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best params: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">gb_opt</span><span class="o">.</span><span class="n">best_params_</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>val. score: -53849075.09716197
+test score: -48363124.92397536
+best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.21236479752039722), (&#39;gb__max_depth&#39;, 11), (&#39;gb__n_estimators&#39;, 97)])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Partial Dependence plot of the objective function for a Machine Learning model</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plot_objective</span><span class="p">(</span><span class="n">gb_opt</span><span class="o">.</span><span class="n">optimizer_results_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                   <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;learning_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;max_depth&quot;</span><span class="p">,</span> <span class="s2">&quot;n_estimators&quot;</span><span class="p">],</span>
+                   <span class="n">n_minimum_search</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_156_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Evaluation-on-Test-Data">Evaluation on Test Data<a class="anchor-link" href="#Evaluation-on-Test-Data">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Keep the best learning model for stacking model</span>
+<span class="n">gb_opt_best</span> <span class="o">=</span> <span class="n">gb_opt</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;gb&#39;</span><span class="p">]</span>
+<span class="c1"># Get values for test</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">gb_opt</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Our predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Perfect predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_159_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sns.distplot(errors)</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">predictions</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">predictions</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_160_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Add-the-metrics-to-the-ModelComparison">Add the metrics to the ModelComparison<a class="anchor-link" href="#Add-the-metrics-to-the-ModelComparison">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">addModel</span><span class="p">(</span><span class="n">ModelComparison</span><span class="p">,</span><span class="s1">&#39;GradientBoostingRegressor w/ BayesSearchCV&#39;</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">gb_opt</span><span class="p">)</span>
+<span class="n">ModelComparison</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[101]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model name</th>
+      <th>MAE</th>
+      <th>RMSE</th>
+      <th>Explained_variance_score</th>
+      <th>Best para</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>LinearRegression</td>
+      <td>9906.7965</td>
+      <td>13393.1034</td>
+      <td>0.6949</td>
+      <td>{'selectkbest__k': 49, 'standardscaler': MinMa...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>RandomForestRegressor w/ RandomisedSearchCV</td>
+      <td>4725.5305</td>
+      <td>7218.7223</td>
+      <td>0.9121</td>
+      <td>{'standardscaler': MinMaxScaler(), 'randomfore...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>GradientBoostingRegressor w/ RandomisedSearchCV</td>
+      <td>4912.3652</td>
+      <td>7312.5361</td>
+      <td>0.9117</td>
+      <td>{'st_scaler': MinMaxScaler(), 'gb_model__n_est...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>XGBoost w/ RandomisedSearchCV</td>
+      <td>7339.0238</td>
+      <td>10246.4498</td>
+      <td>0.8225</td>
+      <td>{'xgb_model__subsample': 0.25, 'xgb_model__obj...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>LGBMRegressor w/ RandomisedSearchCV</td>
+      <td>5549.2777</td>
+      <td>7954.1871</td>
+      <td>0.8975</td>
+      <td>{'st_scaler': StandardScaler(), 'lgbm_model__s...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CatBoostRegressor w/ RandomisedSearchCV</td>
+      <td>5638.4569</td>
+      <td>8141.0209</td>
+      <td>0.8904</td>
+      <td>{'st_scaler': MinMaxScaler(), 'cb_model__learn...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Simple NN from an entire df</td>
+      <td>8857.3634</td>
+      <td>12349.3728</td>
+      <td>0.7407</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>RandomForestRegressor w/ BayesSearchCV</td>
+      <td>4600.4812</td>
+      <td>7120.4196</td>
+      <td>0.9138</td>
+      <td>{'rf__n_estimators': 88}</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>GradientBoostingRegressor w/ BayesSearchCV</td>
+      <td>4477.0872</td>
+      <td>6954.3601</td>
+      <td>0.9177</td>
+      <td>{'gb__learning_rate': 0.21236479752039722, 'gb...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is much better improvement by around 400 in the MAE unit.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Save-the-model">Save the model<a class="anchor-link" href="#Save-the-model">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save a model, otherwise fit</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;../models/gb_BayesSearchCV.pkl&#39;</span>
+<span class="n">saveFunc</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span> <span class="n">gb_opt</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The model was Not revised
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Stacking">Stacking<a class="anchor-link" href="#Stacking">&#182;</a></h1><p>The codes used here are from</p>
+<ul>
+<li><a href='https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/'>"Stacking Ensemble Machine Learning With Python"</a></li>
+<li><a href='https://scikit-learn.org/stable/auto_examples/ensemble/plot_stack_predictors.html#'>Combine predictors using stacking</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Stacking-ensemble-with-top-2-of-the-best-existing-models">Stacking ensemble with top 2 of the best existing models<a class="anchor-link" href="#Stacking-ensemble-with-top-2-of-the-best-existing-models">&#182;</a></h2><p>Based on the table, ModelComparison, the top 2 models are followings.</p>
+<ul>
+<li>RandomForestRegressor w/ RandomisedSearchCV (rf_rand_best)</li>
+<li>GradientBoostingRegressor w/ RandomisedSearchCV (gb_rand_best)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now check the parameter found in the BayesSeachCV.</span>
+
+<span class="n">ModelComparison</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[105]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model name</th>
+      <th>MAE</th>
+      <th>RMSE</th>
+      <th>Explained_variance_score</th>
+      <th>Best para</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>RandomForestRegressor w/ BayesSearchCV</td>
+      <td>4600.4812</td>
+      <td>7120.4196</td>
+      <td>0.9138</td>
+      <td>{'rf__n_estimators': 88}</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>GradientBoostingRegressor w/ BayesSearchCV</td>
+      <td>4477.0872</td>
+      <td>6954.3601</td>
+      <td>0.9177</td>
+      <td>{'gb__learning_rate': 0.21236479752039722, 'gb...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[114]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">StackingRegressor</span>
+
+
+<span class="c1"># https://stackoverflow.com/questions/45074698/how-to-pass-elegantly-sklearns-gridseachcvs-best-parameters-to-another-model</span>
+<span class="c1"># get a stacking ensemble of models</span>
+
+<span class="c1"># define the base models</span>
+<span class="n">level0</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;rf_rand_best&#39;</span><span class="p">,</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">rf_opt_best</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;gb_rand_best&#39;</span><span class="p">,</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">gb_opt_best</span><span class="p">)),</span>
+<span class="p">]</span>
+
+<span class="c1"># define meta learner model</span>
+<span class="n">level1</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="c1"># define the stacking ensemble</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">StackingRegressor</span><span class="p">(</span><span class="n">estimators</span><span class="o">=</span><span class="n">level0</span><span class="p">,</span> <span class="n">final_estimator</span><span class="o">=</span><span class="n">level1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Fit the regressor to the training data</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;../models/stack_opt.pkl&#39;</span>
+<span class="k">if</span> <span class="n">willReviseFlag</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="n">load_CVmodel</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+    <span class="n">revisedFlag</span><span class="o">=</span><span class="kc">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># And fit</span>
+    <span class="n">stack</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">revisedFlag</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Expected model version has been loaded
+Expected model version doesn&#39;t match version loaded
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[114]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<style>div.sk-top-container {color: black;background-color: white;}div.sk-toggleable {background-color: white;}label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.2em 0.3em;box-sizing: border-box;text-align: center;}div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}div.sk-estimator {font-family: monospace;background-color: #f0f8ff;margin: 0.25em 0.25em;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;}div.sk-estimator:hover {background-color: #d4ebff;}div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;}div.sk-item {z-index: 1;}div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}div.sk-parallel-item:only-child::after {width: 0;}div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0.2em;box-sizing: border-box;padding-bottom: 0.1em;background-color: white;position: relative;}div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}div.sk-label-container {position: relative;z-index: 2;text-align: center;}div.sk-container {display: inline-block;position: relative;}</style><div class="sk-top-container"><div class="sk-container"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="c5ff4304-39f3-4355-ba2f-e44af51b18b5" type="checkbox" ><label class="sk-toggleable__label" for="c5ff4304-39f3-4355-ba2f-e44af51b18b5">StackingRegressor</label><div class="sk-toggleable__content"><pre>StackingRegressor(cv=5,
+                  estimators=[('rf_rand_best',
+                               Pipeline(steps=[('minmaxscaler', MinMaxScaler()),
+                                               ('randomforestregressor',
+                                                RandomForestRegressor(n_estimators=1000,
+                                                                      random_state=42))])),
+                              ('gb_rand_best',
+                               Pipeline(steps=[('minmaxscaler', MinMaxScaler()),
+                                               ('gradientboostingregressor',
+                                                GradientBoostingRegressor(learning_rate=0.3,
+                                                                          max_depth=9,
+                                                                          n_estimators=1000))]))],
+                  final_estimator=LinearRegression(), n_jobs=1)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><label>rf_rand_best</label></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="d0dbd18d-bf6e-44ae-8d2e-e0e0b4c77c1d" type="checkbox" ><label class="sk-toggleable__label" for="d0dbd18d-bf6e-44ae-8d2e-e0e0b4c77c1d">MinMaxScaler</label><div class="sk-toggleable__content"><pre>MinMaxScaler()</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="96064f82-5371-4c40-9bec-6f7d2c5498bf" type="checkbox" ><label class="sk-toggleable__label" for="96064f82-5371-4c40-9bec-6f7d2c5498bf">RandomForestRegressor</label><div class="sk-toggleable__content"><pre>RandomForestRegressor(n_estimators=1000, random_state=42)</pre></div></div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><label>gb_rand_best</label></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="13124cd3-8755-428f-b41e-6001af60d295" type="checkbox" ><label class="sk-toggleable__label" for="13124cd3-8755-428f-b41e-6001af60d295">MinMaxScaler</label><div class="sk-toggleable__content"><pre>MinMaxScaler()</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="5a736a5a-fce4-4e6e-8804-757ed947b9b5" type="checkbox" ><label class="sk-toggleable__label" for="5a736a5a-fce4-4e6e-8804-757ed947b9b5">GradientBoostingRegressor</label><div class="sk-toggleable__content"><pre>GradientBoostingRegressor(learning_rate=0.3, max_depth=9, n_estimators=1000)</pre></div></div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="350ae0c8-302c-462f-b956-7ae4370d10b4" type="checkbox" ><label class="sk-toggleable__label" for="350ae0c8-302c-462f-b956-7ae4370d10b4">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div></div></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Our predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Perfect predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_171_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[117]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sns.distplot(errors)</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">predictions</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">predictions</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_172_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Add-the-metrics-to-the-ModelComparison">Add the metrics to the ModelComparison<a class="anchor-link" href="#Add-the-metrics-to-the-ModelComparison">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[118]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">addModel</span><span class="p">(</span><span class="n">ModelComparison</span><span class="p">,</span><span class="s1">&#39;Stacking ensemble&#39;</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">)</span>
+<span class="n">ModelComparison</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[118]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model name</th>
+      <th>MAE</th>
+      <th>RMSE</th>
+      <th>Explained_variance_score</th>
+      <th>Best para</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>LinearRegression</td>
+      <td>9906.7965</td>
+      <td>13393.1034</td>
+      <td>0.6949</td>
+      <td>{'selectkbest__k': 49, 'standardscaler': MinMa...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>RandomForestRegressor w/ RandomisedSearchCV</td>
+      <td>4725.5305</td>
+      <td>7218.7223</td>
+      <td>0.9121</td>
+      <td>{'standardscaler': MinMaxScaler(), 'randomfore...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>GradientBoostingRegressor w/ RandomisedSearchCV</td>
+      <td>4912.3652</td>
+      <td>7312.5361</td>
+      <td>0.9117</td>
+      <td>{'st_scaler': MinMaxScaler(), 'gb_model__n_est...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>XGBoost w/ RandomisedSearchCV</td>
+      <td>7339.0238</td>
+      <td>10246.4498</td>
+      <td>0.8225</td>
+      <td>{'xgb_model__subsample': 0.25, 'xgb_model__obj...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>LGBMRegressor w/ RandomisedSearchCV</td>
+      <td>5549.2777</td>
+      <td>7954.1871</td>
+      <td>0.8975</td>
+      <td>{'st_scaler': StandardScaler(), 'lgbm_model__s...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CatBoostRegressor w/ RandomisedSearchCV</td>
+      <td>5638.4569</td>
+      <td>8141.0209</td>
+      <td>0.8904</td>
+      <td>{'st_scaler': MinMaxScaler(), 'cb_model__learn...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Simple NN from an entire df</td>
+      <td>8857.3634</td>
+      <td>12349.3728</td>
+      <td>0.7407</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>RandomForestRegressor w/ BayesSearchCV</td>
+      <td>4600.4812</td>
+      <td>7120.4196</td>
+      <td>0.9138</td>
+      <td>{'rf__n_estimators': 88}</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>GradientBoostingRegressor w/ BayesSearchCV</td>
+      <td>4477.0872</td>
+      <td>6954.3601</td>
+      <td>0.9177</td>
+      <td>{'gb__learning_rate': 0.21236479752039722, 'gb...</td>
+    </tr>
+    <tr>
+      <th>9</th>
       <td>Stacking ensemble</td>
-      <td>4284.8926</td>
-      <td>6679.7626</td>
-      <td>0.9241</td>
+      <td>4300.2309</td>
+      <td>6695.6739</td>
+      <td>0.9237</td>
       <td></td>
     </tr>
   </tbody>
@@ -18009,12 +18827,13 @@ Expected model version doesn&#39;t match version loaded
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="prompt input_prompt">In&nbsp;[119]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save a model, otherwise fit</span>
-<span class="c1"># model_path = &#39;../models/Stacking ensemble.pkl&#39;</span>
+<span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;../models/stack_opt.pkl&#39;</span>
 <span class="n">saveFunc</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span> <span class="n">stack</span><span class="p">)</span>
+<span class="n">save_CVmodel</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">model_path</span><span class="p">[</span><span class="mi">10</span><span class="p">:],</span><span class="n">modelfilepath</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -18032,830 +18851,11 @@ Expected model version doesn&#39;t match version loaded
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>The model was Not revised
+Writing file.  &#34;../models/stack_opt.pkl&#34;
 </pre>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="BayesSearchCV-">BayesSearchCV <a id="9" /><a class="anchor-link" href="#BayesSearchCV-">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We use this CV to explore the most promising hyperparameters in the problem-space</p>
-<p>These are the references for this BayesSearchCV.</p>
-<p><a href='http://blairhudson.com/blog/posts/optimising-hyper-parameters-efficiently-with-scikit-optimize/'>Optimising hyper-parameters efficiently with Scikit-Optimize</a></p>
-<p><a href='https://machinelearningmastery.com/scikit-optimize-for-hyperparameter-tuning-in-machine-learning/'>Machine Learning Mastery</a></p>
-<p><a href='https://towardsdatascience.com/optimizing-hyperparameters-the-right-way-3c9cafc279cc'>Optimizing Hyperparameters the right Way</a></p>
-<p><a href='https://scikit-optimize.github.io/stable/auto_examples/sklearn-gridsearchcv-replacement.html'>Scikit-learn hyperparameter search wrapper</a></p>
-<p><a href='https://scikit-optimize.github.io/stable/modules/generated/skopt.BayesSearchCV.html'>BayesSearchCV (Skopt document)</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>try1</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># automatic svm hyperparameter tuning using skopt for the ionosphere dataset</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">read_csv</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RepeatedStratifiedKFold</span>
-<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
-
-<span class="n">gb_search</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s2">&quot;log-uniform&quot;</span><span class="p">),</span>
-<span class="c1">#     &#39;model__max_depth&#39;: Integer(3, 20), # max depth per tree</span>
-    <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span>  <span class="c1"># learning rate per eta</span>
-    <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;lad&#39;</span><span class="p">,</span> <span class="s1">&#39;quantile&#39;</span><span class="p">],</span> <span class="c1"># {‘squared_error’, ‘ls’, ‘absolute_error’, ‘lad’, ‘huber’, ‘quantile’}, default=’squared_error’</span>
-<span class="p">}</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="c1"># define evaluation</span>
-<span class="n">cv</span> <span class="o">=</span> <span class="n">RepeatedStratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># define the search</span>
-<span class="n">search</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">GradientBoostingRegressor</span><span class="p">(),</span> <span class="n">search_spaces</span><span class="o">=</span><span class="n">gb_search</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">)</span>
-<span class="c1"># perform the search</span>
-<span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1"># report the best result</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(43215, 50) (43215,)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>try 2</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
-
-<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">,</span> <span class="n">Integer</span>
-
-<span class="c1"># Build a Pipeline</span>
-
-<span class="c1"># xxx_search = {</span>
-<span class="c1">#     &#39;standardscaler&#39;:[StandardScaler(),MinMaxScaler()],</span>
-<span class="c1">#     &#39;model&#39;: [xxx()],</span>
-<span class="c1">#     &#39;model__learning_rate&#39;: Real(0.005, 0.9, prior=&quot;log-uniform&quot;),</span>
-<span class="c1">#     &#39;model__n_estimators&#39;: Integer(1, 1000),</span>
-<span class="c1">#     &#39;model__loss&#39;: Categorical([&#39;xxx&#39;, &#39;xxx&#39;, &#39;xxx&#39;])</span>
-<span class="c1"># }</span>
-
-<span class="c1"># lr_search = {</span>
-<span class="c1">#     &#39;standardscaler&#39;:Categorical([StandardScaler(),MinMaxScaler()]),</span>
-<span class="c1">#     &#39;model&#39;: [LinearRegression()],</span>
-<span class="c1">#     &#39;model__learning_rate&#39;: Real(0.005, 0.9, prior=&quot;log-uniform&quot;),</span>
-<span class="c1">#     &#39;model__n_estimators&#39;: Integer(1, 1000),</span>
-<span class="c1">#     &#39;model__loss&#39;: Categorical([&#39;xxx&#39;, &#39;xxx&#39;, &#39;xxx&#39;])</span>
-<span class="c1"># }</span>
-
-
-<span class="n">gb_search</span> <span class="o">=</span> <span class="p">{</span>
-<span class="c1">#     &#39;st_scaler&#39;:Categorical([StandardScaler(),MinMaxScaler()]),</span>
-
-    <span class="s1">&#39;gb__learning_rate&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="s2">&quot;log-uniform&quot;</span><span class="p">),</span>
-<span class="c1">#     &#39;gb__max_depth&#39;: (3, 20), # max depth per tree</span>
-    <span class="s1">&#39;gb__n_estimators&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span>  <span class="c1"># learning rate per eta</span>
-    <span class="s1">&#39;gb__loss&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;lad&#39;</span><span class="p">,</span> <span class="s1">&#39;quantile&#39;</span><span class="p">]</span> <span class="c1"># {‘squared_error’, ‘ls’, ‘absolute_error’, ‘lad’, ‘huber’, ‘quantile’}, default=’squared_error’</span>
-<span class="p">}</span>
-
-
-<span class="c1"># gb_search = {</span>
-<span class="c1"># #     &#39;st_scaler&#39;:Categorical([StandardScaler(),MinMaxScaler()]),</span>
-<span class="c1">#     &#39;gb&#39;: Categorical([GradientBoostingRegressor()]),</span>
-<span class="c1">#     &#39;gb__learning_rate&#39;: Real(0.005, 0.9, prior=&quot;log-uniform&quot;),</span>
-<span class="c1"># #     &#39;gb__max_depth&#39;: Integer(3, 20), # max depth per tree</span>
-<span class="c1">#     &#39;gb__n_estimators&#39;: Integer(10, 1000),  # learning rate per eta</span>
-<span class="c1">#     &#39;gb__loss&#39;: Categorical([&#39;ls&#39;, &#39;lad&#39;, &#39;quantile&#39;]) # {‘squared_error’, ‘ls’, ‘absolute_error’, ‘lad’, ‘huber’, ‘quantile’}, default=’squared_error’</span>
-<span class="c1"># }</span>
-
-<span class="n">rf_search</span> <span class="o">=</span> <span class="p">{</span>
-<span class="c1">#     &#39;st_scaler&#39;:Categorical([StandardScaler(),MinMaxScaler()]),</span>
-    <span class="s1">&#39;model&#39;</span><span class="p">:</span><span class="n">Categorical</span><span class="p">([</span><span class="n">RandomForestRegressor</span><span class="p">()]),</span>
-    <span class="s1">&#39;model__max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2000</span><span class="p">),</span>
-    <span class="s1">&#39;model__max_features&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="s1">&#39;sqrt&#39;</span><span class="p">]),</span>
-    <span class="s1">&#39;model__min_samples_leaf&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="s1">&#39;model__min_samples_split&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-    <span class="s1">&#39;model__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span>
-<span class="p">}</span>
-
-<span class="c1"># ada_search = {</span>
-<span class="c1">#     &#39;st_scaler&#39;:Categorical([StandardScaler(),MinMaxScaler()]),</span>
-<span class="c1">#     &#39;model&#39;: Categorical([AdaBoostRegressor()]),</span>
-<span class="c1">#     &#39;model__learning_rate&#39;: Real(0.005, 0.9, prior=&quot;log-uniform&quot;),</span>
-<span class="c1">#     &#39;model__n_estimators&#39;: Integer(10, 1000),</span>
-<span class="c1">#     &#39;model__loss&#39;: Categorical([&#39;linear&#39;, &#39;square&#39;, &#39;exponential&#39;])</span>
-<span class="c1"># }</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Downgrade-sklearn(scikit-learn)-to-satify-the-compatibility-with-scikit-optimize-version-0.8.1">Downgrade sklearn(scikit-learn) to satify the compatibility with scikit-optimize version 0.8.1<a class="anchor-link" href="#Downgrade-sklearn(scikit-learn)-to-satify-the-compatibility-with-scikit-optimize-version-0.8.1">&#182;</a></h5><p>conda install -c conda-forge scikit-learn=0.23.2</p>
-<p><a href='https://githubmemory.com/repo/scikit-optimize/scikit-optimize/issues/1044'>scikit-optimize version 0.8.1 is not compatible with scikit-learn 0.24.2, as scikit-learn 0.24+ changed some APIs that scikit-optimize uses. You need to either downgrade Scikit-Learn, or update Scikit-optimize to 0.9 from source (scikit-optimize 0.9 hasn't been released yet). See #988 for details on installing from source, and more info regarding the incompatibility.</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>try 3</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
-
-<span class="c1"># Build a pipeline</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-<span class="c1">#     (&#39;st_scaler&#39;,StandardScaler()),</span>
-    <span class="p">(</span><span class="s1">&#39;gb&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">()),</span>
-<span class="p">])</span>
-
-<span class="c1"># Fit a ByesSearch</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
-    <span class="n">pipe</span><span class="p">,</span>
-    <span class="p">[(</span><span class="n">gb_search</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
-<span class="c1">#      (rf_search, 100),</span>
-    <span class="p">],</span>
-    <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-<span class="p">)</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span>
-
-<span class="n">opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_trainMMS</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>try 4</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Normalization</span>
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
-
-<span class="n">X_trainMMS</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-<span class="n">X_testMMS</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="n">X_trainMMS</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
-
-<span class="c1"># Build a pipeline</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-<span class="c1">#     (&#39;st_scaler&#39;,StandardScaler()),</span>
-    <span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">()),</span>
-<span class="p">])</span>
-
-<span class="c1"># Fit a ByesSearch</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
-    <span class="n">pipe</span><span class="p">,</span>
-    <span class="p">[(</span><span class="n">gb_search</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
-<span class="c1">#      (rf_search, 100),</span>
-    <span class="p">],</span>
-    <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_trainMMS</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>try 5</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###### from sklearn.pipeline import Pipeline</span>
-<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
-
-<span class="c1"># Build a pipeline</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s1">&#39;st_scaler&#39;</span><span class="p">,</span><span class="n">StandardScaler</span><span class="p">()),</span>
-    <span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">()),</span>
-<span class="p">])</span>
-
-<span class="c1"># Fit a ByesSearch</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
-    <span class="n">pipe</span><span class="p">,</span>
-    <span class="p">[(</span><span class="n">gb_search</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> 
-<span class="c1">#      (rf_search, 100),</span>
-    <span class="p">],</span>
-    <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save a model, otherwise fit</span>
-<span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;../models/Bayes.pkl&#39;</span>
-<span class="n">saveFunc</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
-<span class="n">save_CVmodel</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">model_path</span><span class="p">[</span><span class="mi">10</span><span class="p">:],</span><span class="n">modelfilepath</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">skopt.plots</span> <span class="kn">import</span> <span class="n">plot_objective</span><span class="p">,</span> <span class="n">plot_histogram</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;val. score: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">opt</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test score: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">opt</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best params: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">best_params_</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Partial Dependence plot of the objective function for a Machine Learning model</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Partial Dependence plot of the objective function for a Machine Learning model</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plot_objective</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">optimizer_results_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                   <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;degree&quot;</span><span class="p">,</span> <span class="s2">&quot;gamma&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel&quot;</span><span class="p">],</span>
-                   <span class="n">n_minimum_search</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>try 6</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href='https://colab.research.google.com/github/lmassaron/kaggledays-2019-gbdt/blob/master/skopt_workshop_part1.ipynb#scrollTo=719HE3ykRvv-'>Copy of skopt_workshop.ipynb</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>only for classification</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>try 7</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># automatic svm hyperparameter tuning using skopt for the ionosphere dataset</span>
-<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">read_csv</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RepeatedStratifiedKFold</span>
-<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
-
-
-<span class="c1"># load dataset</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jbrownlee/Datasets/master/ionosphere.csv&#39;</span>
-<span class="n">dataframe</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="c1"># split into input and output elements</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">values</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="c1"># define search space</span>
-<span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="n">params</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s1">&#39;log-uniform&#39;</span><span class="p">)</span>
-<span class="n">params</span><span class="p">[</span><span class="s1">&#39;gamma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s1">&#39;log-uniform&#39;</span><span class="p">)</span>
-<span class="n">params</span><span class="p">[</span><span class="s1">&#39;degree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">params</span><span class="p">[</span><span class="s1">&#39;kernel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">]</span>
-<span class="c1"># define evaluation</span>
-<span class="n">cv</span> <span class="o">=</span> <span class="n">RepeatedStratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># define the search</span>
-<span class="n">search</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">SVC</span><span class="p">(),</span> <span class="n">search_spaces</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="p">)</span>
-
-<span class="c1"># perform the search</span>
-<span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1"># report the best result</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>try 8</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href='https://scikit-optimize.github.io/stable/auto_examples/sklearn-gridsearchcv-replacement.html'>Scikit-learn hyperparameter search wrapper
-</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
-<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">,</span> <span class="n">Integer</span>
-<span class="kn">from</span> <span class="nn">skopt.plots</span> <span class="kn">import</span> <span class="n">plot_objective</span><span class="p">,</span> <span class="n">plot_histogram</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span><span class="p">,</span> <span class="n">SVC</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">(</span><span class="n">n_class</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="c1"># pipeline class is used as estimator to enable</span>
-<span class="c1"># search over different model types</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">SVC</span><span class="p">())</span>
-<span class="p">])</span>
-
-<span class="c1"># single categorical value of &#39;model&#39; parameter is</span>
-<span class="c1"># sets the model class</span>
-<span class="c1"># We will get ConvergenceWarnings because the problem is not well-conditioned.</span>
-<span class="c1"># But that&#39;s fine, this is just an example.</span>
-<span class="n">linsvc_search</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">LinearSVC</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)],</span>
-    <span class="s1">&#39;model__C&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e+6</span><span class="p">,</span> <span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
-<span class="p">}</span>
-
-<span class="c1"># explicit dimension classes can be specified like this</span>
-<span class="n">svc_search</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="n">SVC</span><span class="p">()]),</span>
-    <span class="s1">&#39;model__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e+6</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;model__gamma&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e+1</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;model__degree&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span>
-    <span class="s1">&#39;model__kernel&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">]),</span>
-<span class="p">}</span>
-
-<span class="n">opt</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
-    <span class="n">pipe</span><span class="p">,</span>
-    <span class="c1"># (parameter space, # of evaluations)</span>
-    <span class="p">[(</span><span class="n">svc_search</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="n">linsvc_search</span><span class="p">,</span> <span class="mi">16</span><span class="p">)],</span>
-    <span class="n">cv</span><span class="o">=</span><span class="mi">3</span>
-<span class="p">)</span>
-
-<span class="n">opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;val. score: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">opt</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test score: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">opt</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best params: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">best_params_</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>try 9 </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href ='http://everest.msrc.sunysb.edu/tzhang/capt_tune/GCM_paras_tuner/algorithms/scikit-optimize/skopt/tests/test_searchcv.py'>From Stony Brook University</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;Test scikit-optimize based implementation of hyperparameter</span>
-<span class="sd">search with interface similar to those of GridSearchCV</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">import</span> <span class="nn">pytest</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.utils.testing</span> <span class="kn">import</span> <span class="n">assert_raises</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.testing</span> <span class="kn">import</span> <span class="n">assert_greater</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.testing</span> <span class="kn">import</span> <span class="n">assert_equal</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span><span class="p">,</span> <span class="n">LinearSVC</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
-
-<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">,</span> <span class="n">Integer</span>
-<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
-
-
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;surrogate&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;gp&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
-<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;n_jobs&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># test sequential and parallel</span>
-<span class="k">def</span> <span class="nf">test_searchcv_runs</span><span class="p">(</span><span class="n">surrogate</span><span class="p">,</span> <span class="n">n_jobs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Test whether the cross validation search wrapper around sklearn</span>
-<span class="sd">    models runs properly with available surrogates and with single</span>
-<span class="sd">    or multiple workers.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-
-<span class="sd">    * `surrogate` [str or None]:</span>
-<span class="sd">        A class of the scikit-optimize surrogate used. None means</span>
-<span class="sd">        to use default surrogate.</span>
-
-<span class="sd">    * `n_jobs` [int]:</span>
-<span class="sd">        Number of parallel processes to use for computations.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-        <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span>
-    <span class="p">)</span>
-
-    <span class="c1"># None search space is only supported when only `step` function is used</span>
-    <span class="n">assert_raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">BayesSearchCV</span><span class="p">(</span><span class="n">SVC</span><span class="p">(),</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
-
-    <span class="c1"># check if invalid dimensions are raising errors</span>
-    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
-        <span class="n">BayesSearchCV</span><span class="p">(</span><span class="n">SVC</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;1 ... 100.0&#39;</span><span class="p">})</span>
-
-    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
-        <span class="n">BayesSearchCV</span><span class="p">(</span><span class="n">SVC</span><span class="p">(),</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
-
-    <span class="c1"># create an instance of a surrogate if it is not a string</span>
-    <span class="k">if</span> <span class="n">surrogate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">optimizer_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;base_estimator&#39;</span><span class="p">:</span> <span class="n">surrogate</span><span class="p">}</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">optimizer_kwargs</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="n">opt</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
-        <span class="n">SVC</span><span class="p">(),</span>
-        <span class="p">{</span>
-            <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e+6</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
-            <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e+1</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
-            <span class="s1">&#39;degree&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
-            <span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">]),</span>
-        <span class="p">},</span>
-        <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
-        <span class="n">optimizer_kwargs</span><span class="o">=</span><span class="n">optimizer_kwargs</span>
-    <span class="p">)</span>
-
-    <span class="n">opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-    <span class="c1"># this normally does not hold only if something is wrong</span>
-    <span class="c1"># with the optimizaiton procedure as such</span>
-    <span class="n">assert_greater</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span> <span class="mf">0.9</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">test_searchcv_runs_multiple_subspaces</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Test whether the BayesSearchCV runs without exceptions when</span>
-<span class="sd">    multiple subspaces are given.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-        <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span>
-    <span class="p">)</span>
-
-    <span class="c1"># used to try different model classes</span>
-    <span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-        <span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">SVC</span><span class="p">())</span>
-    <span class="p">])</span>
-
-    <span class="c1"># single categorical value of &#39;model&#39; parameter sets the model class</span>
-    <span class="n">lin_search</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="n">LinearSVC</span><span class="p">()]),</span>
-        <span class="s1">&#39;model__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e+6</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
-    <span class="p">}</span>
-
-    <span class="n">dtc_search</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="n">DecisionTreeClassifier</span><span class="p">()]),</span>
-        <span class="s1">&#39;model__max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
-        <span class="s1">&#39;model__min_samples_split&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
-    <span class="p">}</span>
-
-    <span class="n">svc_search</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="n">SVC</span><span class="p">()]),</span>
-        <span class="s1">&#39;model__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e+6</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
-        <span class="s1">&#39;model__gamma&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1e+1</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
-        <span class="s1">&#39;model__degree&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
-        <span class="s1">&#39;model__kernel&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">]),</span>
-    <span class="p">}</span>
-
-    <span class="n">opt</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
-        <span class="n">pipe</span><span class="p">,</span>
-        <span class="p">[(</span><span class="n">lin_search</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">dtc_search</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">svc_search</span><span class="p">],</span>
-        <span class="n">n_iter</span><span class="o">=</span><span class="mi">2</span>
-    <span class="p">)</span>
-
-    <span class="n">opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-    <span class="c1"># test if all subspaces are explored</span>
-    <span class="n">total_evaluations</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">])</span>
-    <span class="k">assert</span> <span class="n">total_evaluations</span> <span class="o">==</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Not all spaces were explored!&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
@@ -18872,7 +18872,7 @@ Expected model version doesn&#39;t match version loaded
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stop</span>
 </pre></div>
 
     </div>
