@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Time Series Forecasting_Step 01-05 v01</title>
+<title>Time Series Forecasting_Step 01-05 v03</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13320,121 +13320,6 @@ $( document ).ready(function(){
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/20356982/matplotlib-colour-multiple-twinx-axes</span>
-<span class="k">def</span> <span class="nf">threeTimeSeries</span><span class="p">(</span><span class="n">market</span><span class="p">):</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">host</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
-
-    <span class="n">par1</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-    <span class="n">par2</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-    <span class="n">par3</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-
-    <span class="c1"># move the spine of the second axes outwards</span>
-    <span class="n">par2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s2">&quot;axes&quot;</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">))</span>
-    <span class="n">par3</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s2">&quot;axes&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">))</span>
-    
-
-    <span class="n">p1</span><span class="p">,</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">market</span><span class="o">.</span><span class="n">totalSales</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Sales&quot;</span><span class="p">)</span>
-    <span class="n">p2</span><span class="p">,</span> <span class="o">=</span> <span class="n">par1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">market</span><span class="p">[</span><span class="s1">&#39;10yrBond&#39;</span><span class="p">],</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;China 10-Year Bond&quot;</span><span class="p">)</span>
-    <span class="n">p3</span><span class="p">,</span> <span class="o">=</span> <span class="n">par2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">market</span><span class="o">.</span><span class="n">hmi</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;China Housing Market Index&quot;</span><span class="p">)</span>
-    <span class="n">p4</span><span class="p">,</span> <span class="o">=</span> <span class="n">par3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">market</span><span class="p">[</span><span class="s1">&#39;sse&#39;</span><span class="p">],</span> <span class="s1">&#39;y-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;SSE Composite Index&quot;</span><span class="p">)</span>
-
-    <span class="n">host</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
-    <span class="n">host</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Total Sales&quot;</span><span class="p">)</span>
-    <span class="n">par1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;China 10-Year Bond&quot;</span><span class="p">)</span>
-    <span class="n">par2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;China Housing Market Index&quot;</span><span class="p">)</span>
-    <span class="n">par3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;SSE Composite Index&quot;</span><span class="p">)</span>
-
-<span class="c1">#     host.set_xlim(df_10yrBond.index.min(),df_10yrBond.index.max())</span>
-
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">]</span>
-    <span class="n">host</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,)</span>
-
-    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">par1</span><span class="p">,</span> <span class="n">par2</span><span class="p">,</span> <span class="n">par3</span><span class="p">]:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_frame_on</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-
-        <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="n">host</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-    <span class="n">par1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-    <span class="n">par2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">p3</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-    <span class="n">par3</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">p4</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-
-    <span class="n">host</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-    <span class="n">par1</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-    <span class="n">par2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">p3</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-    <span class="n">par3</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">p4</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-
-    <span class="n">host</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p1</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-    <span class="n">par1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p2</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-    <span class="n">par2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p3</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-    <span class="n">par3</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p4</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
-
-    <span class="n">host</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-
-    <span class="c1"># host.legend(loc, bbox_to_anchor=(0.6,0.5))</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># Remove frame color</span>
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
-        <span class="n">frame</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
-        <span class="n">frame</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">pass</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a function to create a correlations map</span>
-<span class="k">def</span> <span class="nf">correlations</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">targetLabel</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">fs</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">)):</span>
-    
-    
-    <span class="k">if</span> <span class="n">ncol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ncol</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">nrow</span> <span class="o">=</span> <span class="mi">1</span>
-    
-    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span><span class="n">ncol</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
-    
-    <span class="n">c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-    <span class="n">c</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">targetLabel</span><span class="p">)</span>
-    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">targetLabel</span><span class="p">)</span>
-
-    <span class="c1"># Compute the correlation matrix</span>
-    <span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-
-    <span class="c1"># Generate a mask for the upper triangle</span>
-    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
-    
-    <span class="c1"># Draw the heatmap with the mask and correct aspect ratio</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">.5</span><span class="p">},</span>
-                <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">,</span>
-                <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
-               <span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13444,7 +13329,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/df_data_step3a_EDA.csv&#39;</span><span class="p">,</span><span class="n">parse_dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tradeTime&#39;</span><span class="p">])</span>
@@ -13483,7 +13368,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_10yrBond</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13499,7 +13384,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13606,7 +13491,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_10yrBond</span><span class="o">.</span><span class="n">index</span>
@@ -13622,7 +13507,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -13667,7 +13552,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_10yrBond</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Price&#39;</span><span class="p">:</span><span class="s1">&#39;10yrBond&#39;</span><span class="p">,},</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13683,7 +13568,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_10yrBond</span><span class="o">.</span><span class="n">index</span>
@@ -13699,7 +13584,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13729,7 +13614,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/58490016/convert-mmm-yy-to-date-time-in-python</span>
@@ -13743,7 +13628,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_10yrBond</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_10yrBond</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -13763,7 +13648,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">market</span> <span class="o">=</span> <span class="n">df_10yrBond</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -13791,7 +13676,7 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="output_33_0.png"
+<img src="output_31_0.png"
 >
 </div>
 
@@ -13817,7 +13702,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check the data</span>
@@ -13834,7 +13719,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13905,7 +13790,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Rename the coluns as hmi, home market index</span>
@@ -13920,7 +13805,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_hmi</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13936,7 +13821,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -14007,7 +13892,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add and resent the name</span>
@@ -14030,7 +13915,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">market</span><span class="o">.</span><span class="n">hmi</span> <span class="o">=</span> <span class="n">market</span><span class="o">.</span><span class="n">hmi</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
@@ -14047,7 +13932,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -14118,7 +14003,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check the graph</span>
@@ -14141,7 +14026,7 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="output_44_0.png"
+<img src="output_42_0.png"
 >
 </div>
 
@@ -14168,7 +14053,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check the contents in the SSE data.</span>
@@ -14185,7 +14070,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -14292,7 +14177,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop unnecessary columns</span>
@@ -14310,7 +14195,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_sse</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14326,7 +14211,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -14397,7 +14282,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">market</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">market</span><span class="p">,</span> <span class="n">df_sse</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -14414,7 +14299,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -14486,7 +14371,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check the graph</span>
@@ -14509,7 +14394,7 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="output_53_0.png"
+<img src="output_51_0.png"
 >
 </div>
 
@@ -14544,7 +14429,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">market</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">market</span><span class="p">,</span> <span class="n">df_sales</span><span class="p">[[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">]]],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -14557,7 +14442,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check the graph</span>
@@ -14580,7 +14465,7 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="output_58_0.png"
+<img src="output_56_0.png"
 >
 </div>
 
@@ -14607,7 +14492,93 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/20356982/matplotlib-colour-multiple-twinx-axes</span>
+<span class="k">def</span> <span class="nf">threeTimeSeries</span><span class="p">(</span><span class="n">market</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is a function to make a gragh showing 1 plus three inconsistent units of time series data.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">host</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+        <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span>
+<span class="c1">#         right=0.75</span>
+    <span class="p">)</span>
+
+    <span class="n">par1</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+    <span class="n">par2</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+    <span class="n">par3</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+
+    <span class="c1"># move the spine of the second axes outwards</span>
+    <span class="n">par2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s2">&quot;axes&quot;</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">))</span>
+    <span class="n">par3</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s2">&quot;axes&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">))</span>
+    
+
+    <span class="n">p1</span><span class="p">,</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">market</span><span class="o">.</span><span class="n">totalSales</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Total Sales&quot;</span><span class="p">)</span>
+    <span class="n">p2</span><span class="p">,</span> <span class="o">=</span> <span class="n">par1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">market</span><span class="p">[</span><span class="s1">&#39;10yrBond&#39;</span><span class="p">],</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;China 10-Year Bond&quot;</span><span class="p">)</span>
+    <span class="n">p3</span><span class="p">,</span> <span class="o">=</span> <span class="n">par2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">market</span><span class="o">.</span><span class="n">hmi</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;China Housing Market Index&quot;</span><span class="p">)</span>
+    <span class="n">p4</span><span class="p">,</span> <span class="o">=</span> <span class="n">par3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">market</span><span class="p">[</span><span class="s1">&#39;sse&#39;</span><span class="p">],</span> <span class="s1">&#39;y-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;SSE Composite Index&quot;</span><span class="p">)</span>
+
+    <span class="n">host</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+    <span class="n">host</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Total Sales&quot;</span><span class="p">)</span>
+    <span class="n">par1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;China 10-Year Bond&quot;</span><span class="p">)</span>
+    <span class="n">par2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;China Housing Market Index&quot;</span><span class="p">)</span>
+    <span class="n">par3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;SSE Composite Index&quot;</span><span class="p">)</span>
+
+<span class="c1">#     host.set_xlim(df_10yrBond.index.min(),df_10yrBond.index.max())</span>
+
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">]</span>
+    <span class="n">host</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,)</span>
+
+    <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">par1</span><span class="p">,</span> <span class="n">par2</span><span class="p">,</span> <span class="n">par3</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_frame_on</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">host</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">par1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">par2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">p3</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">par3</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">p4</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+
+    <span class="n">host</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">par1</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">par2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">p3</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">par3</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">p4</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+
+    <span class="n">host</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p1</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">par1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p2</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">par2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p3</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="n">par3</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">p4</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+
+    <span class="n">host</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># host.legend(loc, bbox_to_anchor=(0.6,0.5))</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Remove frame color</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">threeTimeSeries</span><span class="p">(</span><span class="n">market</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2010-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2019-12-31&#39;</span><span class="p">])</span>
@@ -14629,7 +14600,7 @@ $( document ).ready(function(){
 
 
 <div class="output_png output_subarea ">
-<img src="output_61_0.png"
+<img src="output_60_0.png"
 >
 </div>
 
@@ -14657,7 +14628,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import necessary libraries</span>
@@ -14686,7 +14657,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython</span> <span class="kn">import</span> <span class="n">display</span>
@@ -14721,13 +14692,13 @@ $( document ).ready(function(){
 
  
  
-<div id="445ef6fc-2c2a-4ff8-aafb-e286b744e58b"></div>
+<div id="a29d3f96-1404-4bbb-8eb1-068e77bc2958"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#445ef6fc-2c2a-4ff8-aafb-e286b744e58b');
+var element = $('#a29d3f96-1404-4bbb-8eb1-068e77bc2958');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "1c157cd488c14082b8eb8aa65494f648", "version_major": 2, "version_minor": 0}
+{"model_id": "13c42b818b1f4535a81d4fb265088624", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14755,14 +14726,15 @@ var element = $('#445ef6fc-2c2a-4ff8-aafb-e286b744e58b');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
 
 <span class="k">def</span> <span class="nf">adf_test</span><span class="p">(</span><span class="n">series</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Pass in a time series and an optional title, returns an ADF report</span>
+<span class="sd">    Pass in a time series and an optional title </span>
+<span class="sd">    Returns an ADF report</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Augmented Dickey-Fuller Test: </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span> <span class="c1"># .dropna() handles differenced data</span>
@@ -14794,7 +14766,7 @@ var element = $('#445ef6fc-2c2a-4ff8-aafb-e286b744e58b');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">adf_test</span><span class="p">(</span><span class="n">market</span><span class="p">[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Augmented Dickey-Fuller Test on totalSales Data&#39;</span><span class="p">)</span>
@@ -14835,7 +14807,7 @@ Data has no unit root and is stationary
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">adf_test</span><span class="p">(</span><span class="n">market</span><span class="p">[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Augmented Dickey-Fuller Test on totalSales Data&#39;</span><span class="p">)</span>
@@ -14882,10 +14854,59 @@ Data has no unit root and is stationary
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">adf_test</span><span class="p">(</span><span class="n">market</span><span class="p">[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Augmented Dickey-Fuller Test on totalSales Data&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Augmented Dickey-Fuller Test: Augmented Dickey-Fuller Test on totalSales Data
+ADF test statistic     -3.0100
+p-value                 0.0340
+# lags used            11.0000
+# observations         58.0000
+critical value (1%)    -3.5485
+critical value (5%)    -2.9128
+critical value (10%)   -2.5941
+Strong evidence against the null hypothesis
+Reject the null hypothesis
+Data has no unit root and is stationary
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Change-%">Change %<a class="anchor-link" href="#Change-%">&#182;</a></h1>
+<p>Two differentiation does not necessarily make it better. Therefore, we will use one differenciation in the further modeling.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Change-%">Change %<a class="anchor-link" href="#Change-%">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15050,7 +15071,7 @@ Data has no unit root and is stationary
 
 
 <div class="output_png output_subarea ">
-<img src="output_78_0.png"
+<img src="output_79_0.png"
 >
 </div>
 
@@ -15073,6 +15094,46 @@ Data has no unit root and is stationary
 <div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a function to create a correlations map</span>
+<span class="k">def</span> <span class="nf">correlations</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">targetLabel</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">fs</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">)):</span>
+    
+    
+    <span class="k">if</span> <span class="n">ncol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ncol</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">nrow</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span><span class="n">ncol</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+    
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">targetLabel</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">targetLabel</span><span class="p">)</span>
+
+    <span class="c1"># Compute the correlation matrix</span>
+    <span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+    <span class="c1"># Generate a mask for the upper triangle</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
+    
+    <span class="c1"># Draw the heatmap with the mask and correct aspect ratio</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">.5</span><span class="p">},</span>
+                <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">,</span>
+                <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+               <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">correlations</span><span class="p">(</span><span class="n">pC</span><span class="p">,</span><span class="s1">&#39;totalSales_up%&#39;</span><span class="p">,</span><span class="n">fs</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">));</span>
 </pre></div>
 
@@ -15092,7 +15153,7 @@ Data has no unit root and is stationary
 
 
 <div class="output_png output_subarea ">
-<img src="output_80_0.png"
+<img src="output_82_0.png"
 >
 </div>
 
@@ -15113,7 +15174,7 @@ Data has no unit root and is stationary
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Housing-data---Feature-Correlation">Housing data - Feature Correlation<a class="anchor-link" href="#Housing-data---Feature-Correlation">&#182;</a></h2>
+<h2 id="Correlation-map-By-Year">Correlation map By Year<a class="anchor-link" href="#Correlation-map-By-Year">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15133,7 +15194,7 @@ Data has no unit root and is stationary
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MS&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tradeTime</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">d&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-01&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
@@ -15150,7 +15211,7 @@ Data has no unit root and is stationary
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mask_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tradeTime</span><span class="o">&gt;=</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tradeTime</span><span class="o">&lt;=</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">)</span>
@@ -15163,35 +15224,45 @@ Data has no unit root and is stationary
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a list, c, to put price in the last</span>
-<span class="k">def</span> <span class="nf">correlationsByYear</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">ncol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ncol</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">nrow</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">mapCorrelationsByYear</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Input dataframe as df.</span>
+<span class="sd">    Return triangular shape corr map By Year</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>    
     
-    <span class="n">temp</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="n">year</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="mi">9</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">())))</span>
     
-    <span class="n">c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-    <span class="n">c</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
-    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+        
+        <span class="k">if</span> <span class="n">ncol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ncol</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">nrow</span> <span class="o">=</span> <span class="mi">1</span>
 
-    <span class="c1"># Compute the correlation matrix</span>
-    <span class="n">corr</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="n">year</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
 
-    <span class="c1"># Generate a mask for the upper triangle</span>
-    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
-    
-    <span class="c1"># Draw the heatmap with the mask and correct aspect ratio</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">.1</span><span class="p">},</span>
-                <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">,</span>
-                <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-               <span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;year= &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Compute the correlation matrix</span>
+        <span class="n">corr</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+        <span class="c1"># Generate a mask for the upper triangle</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
+
+        <span class="c1"># Draw the heatmap with the mask and correct aspect ratio</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                    <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">.1</span><span class="p">},</span>
+                    <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">,</span>
+                    <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                   <span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;year= &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
     
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
 </pre></div>
@@ -15203,152 +15274,10 @@ Data has no unit root and is stationary
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="mi">9</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">())))</span>
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
-    <span class="n">correlationsByYear</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_87_0.png"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
-    <span class="n">temp</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="n">year</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-        <span class="n">corrs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
-        <span class="n">corrs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">year</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">corrs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">year</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
-<span class="n">corrs</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trans</span> <span class="o">=</span> <span class="n">corrs</span><span class="o">.</span><span class="n">T</span>
-<span class="n">trans</span> <span class="o">=</span> <span class="n">trans</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;features&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">&#39;features&#39;</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://github.com/jbmouret/matplotlib_for_papers/blob/master/src/plot_variance_matplotlib_white.py</span>
-<span class="k">def</span> <span class="nf">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
-    <span class="c1"># Delete unnecessary lines</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># Remove frame color</span>
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
-        <span class="n">frame</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
-        <span class="n">frame</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">pass</span>
-
-    <span class="c1"># y axis grid line</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">36</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">trans</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">);</span>
-
-<span class="n">rects</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span>
-
-<span class="c1"># Make some labels.</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;label</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))]</span>
-
-<span class="c1"># For each bar: Place a label</span>
-<span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">rects</span><span class="p">:</span>
-    <span class="c1"># Get X and Y placement of label from rect.</span>
-    <span class="n">x_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span>
-    <span class="n">y_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
-
-    <span class="c1"># Number of points between bar and label. Change to your liking.</span>
-    <span class="n">space</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="c1"># Vertical alignment for positive values</span>
-    <span class="n">ha</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span>
-
-    <span class="c1"># If value of bar is negative: Place label left of bar</span>
-    <span class="k">if</span> <span class="n">x_value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1"># Invert space to place label to the left</span>
-        <span class="n">space</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="c1"># Horizontally align label at right</span>
-        <span class="n">ha</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span>
-
-    <span class="c1"># Use X value as label and format number with one decimal place</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_value</span><span class="p">)</span>
-
-    <span class="c1"># Create annotation</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-        <span class="n">label</span><span class="p">,</span>                      <span class="c1"># Use `label` as label</span>
-        <span class="p">(</span><span class="n">x_value</span><span class="p">,</span> <span class="n">y_value</span><span class="p">),</span>         <span class="c1"># Place label at end of the bar</span>
-        <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">space</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>          <span class="c1"># Horizontally shift label by `space`</span>
-        <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="c1"># Interpret `xytext` as offset in points</span>
-        <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>                <span class="c1"># Vertically center label</span>
-        <span class="n">ha</span><span class="o">=</span><span class="n">ha</span><span class="p">)</span>                      <span class="c1"># Horizontally align label differently for</span>
-                                    <span class="c1"># positive and negative values.</span>
-    
-<span class="n">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mapCorrelationsByYear</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -15367,7 +15296,7 @@ Data has no unit root and is stationary
 
 
 <div class="output_png output_subarea ">
-<img src="output_91_0.png"
+<img src="output_89_0.png"
 >
 </div>
 
@@ -15380,7 +15309,204 @@ Data has no unit root and is stationary
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Bond has shown strong correlation in 2013 and 2016.</p>
+<p>This is slightly hard to compare to see how each feature values affect price.
+Next, we just focus on the correlations with price.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Corelation-bar-By-Year">Corelation bar By Year<a class="anchor-link" href="#Corelation-bar-By-Year">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">makeTrans</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Input dataframe </span>
+<span class="sd">    Return a new dataframe used to make &#39;Corelation bar By Year&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="n">year</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">corrs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+            <span class="n">corrs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">year</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">corrs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">year</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+    <span class="n">corrs</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">trans</span> <span class="o">=</span> <span class="n">corrs</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">trans</span> <span class="o">=</span> <span class="n">trans</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span><span class="s1">&#39;features&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="s1">&#39;features&#39;</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">trans</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trans</span> <span class="o">=</span> <span class="n">makeTrans</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://github.com/jbmouret/matplotlib_for_papers/blob/master/src/plot_variance_matplotlib_white.py</span>
+<span class="k">def</span> <span class="nf">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is only to make layout as cleaner as possible</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="c1">#     # Delete unnecessary lines</span>
+<span class="c1">#     ax.spines[&#39;top&#39;].set_visible(False)</span>
+<span class="c1">#     ax.spines[&#39;right&#39;].set_visible(False)</span>
+<span class="c1">#     ax.spines[&#39;left&#39;].set_visible(False)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Remove frame color</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># y axis grid line</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">barCorrelationsByYear</span><span class="p">(</span><span class="n">trans</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Input dataframe as df</span>
+<span class="sd">    Return bar corr map By Year</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">36</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">trans</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">);</span>
+    
+    <span class="n">rects</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span>
+    
+    <span class="c1"># Make some labels</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;label</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rects</span><span class="p">))]</span>
+    
+    <span class="c1"># For each bar: Place a label</span>
+    <span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">rects</span><span class="p">:</span>
+        
+        <span class="c1"># Get X and Y placement of label from rect.</span>
+        <span class="n">x_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span>
+        <span class="n">y_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+        
+        
+        <span class="c1"># Number of points between bar and label. Change to your liking.</span>
+        <span class="n">space</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="c1"># Vertical alignment for positive values</span>
+        <span class="n">ha</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span>
+
+        <span class="c1"># If value of bar is negative: Place label left of bar</span>
+        <span class="k">if</span> <span class="n">x_value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Invert space to place label to the left</span>
+            <span class="n">space</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="c1"># Horizontally align label at right</span>
+            <span class="n">ha</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span>
+
+        <span class="c1"># Use X value as label and format number with one decimal place</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_value</span><span class="p">)</span>
+
+        <span class="c1"># Create annotation</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+            <span class="n">label</span><span class="p">,</span>                      <span class="c1"># Use `label` as label</span>
+            <span class="p">(</span><span class="n">x_value</span><span class="p">,</span> <span class="n">y_value</span><span class="p">),</span>         <span class="c1"># Place label at end of the bar</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">space</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>          <span class="c1"># Horizontally shift label by `space`</span>
+            <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="c1"># Interpret `xytext` as offset in points</span>
+            <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>                <span class="c1"># Vertically center label</span>
+            <span class="n">ha</span><span class="o">=</span><span class="n">ha</span><span class="p">)</span>                      <span class="c1"># Horizontally align label differently for</span>
+                                        <span class="c1"># positive and negative values.</span>
+
+<span class="c1">#     clean_layout(ax)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">barCorrelationsByYear</span><span class="p">(</span><span class="n">trans</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_96_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This simple corelation coefficients manifests following relationships.</p>
+<ul>
+<li>Subway has the most strong positive relationship with price among the features.</li>
+<li>constructionTime shows the most negative strong, meaning that the newer house has the lower price (totalPrice/square). ...showing some democracy</li>
+</ul>
+<p>** totalPrice is exclueded here as it equals to square times price.</p>
 
 </div>
 </div>
@@ -15395,10 +15521,10 @@ Data has no unit root and is stationary
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span><span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">,);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -15417,7 +15543,7 @@ Data has no unit root and is stationary
 
 
 <div class="output_png output_subarea ">
-<img src="output_94_0.png"
+<img src="output_99_0.png"
 >
 </div>
 
@@ -15426,6 +15552,16 @@ Data has no unit root and is stationary
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>DOM is not shown, but it is ok as there are some inconsistency among years.</p>
+<p>In addition to what was found in the bar corelation By Year, 
+there are some new features that showed some.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -15439,7 +15575,7 @@ Data has no unit root and is stationary
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The function takes in a 2D array [y(first column),x(second column)] and a maximum number of lags to test on x.</p>
+<p>The function takes in a 2D [y(first column),x(second column)] and a maximum number of lags to test on x.</p>
 <p>With regards to the two series,  𝑦  and  𝑥 , the null hypothesis is that lagged values of  𝑥  do not explain variations in  𝑦 .</p>
 
 </div>
@@ -15454,11 +15590,11 @@ Data has no unit root and is stationary
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Here y is set as &#39;totalSales&#39;, and x is set as &#39;10yrBond&#39; which is tested to be lagged.</span>
-<span class="n">grangercausalitytests</span><span class="p">(</span><span class="n">market</span><span class="p">[[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">,</span><span class="s1">&#39;10yrBond&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">maxlag</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
+<span class="n">grangercausalitytests</span><span class="p">(</span><span class="n">market</span><span class="p">[[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">,</span><span class="s1">&#39;10yrBond&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">maxlag</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -15559,76 +15695,6 @@ ssr based F test:         F=0.8976  , p=0.5580  , df_denom=35, df_num=12
 ssr based chi2 test:   chi2=18.4649 , p=0.1023  , df=12
 likelihood ratio test: chi2=16.0984 , p=0.1868  , df=12
 parameter F test:         F=0.8976  , p=0.5580  , df_denom=35, df_num=12
-
-Granger Causality
-number of lags (no zero) 13
-ssr based F test:         F=0.9557  , p=0.5120  , df_denom=32, df_num=13
-ssr based chi2 test:   chi2=22.9062 , p=0.0428  , df=13
-likelihood ratio test: chi2=19.3542 , p=0.1125  , df=13
-parameter F test:         F=0.9557  , p=0.5120  , df_denom=32, df_num=13
-
-Granger Causality
-number of lags (no zero) 14
-ssr based F test:         F=0.8372  , p=0.6268  , df_denom=29, df_num=14
-ssr based chi2 test:   chi2=23.4425 , p=0.0534  , df=14
-likelihood ratio test: chi2=19.6884 , p=0.1403  , df=14
-parameter F test:         F=0.8372  , p=0.6268  , df_denom=29, df_num=14
-
-Granger Causality
-number of lags (no zero) 15
-ssr based F test:         F=0.6739  , p=0.7858  , df_denom=26, df_num=15
-ssr based chi2 test:   chi2=22.1596 , p=0.1037  , df=15
-likelihood ratio test: chi2=18.7197 , p=0.2267  , df=15
-parameter F test:         F=0.6739  , p=0.7858  , df_denom=26, df_num=15
-
-Granger Causality
-number of lags (no zero) 16
-ssr based F test:         F=0.9013  , p=0.5771  , df_denom=23, df_num=16
-ssr based chi2 test:   chi2=35.1110 , p=0.0038  , df=16
-likelihood ratio test: chi2=27.2567 , p=0.0387  , df=16
-parameter F test:         F=0.9013  , p=0.5771  , df_denom=23, df_num=16
-
-Granger Causality
-number of lags (no zero) 17
-ssr based F test:         F=0.9927  , p=0.5011  , df_denom=20, df_num=17
-ssr based chi2 test:   chi2=46.4081 , p=0.0001  , df=17
-likelihood ratio test: chi2=33.6501 , p=0.0093  , df=17
-parameter F test:         F=0.9927  , p=0.5011  , df_denom=20, df_num=17
-
-Granger Causality
-number of lags (no zero) 18
-ssr based F test:         F=0.8517  , p=0.6314  , df_denom=17, df_num=18
-ssr based chi2 test:   chi2=48.6993 , p=0.0001  , df=18
-likelihood ratio test: chi2=34.7124 , p=0.0103  , df=18
-parameter F test:         F=0.8517  , p=0.6314  , df_denom=17, df_num=18
-
-Granger Causality
-number of lags (no zero) 19
-ssr based F test:         F=0.7565  , p=0.7190  , df_denom=14, df_num=19
-ssr based chi2 test:   chi2=54.4170 , p=0.0000  , df=19
-likelihood ratio test: chi2=37.4406 , p=0.0070  , df=19
-parameter F test:         F=0.7565  , p=0.7190  , df_denom=14, df_num=19
-
-Granger Causality
-number of lags (no zero) 20
-ssr based F test:         F=0.7623  , p=0.7124  , df_denom=11, df_num=20
-ssr based chi2 test:   chi2=72.0748 , p=0.0000  , df=20
-likelihood ratio test: chi2=45.2213 , p=0.0010  , df=20
-parameter F test:         F=0.7623  , p=0.7124  , df_denom=11, df_num=20
-
-Granger Causality
-number of lags (no zero) 21
-ssr based F test:         F=1.3493  , p=0.3446  , df_denom=8, df_num=21
-ssr based chi2 test:   chi2=180.6425, p=0.0000  , df=21
-likelihood ratio test: chi2=77.1818 , p=0.0000  , df=21
-parameter F test:         F=1.3493  , p=0.3446  , df_denom=8, df_num=21
-
-Granger Causality
-number of lags (no zero) 22
-ssr based F test:         F=0.8087  , p=0.6741  , df_denom=5, df_num=22
-ssr based chi2 test:   chi2=177.9216, p=0.0000  , df=22
-likelihood ratio test: chi2=75.8489 , p=0.0000  , df=22
-parameter F test:         F=0.8087  , p=0.6741  , df_denom=5, df_num=22
 </pre>
 </div>
 </div>
@@ -15640,7 +15706,7 @@ parameter F test:         F=0.8087  , p=0.6741  , df_denom=5, df_num=22
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Granger Causality shows that number of lags (no zero) 1 and 2 denies the null hypothesis. So, we can not refuse that 10yrBond explains variations in totalSales upto 2 months.</p>
+<p>Granger Causality shows that 1 month lag denies the null hypothesis. So, we can not refuse that 10yrBond explains variations in totalSales upto 2 months.</p>
 
 </div>
 </div>
@@ -15654,10 +15720,10 @@ parameter F test:         F=0.8087  , p=0.6741  , df_denom=5, df_num=22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">grangercausalitytests</span><span class="p">(</span><span class="n">market</span><span class="p">[[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">,</span><span class="s1">&#39;hmi&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">maxlag</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">grangercausalitytests</span><span class="p">(</span><span class="n">market</span><span class="p">[[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">,</span><span class="s1">&#39;hmi&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">maxlag</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -15758,76 +15824,6 @@ ssr based F test:         F=0.6292  , p=0.8029  , df_denom=35, df_num=12
 ssr based chi2 test:   chi2=12.9432 , p=0.3732  , df=12
 likelihood ratio test: chi2=11.7202 , p=0.4684  , df=12
 parameter F test:         F=0.6292  , p=0.8029  , df_denom=35, df_num=12
-
-Granger Causality
-number of lags (no zero) 13
-ssr based F test:         F=0.6295  , p=0.8114  , df_denom=32, df_num=13
-ssr based chi2 test:   chi2=15.0891 , p=0.3018  , df=13
-likelihood ratio test: chi2=13.4361 , p=0.4147  , df=13
-parameter F test:         F=0.6295  , p=0.8114  , df_denom=32, df_num=13
-
-Granger Causality
-number of lags (no zero) 14
-ssr based F test:         F=0.6852  , p=0.7698  , df_denom=29, df_num=14
-ssr based chi2 test:   chi2=19.1863 , p=0.1580  , df=14
-likelihood ratio test: chi2=16.5752 , p=0.2795  , df=14
-parameter F test:         F=0.6852  , p=0.7698  , df_denom=29, df_num=14
-
-Granger Causality
-number of lags (no zero) 15
-ssr based F test:         F=0.5707  , p=0.8709  , df_denom=26, df_num=15
-ssr based chi2 test:   chi2=18.7659 , p=0.2245  , df=15
-likelihood ratio test: chi2=16.2221 , p=0.3674  , df=15
-parameter F test:         F=0.5707  , p=0.8709  , df_denom=26, df_num=15
-
-Granger Causality
-number of lags (no zero) 16
-ssr based F test:         F=0.8986  , p=0.5796  , df_denom=23, df_num=16
-ssr based chi2 test:   chi2=35.0054 , p=0.0040  , df=16
-likelihood ratio test: chi2=27.1917 , p=0.0394  , df=16
-parameter F test:         F=0.8986  , p=0.5796  , df_denom=23, df_num=16
-
-Granger Causality
-number of lags (no zero) 17
-ssr based F test:         F=1.0456  , p=0.4574  , df_denom=20, df_num=17
-ssr based chi2 test:   chi2=48.8816 , p=0.0001  , df=17
-likelihood ratio test: chi2=34.9755 , p=0.0063  , df=17
-parameter F test:         F=1.0456  , p=0.4574  , df_denom=20, df_num=17
-
-Granger Causality
-number of lags (no zero) 18
-ssr based F test:         F=0.7194  , p=0.7527  , df_denom=17, df_num=18
-ssr based chi2 test:   chi2=41.1328 , p=0.0015  , df=18
-likelihood ratio test: chi2=30.5797 , p=0.0322  , df=18
-parameter F test:         F=0.7194  , p=0.7527  , df_denom=17, df_num=18
-
-Granger Causality
-number of lags (no zero) 19
-ssr based F test:         F=0.5528  , p=0.8861  , df_denom=14, df_num=19
-ssr based chi2 test:   chi2=39.7653 , p=0.0035  , df=19
-likelihood ratio test: chi2=29.6684 , p=0.0562  , df=19
-parameter F test:         F=0.5528  , p=0.8861  , df_denom=14, df_num=19
-
-Granger Causality
-number of lags (no zero) 20
-ssr based F test:         F=0.4383  , p=0.9475  , df_denom=11, df_num=20
-ssr based chi2 test:   chi2=41.4386 , p=0.0033  , df=20
-likelihood ratio test: chi2=30.4752 , p=0.0625  , df=20
-parameter F test:         F=0.4383  , p=0.9475  , df_denom=11, df_num=20
-
-Granger Causality
-number of lags (no zero) 21
-ssr based F test:         F=0.5330  , p=0.8816  , df_denom=8, df_num=21
-ssr based chi2 test:   chi2=71.3506 , p=0.0000  , df=21
-likelihood ratio test: chi2=44.6283 , p=0.0019  , df=21
-parameter F test:         F=0.5330  , p=0.8816  , df_denom=8, df_num=21
-
-Granger Causality
-number of lags (no zero) 22
-ssr based F test:         F=0.7275  , p=0.7281  , df_denom=5, df_num=22
-ssr based chi2 test:   chi2=160.0401, p=0.0000  , df=22
-likelihood ratio test: chi2=71.7638 , p=0.0000  , df=22
-parameter F test:         F=0.7275  , p=0.7281  , df_denom=5, df_num=22
 </pre>
 </div>
 </div>
@@ -15839,7 +15835,7 @@ parameter F test:         F=0.7275  , p=0.7281  , df_denom=5, df_num=22
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There seems to be no causual relationship between 'totalSales' and 'hmi'.</p>
+<p>As for hmi (home market index), there seems to be no causual relationship between 'totalSales' and 'hmi'.</p>
 
 </div>
 </div>
@@ -15853,10 +15849,10 @@ parameter F test:         F=0.7275  , p=0.7281  , df_denom=5, df_num=22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">grangercausalitytests</span><span class="p">(</span><span class="n">market</span><span class="p">[[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">,</span><span class="s1">&#39;sse&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">maxlag</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">grangercausalitytests</span><span class="p">(</span><span class="n">market</span><span class="p">[[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">,</span><span class="s1">&#39;sse&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span><span class="n">maxlag</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -15957,76 +15953,6 @@ ssr based F test:         F=2.3093  , p=0.0269  , df_denom=35, df_num=12
 ssr based chi2 test:   chi2=47.5052 , p=0.0000  , df=12
 likelihood ratio test: chi2=34.9917 , p=0.0005  , df=12
 parameter F test:         F=2.3093  , p=0.0269  , df_denom=35, df_num=12
-
-Granger Causality
-number of lags (no zero) 13
-ssr based F test:         F=5.3164  , p=0.0001  , df_denom=32, df_num=13
-ssr based chi2 test:   chi2=127.4280, p=0.0000  , df=13
-likelihood ratio test: chi2=67.8799 , p=0.0000  , df=13
-parameter F test:         F=5.3164  , p=0.0001  , df_denom=32, df_num=13
-
-Granger Causality
-number of lags (no zero) 14
-ssr based F test:         F=6.8069  , p=0.0000  , df_denom=29, df_num=14
-ssr based chi2 test:   chi2=190.5945, p=0.0000  , df=14
-likelihood ratio test: chi2=84.4120 , p=0.0000  , df=14
-parameter F test:         F=6.8069  , p=0.0000  , df_denom=29, df_num=14
-
-Granger Causality
-number of lags (no zero) 15
-ssr based F test:         F=5.7180  , p=0.0001  , df_denom=26, df_num=15
-ssr based chi2 test:   chi2=188.0346, p=0.0000  , df=15
-likelihood ratio test: chi2=83.1258 , p=0.0000  , df=15
-parameter F test:         F=5.7180  , p=0.0001  , df_denom=26, df_num=15
-
-Granger Causality
-number of lags (no zero) 16
-ssr based F test:         F=4.9741  , p=0.0003  , df_denom=23, df_num=16
-ssr based chi2 test:   chi2=193.7748, p=0.0000  , df=16
-likelihood ratio test: chi2=83.7317 , p=0.0000  , df=16
-parameter F test:         F=4.9741  , p=0.0003  , df_denom=23, df_num=16
-
-Granger Causality
-number of lags (no zero) 17
-ssr based F test:         F=5.8909  , p=0.0001  , df_denom=20, df_num=17
-ssr based chi2 test:   chi2=275.3997, p=0.0000  , df=17
-likelihood ratio test: chi2=98.6134 , p=0.0000  , df=17
-parameter F test:         F=5.8909  , p=0.0001  , df_denom=20, df_num=17
-
-Granger Causality
-number of lags (no zero) 18
-ssr based F test:         F=5.2818  , p=0.0006  , df_denom=17, df_num=18
-ssr based chi2 test:   chi2=301.9922, p=0.0000  , df=18
-likelihood ratio test: chi2=101.8399, p=0.0000  , df=18
-parameter F test:         F=5.2818  , p=0.0006  , df_denom=17, df_num=18
-
-Granger Causality
-number of lags (no zero) 19
-ssr based F test:         F=4.3709  , p=0.0036  , df_denom=14, df_num=19
-ssr based chi2 test:   chi2=314.3927, p=0.0000  , df=19
-likelihood ratio test: chi2=102.6154, p=0.0000  , df=19
-parameter F test:         F=4.3709  , p=0.0036  , df_denom=14, df_num=19
-
-Granger Causality
-number of lags (no zero) 20
-ssr based F test:         F=4.2124  , p=0.0090  , df_denom=11, df_num=20
-ssr based chi2 test:   chi2=398.2610, p=0.0000  , df=20
-likelihood ratio test: chi2=112.2463, p=0.0000  , df=20
-parameter F test:         F=4.2124  , p=0.0090  , df_denom=11, df_num=20
-
-Granger Causality
-number of lags (no zero) 21
-ssr based F test:         F=6.4966  , p=0.0052  , df_denom=8, df_num=21
-ssr based chi2 test:   chi2=869.7332, p=0.0000  , df=21
-likelihood ratio test: chi2=147.5606, p=0.0000  , df=21
-parameter F test:         F=6.4966  , p=0.0052  , df_denom=8, df_num=21
-
-Granger Causality
-number of lags (no zero) 22
-ssr based F test:         F=4.3305  , p=0.0551  , df_denom=5, df_num=22
-ssr based chi2 test:   chi2=952.7083, p=0.0000  , df=22
-likelihood ratio test: chi2=149.9218, p=0.0000  , df=22
-parameter F test:         F=4.3305  , p=0.0551  , df_denom=5, df_num=22
 </pre>
 </div>
 </div>
@@ -16038,7 +15964,8 @@ parameter F test:         F=4.3305  , p=0.0551  , df_denom=5, df_num=22
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It is 1,3,4,7,8-21 that Granger Causality shows that the number of lags (no zero) denies the null hypothesis. So, we can not refuse that sse explains variations in totalSales.</p>
+<p>As for sse(stock price), it is 8 months lag that it is the most loikely that Granger Causality denies the null hypothesis. Therefore, we can not refuse that sse explains variations in totalSales.</p>
+<p>Among the three, we choose 10 yr bond as the most related feature to sales.</p>
 
 </div>
 </div>
@@ -16059,7 +15986,7 @@ parameter F test:         F=4.3305  , p=0.0551  , df_denom=5, df_num=22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">market</span><span class="p">[[</span><span class="s1">&#39;totalSales&#39;</span><span class="p">,</span><span class="s1">&#39;10yrBond&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">]</span>
@@ -16087,23 +16014,6 @@ parameter F test:         F=4.3305  , p=0.0551  , df_denom=5, df_num=22
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # Needs to be an integer because it is later used as an index.</span>
-<span class="c1"># split=int(len(data) * 0.8) </span>
-
-<span class="c1"># # Make train and test variables, with &#39;train, test&#39;</span>
-<span class="c1"># train, test = data.iloc[:split], data.iloc[split:]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -16120,7 +16030,7 @@ parameter F test:         F=4.3305  , p=0.0551  , df_denom=5, df_num=22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For SARIMA Orders we set seasonal=True and pass in an m value</span>
@@ -16159,14 +16069,14 @@ parameter F test:         F=4.3305  , p=0.0551  , df_denom=5, df_num=22
  ARIMA(0,0,1)(0,0,0)[0]             : AIC=1146.814, Time=0.01 sec
 
 Best model:  ARIMA(0,0,1)(0,0,0)[0] intercept
-Total fit time: 0.096 seconds
+Total fit time: 0.092 seconds
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[50]:</div>
+    <div class="prompt output_prompt">Out[51]:</div>
 
 
 
@@ -16180,10 +16090,10 @@ Total fit time: 0.096 seconds
   <th>Model:</th>           <td>SARIMAX(0, 0, 1)</td> <th>  Log Likelihood     </th> <td>-547.679</td>
 </tr>
 <tr>
-  <th>Date:</th>            <td>Sun, 05 Dec 2021</td> <th>  AIC                </th> <td>1101.358</td>
+  <th>Date:</th>            <td>Sat, 11 Dec 2021</td> <th>  AIC                </th> <td>1101.358</td>
 </tr>
 <tr>
-  <th>Time:</th>                <td>12:22:44</td>     <th>  BIC                </th> <td>1106.108</td>
+  <th>Time:</th>                <td>16:06:49</td>     <th>  BIC                </th> <td>1106.108</td>
 </tr>
 <tr>
   <th>Sample:</th>                  <td>0</td>        <th>  HQIC               </th> <td>1103.016</td>
@@ -16248,22 +16158,30 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load specific forecasting tools</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.sarimax</span> <span class="kn">import</span> <span class="n">SARIMAX</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 
 <span class="c1"># Make a function called evaluate_sarimax_model</span>
 <span class="k">def</span> <span class="nf">evaluate_sarimax_model</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span><span class="n">seasonal_order</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Input dataframe as data</span>
+<span class="sd">    and order and seasonal_order to be used in the SARIMAX</span>
+<span class="sd">    </span>
+<span class="sd">    Return error_mse,error_rmse, y_test, f(forecast on y_test)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    
     <span class="c1"># Needs to be an integer because it is later used as an index.</span>
-    <span class="n">split</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span> 
+    <span class="n">split</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
     
     <span class="c1"># Make train and test variables, with &#39;train, test&#39;</span>
     <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">split</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">split</span><span class="p">:]</span>
     <span class="n">past</span><span class="o">=</span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y_train</span><span class="p">]</span>
-    
     
     
     <span class="k">try</span><span class="p">:</span>
@@ -16314,7 +16232,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">error_mse</span><span class="p">,</span> <span class="n">error_rmse</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">evaluate_sarimax_model</span><span class="p">(</span><span class="n">y</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
@@ -16346,7 +16264,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">&#39;Model name&#39;</span><span class="p">:</span><span class="s1">&#39;SARIMA with auto_arima&#39;</span><span class="p">,</span>
@@ -16367,7 +16285,7 @@ Total fit time: 0.096 seconds
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[53]:</div>
+    <div class="prompt output_prompt">Out[54]:</div>
 
 
 
@@ -16423,7 +16341,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot predictions against known values</span>
@@ -16460,7 +16378,7 @@ Total fit time: 0.096 seconds
 
 
 <div class="output_png output_subarea ">
-<img src="output_119_0.png"
+<img src="output_124_0.png"
 >
 </div>
 
@@ -16469,6 +16387,14 @@ Total fit time: 0.096 seconds
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the result based on the parameters advised by the auto_arima, and we use this as base model.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -16486,13 +16412,14 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a function to evaluate different ARIMA models with several different p, d, and q values.</span>
 
 <span class="k">def</span> <span class="nf">evaluate_models</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p_values</span><span class="p">,</span> <span class="n">d_values</span><span class="p">,</span> <span class="n">q_values</span><span class="p">,</span> <span class="n">P_values</span><span class="p">,</span><span class="n">D_values</span><span class="p">,</span><span class="n">Q_values</span><span class="p">,</span> <span class="n">m_values</span><span class="p">,</span><span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">best_score</span><span class="p">,</span> <span class="n">best_odrder</span><span class="p">,</span> <span class="n">best_sesonal_order</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="n">grid_search</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;p&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;q&#39;</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span><span class="s1">&#39;rmse&#39;</span><span class="p">])</span>
     <span class="c1"># Iterate through p_values</span>
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">p_values</span><span class="p">:</span>
         <span class="c1"># Iterate through d_values</span>
@@ -16514,20 +16441,23 @@ Total fit time: 0.096 seconds
                                 <span class="n">seasonal_order</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
 <span class="c1">#                                 print(&#39;==Now working on order%s,seasonal_order%s==&#39; % (order,seasonal_order))</span>
                                 <span class="n">mse</span><span class="p">,</span><span class="n">rmse</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span>
-                                
+                                <span class="n">ps</span><span class="o">=</span><span class="p">[</span><span class="n">p</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="n">rmse</span><span class="p">]</span>
+                                <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="n">p</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="n">d</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span><span class="n">q</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">:</span><span class="n">P</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span><span class="n">D</span><span class="p">,</span> <span class="s1">&#39;Q&#39;</span><span class="p">:</span><span class="n">Q</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span><span class="n">m</span><span class="p">,</span> <span class="s1">&#39;mse&#39;</span><span class="p">:</span><span class="n">mse</span><span class="p">,</span><span class="s1">&#39;rmse&#39;</span><span class="p">:</span><span class="n">rmse</span><span class="p">}</span>
                                 <span class="k">try</span><span class="p">:</span>
                                     <span class="c1"># Make a variable called mse for the Mean squared error</span>
                                     <span class="n">mse</span><span class="p">,</span><span class="n">rmse</span> <span class="o">=</span> <span class="n">evaluate_sarimax_model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">seasonal_order</span><span class="p">,</span><span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span>
-                                                              
+                                    <span class="n">grid_search</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                                     <span class="k">if</span> <span class="n">mse</span> <span class="o">&lt;</span> <span class="n">best_score</span><span class="p">:</span>
                                         <span class="n">best_score</span><span class="p">,</span> <span class="n">best_odrder</span><span class="p">,</span> <span class="n">best_sesonal_order</span> <span class="o">=</span> <span class="n">mse</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">seasonal_order</span>
 <span class="c1">#                                     print(&#39;SARIMAX %s,%s \t\tMSE=%.3f&#39; % (order,seasonal_order,mse))</span>
                                 <span class="k">except</span><span class="p">:</span>
                                     <span class="k">continue</span>
 <span class="c1">#                                     print(&#39;MSE=%.3f RMSE=%.3f&#39; % (mse,rmse))</span>
+
+
+    
             
-                
-                
+    <span class="nb">print</span><span class="p">(</span><span class="n">grid_search</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;mse&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>                   
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best SARIMAX </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> MSE=</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">best_odrder</span><span class="p">,</span> <span class="n">best_sesonal_order</span><span class="p">,</span> <span class="n">best_score</span><span class="p">))</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">best_odrder</span><span class="p">,</span> <span class="n">best_sesonal_order</span><span class="p">,</span> <span class="n">best_score</span><span class="p">]</span>
 </pre></div>
@@ -16539,7 +16469,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">p_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
@@ -16558,7 +16488,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
@@ -16582,7 +16512,9 @@ Total fit time: 0.096 seconds
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Best SARIMAX (1, 0, 0) (1, 0, 1, 4) MSE=57961923350.297
+<pre>       p      d      q      P      D      Q      m  mse  rmse
+0 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 3.0000  NaN   NaN
+Best SARIMAX (1, 0, 0) (1, 0, 1, 4) MSE=57961923350.297
 </pre>
 </div>
 </div>
@@ -16593,7 +16525,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;According to this grid search, </span><span class="se">\</span>
@@ -16628,7 +16560,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add the metrics to the ModelComparison</span>
@@ -16636,7 +16568,7 @@ Total fit time: 0.096 seconds
     <span class="c1"># Set a variable for Best para</span>
     
     <span class="n">df2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">&#39;Model name&#39;</span><span class="p">:</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-                        <span class="s1">&#39;MAE&#39;</span><span class="p">:</span><span class="n">best_score</span><span class="p">,</span>
+                        <span class="s1">&#39;mse&#39;</span><span class="p">:</span><span class="n">best_score</span><span class="p">,</span>
 <span class="c1">#                         &#39;RMSE&#39;:np.sqrt(mean_squared_error(y_test,predictions)),</span>
 <span class="c1">#                         &#39;Explained_variance_score&#39;:explained_variance_score(y_test,predictions),</span>
                         <span class="s1">&#39;Best para&#39;</span><span class="p">:</span> <span class="n">Best_para</span><span class="p">,</span>
@@ -16652,7 +16584,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">addModel</span><span class="p">(</span><span class="n">ModelComparison</span><span class="p">,</span><span class="s1">&#39;SARIMA with Grid Search&#39;</span><span class="p">,</span><span class="n">best_score1</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">best_odrder1</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">best_sesonal_order1</span><span class="p">))</span>
@@ -16669,7 +16601,7 @@ Total fit time: 0.096 seconds
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[60]:</div>
+    <div class="prompt output_prompt">Out[61]:</div>
 
 
 
@@ -16695,6 +16627,7 @@ Total fit time: 0.096 seconds
       <th>Model name</th>
       <th>MAE</th>
       <th>Best para</th>
+      <th>mse</th>
     </tr>
   </thead>
   <tbody>
@@ -16703,12 +16636,14 @@ Total fit time: 0.096 seconds
       <td>SARIMA with auto_arima</td>
       <td>290493316389.1049</td>
       <td>(0,0,1),(0,0,1,12)</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>0</th>
       <td>SARIMA with Grid Search</td>
-      <td>57961923350.2968</td>
+      <td>NaN</td>
       <td>(1, 0, 0),(1, 0, 1, 4)</td>
+      <td>57961923350.2968</td>
     </tr>
   </tbody>
 </table>
@@ -16723,7 +16658,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot predictions against known values</span>
@@ -16761,7 +16696,7 @@ Total fit time: 0.096 seconds
 
 
 <div class="output_png output_subarea ">
-<img src="output_128_0.png"
+<img src="output_134_0.png"
 >
 </div>
 
@@ -16796,7 +16731,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">error_mse</span><span class="p">,</span> <span class="n">error_rmse</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">evaluate_sarimax_model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">exog</span><span class="o">=</span><span class="n">exog1</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="n">best_odrder1</span><span class="p">,</span><span class="n">seasonal_order</span><span class="o">=</span><span class="n">best_sesonal_order1</span><span class="p">)</span>
@@ -16828,7 +16763,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">predictions</span><span class="o">=</span> <span class="n">data_test</span><span class="p">[[]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -16842,7 +16777,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot predictions against known values</span>
@@ -16874,7 +16809,7 @@ Total fit time: 0.096 seconds
 
 
 <div class="output_png output_subarea ">
-<img src="output_134_0.png"
+<img src="output_140_0.png"
 >
 </div>
 
@@ -16893,7 +16828,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
@@ -16915,7 +16850,9 @@ Total fit time: 0.096 seconds
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Best SARIMAX (2, 1, 2) (2, 0, 1, 12) MSE=31390066067.789
+<pre>       p      d      q      P      D      Q      m  mse  rmse
+0 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 3.0000  NaN   NaN
+Best SARIMAX (2, 1, 2) (2, 0, 1, 12) MSE=31390066067.789
 </pre>
 </div>
 </div>
@@ -16926,7 +16863,7 @@ Total fit time: 0.096 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">error_mse</span><span class="p">,</span> <span class="n">error_rmse</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">evaluate_sarimax_model</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">exog</span><span class="o">=</span><span class="n">exog1</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="n">best_odrder2</span><span class="p">,</span><span class="n">seasonal_order</span><span class="o">=</span><span class="n">best_sesonal_order2</span><span class="p">,)</span>
@@ -17009,6 +16946,7 @@ Total fit time: 0.096 seconds
       <th>Model name</th>
       <th>MAE</th>
       <th>Best para</th>
+      <th>mse</th>
     </tr>
   </thead>
   <tbody>
@@ -17017,18 +16955,21 @@ Total fit time: 0.096 seconds
       <td>SARIMA with auto_arima</td>
       <td>290493316389.1049</td>
       <td>(0,0,1),(0,0,1,12)</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>0</th>
       <td>SARIMA with Grid Search</td>
-      <td>57961923350.2968</td>
+      <td>NaN</td>
       <td>(1, 0, 0),(1, 0, 1, 4)</td>
+      <td>57961923350.2968</td>
     </tr>
     <tr>
       <th>0</th>
       <td>SARIMAX with Grid Search</td>
-      <td>31390066067.7888</td>
+      <td>NaN</td>
       <td>(2, 1, 2) (2, 0, 1, 12)</td>
+      <td>31390066067.7888</td>
     </tr>
   </tbody>
 </table>
@@ -17088,7 +17029,7 @@ Total fit time: 0.096 seconds
 
 
 <div class="output_png output_subarea ">
-<img src="output_141_0.png"
+<img src="output_147_0.png"
 >
 </div>
 
@@ -17250,7 +17191,7 @@ Iteration 74. Log joint probability =    45.9304. Improved by 4.14009e-09.
 
 
 <div class="output_png output_subarea ">
-<img src="output_144_2.png"
+<img src="output_150_2.png"
 >
 </div>
 
@@ -17284,7 +17225,7 @@ Iteration 74. Log joint probability =    45.9304. Improved by 4.14009e-09.
 
 
 <div class="output_png output_subarea ">
-<img src="output_145_0.png"
+<img src="output_151_0.png"
 >
 </div>
 
@@ -17320,7 +17261,7 @@ Iteration 74. Log joint probability =    45.9304. Improved by 4.14009e-09.
 
 
 <div class="output_png output_subarea ">
-<img src="output_146_0.png"
+<img src="output_152_0.png"
 >
 </div>
 
@@ -17500,6 +17441,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
       <th>Model name</th>
       <th>MAE</th>
       <th>Best para</th>
+      <th>mse</th>
     </tr>
   </thead>
   <tbody>
@@ -17508,24 +17450,28 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
       <td>SARIMA with auto_arima</td>
       <td>290493316389.1049</td>
       <td>(0,0,1),(0,0,1,12)</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>0</th>
       <td>SARIMA with Grid Search</td>
-      <td>57961923350.2968</td>
+      <td>NaN</td>
       <td>(1, 0, 0),(1, 0, 1, 4)</td>
+      <td>57961923350.2968</td>
     </tr>
     <tr>
       <th>0</th>
       <td>SARIMAX with Grid Search</td>
-      <td>31390066067.7888</td>
+      <td>NaN</td>
       <td>(2, 1, 2) (2, 0, 1, 12)</td>
+      <td>31390066067.7888</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Facebook's Prophet</td>
-      <td>1009771003677.5349</td>
+      <td>NaN</td>
       <td>None</td>
+      <td>1009771003677.5349</td>
     </tr>
   </tbody>
 </table>
@@ -17731,9 +17677,9 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2021-12-05 16:55:53.772516: I tensorflow/core/platform/cpu_feature_guard.cc:145] This TensorFlow binary is optimized with Intel(R) MKL-DNN to use the following CPU instructions in performance critical operations:  SSE4.1 SSE4.2
+<pre>2021-12-11 19:23:01.745650: I tensorflow/core/platform/cpu_feature_guard.cc:145] This TensorFlow binary is optimized with Intel(R) MKL-DNN to use the following CPU instructions in performance critical operations:  SSE4.1 SSE4.2
 To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriate compiler flags.
-2021-12-05 16:55:53.773969: I tensorflow/core/common_runtime/process_util.cc:115] Creating new thread pool with default inter op setting: 8. Tune using inter_op_parallelism_threads for best performance.
+2021-12-11 19:23:01.747051: I tensorflow/core/common_runtime/process_util.cc:115] Creating new thread pool with default inter op setting: 8. Tune using inter_op_parallelism_threads for best performance.
 </pre>
 </div>
 </div>
@@ -17808,205 +17754,205 @@ _________________________________________________________________
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Epoch 1/100
-16/16 [==============================] - 7s 419ms/step - loss: 0.2014
+16/16 [==============================] - 1s 85ms/step - loss: 0.2365
 Epoch 2/100
-16/16 [==============================] - 5s 302ms/step - loss: 0.0907
+16/16 [==============================] - 0s 21ms/step - loss: 0.0839
 Epoch 3/100
-16/16 [==============================] - 7s 443ms/step - loss: 0.0949
+16/16 [==============================] - 0s 21ms/step - loss: 0.0834
 Epoch 4/100
-16/16 [==============================] - 5s 310ms/step - loss: 0.0836
+16/16 [==============================] - 0s 21ms/step - loss: 0.0919
 Epoch 5/100
-16/16 [==============================] - 6s 348ms/step - loss: 0.0819
+16/16 [==============================] - 0s 23ms/step - loss: 0.0987
 Epoch 6/100
-16/16 [==============================] - 6s 403ms/step - loss: 0.0818
+16/16 [==============================] - 0s 22ms/step - loss: 0.0769
 Epoch 7/100
-16/16 [==============================] - 6s 394ms/step - loss: 0.0934
+16/16 [==============================] - 0s 22ms/step - loss: 0.0813
 Epoch 8/100
-16/16 [==============================] - 7s 433ms/step - loss: 0.0933
+16/16 [==============================] - 0s 22ms/step - loss: 0.0828
 Epoch 9/100
-16/16 [==============================] - 5s 325ms/step - loss: 0.0926
+16/16 [==============================] - 0s 22ms/step - loss: 0.0766
 Epoch 10/100
-16/16 [==============================] - 7s 458ms/step - loss: 0.0787
+16/16 [==============================] - 0s 22ms/step - loss: 0.0973
 Epoch 11/100
-16/16 [==============================] - 5s 309ms/step - loss: 0.0798
+16/16 [==============================] - 0s 22ms/step - loss: 0.0973
 Epoch 12/100
-16/16 [==============================] - 6s 398ms/step - loss: 0.0811
+16/16 [==============================] - 0s 22ms/step - loss: 0.0789
 Epoch 13/100
-16/16 [==============================] - 8s 486ms/step - loss: 0.0770
+16/16 [==============================] - 0s 22ms/step - loss: 0.0800
 Epoch 14/100
-16/16 [==============================] - 5s 326ms/step - loss: 0.0800
+16/16 [==============================] - 0s 22ms/step - loss: 0.0769
 Epoch 15/100
-16/16 [==============================] - 6s 385ms/step - loss: 0.0790
+16/16 [==============================] - 0s 22ms/step - loss: 0.0798
 Epoch 16/100
-16/16 [==============================] - 9s 573ms/step - loss: 0.0773
+16/16 [==============================] - 0s 22ms/step - loss: 0.0770
 Epoch 17/100
-16/16 [==============================] - 10s 647ms/step - loss: 0.0773
+16/16 [==============================] - 0s 22ms/step - loss: 0.0925
 Epoch 18/100
-16/16 [==============================] - 7s 436ms/step - loss: 0.0781
+16/16 [==============================] - 0s 22ms/step - loss: 0.0935
 Epoch 19/100
-16/16 [==============================] - 5s 328ms/step - loss: 0.0777
+16/16 [==============================] - 0s 22ms/step - loss: 0.0771
 Epoch 20/100
-16/16 [==============================] - 5s 293ms/step - loss: 0.0865
+16/16 [==============================] - 0s 22ms/step - loss: 0.0945
 Epoch 21/100
-16/16 [==============================] - 5s 286ms/step - loss: 0.0742
+16/16 [==============================] - 0s 22ms/step - loss: 0.0756
 Epoch 22/100
-16/16 [==============================] - 5s 339ms/step - loss: 0.0775
+16/16 [==============================] - 0s 22ms/step - loss: 0.0808
 Epoch 23/100
-16/16 [==============================] - 6s 364ms/step - loss: 0.0782
+16/16 [==============================] - 0s 22ms/step - loss: 0.0733
 Epoch 24/100
-16/16 [==============================] - 5s 315ms/step - loss: 0.0777
+16/16 [==============================] - 0s 22ms/step - loss: 0.0799
 Epoch 25/100
-16/16 [==============================] - 5s 284ms/step - loss: 0.0761
+16/16 [==============================] - 0s 22ms/step - loss: 0.0743
 Epoch 26/100
-16/16 [==============================] - 5s 305ms/step - loss: 0.0796
+16/16 [==============================] - 0s 22ms/step - loss: 0.0762
 Epoch 27/100
-16/16 [==============================] - 6s 347ms/step - loss: 0.0759
+16/16 [==============================] - 0s 22ms/step - loss: 0.0743
 Epoch 28/100
-16/16 [==============================] - 6s 403ms/step - loss: 0.0773
+16/16 [==============================] - 0s 22ms/step - loss: 0.0801
 Epoch 29/100
-16/16 [==============================] - 5s 337ms/step - loss: 0.0749
+16/16 [==============================] - 0s 22ms/step - loss: 0.0754
 Epoch 30/100
-16/16 [==============================] - 6s 352ms/step - loss: 0.0764
+16/16 [==============================] - 0s 22ms/step - loss: 0.0762
 Epoch 31/100
-16/16 [==============================] - 5s 312ms/step - loss: 0.0778
+16/16 [==============================] - 0s 22ms/step - loss: 0.0738
 Epoch 32/100
-16/16 [==============================] - 5s 312ms/step - loss: 0.0832
+16/16 [==============================] - 0s 22ms/step - loss: 0.0781
 Epoch 33/100
-16/16 [==============================] - 5s 326ms/step - loss: 0.0746
+16/16 [==============================] - 0s 22ms/step - loss: 0.0722
 Epoch 34/100
-16/16 [==============================] - 4s 258ms/step - loss: 0.0763
+16/16 [==============================] - 0s 22ms/step - loss: 0.0852
 Epoch 35/100
-16/16 [==============================] - 4s 262ms/step - loss: 0.0789
+16/16 [==============================] - 0s 22ms/step - loss: 0.0810
 Epoch 36/100
-16/16 [==============================] - 4s 236ms/step - loss: 0.0748
+16/16 [==============================] - 0s 22ms/step - loss: 0.0770
 Epoch 37/100
-16/16 [==============================] - 5s 344ms/step - loss: 0.0771
+16/16 [==============================] - 0s 22ms/step - loss: 0.0727
 Epoch 38/100
-16/16 [==============================] - 5s 322ms/step - loss: 0.0714
+16/16 [==============================] - 0s 22ms/step - loss: 0.0750
 Epoch 39/100
-16/16 [==============================] - 6s 347ms/step - loss: 0.0742
+16/16 [==============================] - 0s 22ms/step - loss: 0.0726
 Epoch 40/100
-16/16 [==============================] - 4s 275ms/step - loss: 0.0785
+16/16 [==============================] - 0s 22ms/step - loss: 0.0790
 Epoch 41/100
-16/16 [==============================] - 5s 286ms/step - loss: 0.0800
+16/16 [==============================] - 0s 22ms/step - loss: 0.0761
 Epoch 42/100
-16/16 [==============================] - 5s 302ms/step - loss: 0.0870
+16/16 [==============================] - 0s 22ms/step - loss: 0.0733
 Epoch 43/100
-16/16 [==============================] - 4s 262ms/step - loss: 0.0760
+16/16 [==============================] - 0s 22ms/step - loss: 0.0790
 Epoch 44/100
-16/16 [==============================] - 5s 326ms/step - loss: 0.0738
+16/16 [==============================] - 0s 22ms/step - loss: 0.0791
 Epoch 45/100
-16/16 [==============================] - 6s 344ms/step - loss: 0.0727
+16/16 [==============================] - 0s 22ms/step - loss: 0.0704
 Epoch 46/100
-16/16 [==============================] - 4s 272ms/step - loss: 0.0711
+16/16 [==============================] - 0s 24ms/step - loss: 0.0853
 Epoch 47/100
-16/16 [==============================] - 3s 216ms/step - loss: 0.0731
+16/16 [==============================] - 0s 22ms/step - loss: 0.0783
 Epoch 48/100
-16/16 [==============================] - 4s 262ms/step - loss: 0.0757
+16/16 [==============================] - 0s 22ms/step - loss: 0.0764
 Epoch 49/100
-16/16 [==============================] - 4s 238ms/step - loss: 0.0776
+16/16 [==============================] - 0s 24ms/step - loss: 0.0772
 Epoch 50/100
-16/16 [==============================] - 4s 273ms/step - loss: 0.0691
+16/16 [==============================] - 0s 22ms/step - loss: 0.0713
 Epoch 51/100
-16/16 [==============================] - 4s 271ms/step - loss: 0.0714
+16/16 [==============================] - 0s 22ms/step - loss: 0.0720
 Epoch 52/100
-16/16 [==============================] - 7s 439ms/step - loss: 0.0704
+16/16 [==============================] - 0s 23ms/step - loss: 0.0729
 Epoch 53/100
-16/16 [==============================] - 4s 248ms/step - loss: 0.0714
+16/16 [==============================] - 0s 22ms/step - loss: 0.0715
 Epoch 54/100
-16/16 [==============================] - 4s 262ms/step - loss: 0.0693
+16/16 [==============================] - 0s 22ms/step - loss: 0.0733
 Epoch 55/100
-16/16 [==============================] - 4s 279ms/step - loss: 0.0767
+16/16 [==============================] - 0s 22ms/step - loss: 0.0752
 Epoch 56/100
-16/16 [==============================] - 4s 274ms/step - loss: 0.0751
+16/16 [==============================] - 0s 22ms/step - loss: 0.0717
 Epoch 57/100
-16/16 [==============================] - 5s 286ms/step - loss: 0.0725
+16/16 [==============================] - 0s 22ms/step - loss: 0.0693
 Epoch 58/100
-16/16 [==============================] - 4s 275ms/step - loss: 0.0720
+16/16 [==============================] - 0s 22ms/step - loss: 0.0714
 Epoch 59/100
-16/16 [==============================] - 4s 253ms/step - loss: 0.0682
+16/16 [==============================] - 0s 22ms/step - loss: 0.0706
 Epoch 60/100
-16/16 [==============================] - 4s 241ms/step - loss: 0.0680
+16/16 [==============================] - 0s 22ms/step - loss: 0.0689
 Epoch 61/100
-16/16 [==============================] - 2s 136ms/step - loss: 0.0683
+16/16 [==============================] - 1s 42ms/step - loss: 0.0693
 Epoch 62/100
-16/16 [==============================] - 1s 84ms/step - loss: 0.0723
+16/16 [==============================] - 0s 23ms/step - loss: 0.0677
 Epoch 63/100
-16/16 [==============================] - 1s 48ms/step - loss: 0.0669
+16/16 [==============================] - 0s 23ms/step - loss: 0.0735
 Epoch 64/100
-16/16 [==============================] - 1s 46ms/step - loss: 0.0665
+16/16 [==============================] - 0s 23ms/step - loss: 0.0690
 Epoch 65/100
-16/16 [==============================] - 1s 49ms/step - loss: 0.0663
+16/16 [==============================] - 0s 22ms/step - loss: 0.0675
 Epoch 66/100
-16/16 [==============================] - 1s 45ms/step - loss: 0.0684
+16/16 [==============================] - 0s 22ms/step - loss: 0.0665
 Epoch 67/100
-16/16 [==============================] - 1s 51ms/step - loss: 0.0648
+16/16 [==============================] - 0s 22ms/step - loss: 0.0694
 Epoch 68/100
-16/16 [==============================] - 1s 46ms/step - loss: 0.0682
+16/16 [==============================] - 0s 22ms/step - loss: 0.0667
 Epoch 69/100
-16/16 [==============================] - 1s 49ms/step - loss: 0.0598
+16/16 [==============================] - 0s 23ms/step - loss: 0.0633
 Epoch 70/100
-16/16 [==============================] - 1s 45ms/step - loss: 0.0650
+16/16 [==============================] - 0s 23ms/step - loss: 0.0767
 Epoch 71/100
-16/16 [==============================] - 1s 51ms/step - loss: 0.0612
+16/16 [==============================] - 0s 22ms/step - loss: 0.0947
 Epoch 72/100
-16/16 [==============================] - 1s 48ms/step - loss: 0.0637
+16/16 [==============================] - 0s 23ms/step - loss: 0.0671
 Epoch 73/100
-16/16 [==============================] - 1s 50ms/step - loss: 0.0596
+16/16 [==============================] - 0s 22ms/step - loss: 0.0752
 Epoch 74/100
-16/16 [==============================] - 1s 46ms/step - loss: 0.0624
+16/16 [==============================] - 0s 22ms/step - loss: 0.0647
 Epoch 75/100
-16/16 [==============================] - 1s 47ms/step - loss: 0.0567
+16/16 [==============================] - 0s 22ms/step - loss: 0.0648
 Epoch 76/100
-16/16 [==============================] - 1s 47ms/step - loss: 0.0630
+16/16 [==============================] - 0s 24ms/step - loss: 0.0630
 Epoch 77/100
-16/16 [==============================] - 1s 45ms/step - loss: 0.0527
+16/16 [==============================] - 0s 22ms/step - loss: 0.0628
 Epoch 78/100
-16/16 [==============================] - 1s 46ms/step - loss: 0.0655
+16/16 [==============================] - 0s 22ms/step - loss: 0.0614
 Epoch 79/100
-16/16 [==============================] - 1s 48ms/step - loss: 0.0617
+16/16 [==============================] - 0s 22ms/step - loss: 0.0588
 Epoch 80/100
-16/16 [==============================] - 1s 47ms/step - loss: 0.0584
+16/16 [==============================] - 0s 22ms/step - loss: 0.0578
 Epoch 81/100
-16/16 [==============================] - 1s 49ms/step - loss: 0.0555
+16/16 [==============================] - 0s 22ms/step - loss: 0.0566
 Epoch 82/100
-16/16 [==============================] - 1s 47ms/step - loss: 0.0583
+16/16 [==============================] - 0s 22ms/step - loss: 0.0580
 Epoch 83/100
-16/16 [==============================] - 1s 49ms/step - loss: 0.0495
+16/16 [==============================] - 0s 22ms/step - loss: 0.0588
 Epoch 84/100
-16/16 [==============================] - 1s 47ms/step - loss: 0.0466
+16/16 [==============================] - 0s 22ms/step - loss: 0.0536
 Epoch 85/100
-16/16 [==============================] - 1s 46ms/step - loss: 0.0554
+16/16 [==============================] - 0s 22ms/step - loss: 0.0552
 Epoch 86/100
-16/16 [==============================] - 1s 50ms/step - loss: 0.0468
+16/16 [==============================] - 0s 22ms/step - loss: 0.0562
 Epoch 87/100
-16/16 [==============================] - 1s 46ms/step - loss: 0.0462
+16/16 [==============================] - 0s 25ms/step - loss: 0.0664
 Epoch 88/100
-16/16 [==============================] - 1s 48ms/step - loss: 0.0565
+16/16 [==============================] - 0s 23ms/step - loss: 0.0589
 Epoch 89/100
-16/16 [==============================] - 1s 44ms/step - loss: 0.0789
+16/16 [==============================] - 0s 22ms/step - loss: 0.0532
 Epoch 90/100
-16/16 [==============================] - 1s 52ms/step - loss: 0.0693
+16/16 [==============================] - 0s 22ms/step - loss: 0.0508
 Epoch 91/100
-16/16 [==============================] - 1s 55ms/step - loss: 0.0551
+16/16 [==============================] - 0s 22ms/step - loss: 0.0513
 Epoch 92/100
-16/16 [==============================] - 1s 57ms/step - loss: 0.0522
+16/16 [==============================] - 0s 22ms/step - loss: 0.0489
 Epoch 93/100
-16/16 [==============================] - 1s 62ms/step - loss: 0.0487
+16/16 [==============================] - 0s 22ms/step - loss: 0.0463
 Epoch 94/100
-16/16 [==============================] - 1s 56ms/step - loss: 0.0483
+16/16 [==============================] - 0s 25ms/step - loss: 0.0490
 Epoch 95/100
-16/16 [==============================] - 1s 69ms/step - loss: 0.0449
+16/16 [==============================] - 0s 22ms/step - loss: 0.0461
 Epoch 96/100
-16/16 [==============================] - 1s 53ms/step - loss: 0.0449
+16/16 [==============================] - 0s 22ms/step - loss: 0.0480
 Epoch 97/100
-16/16 [==============================] - 1s 45ms/step - loss: 0.0472
+16/16 [==============================] - 0s 22ms/step - loss: 0.0482
 Epoch 98/100
-16/16 [==============================] - 1s 48ms/step - loss: 0.0447
+16/16 [==============================] - 0s 22ms/step - loss: 0.0536
 Epoch 99/100
-16/16 [==============================] - 1s 47ms/step - loss: 0.0509
+16/16 [==============================] - 0s 22ms/step - loss: 0.0432
 Epoch 100/100
-16/16 [==============================] - 1s 47ms/step - loss: 0.0439
+16/16 [==============================] - 0s 22ms/step - loss: 0.0573
 </pre>
 </div>
 </div>
@@ -18019,7 +17965,7 @@ Epoch 100/100
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.callbacks.History at 0x7fbec36d1a90&gt;</pre>
+<pre>&lt;keras.callbacks.callbacks.History at 0x7fee5aa98b90&gt;</pre>
 </div>
 
 </div>
@@ -18086,7 +18032,7 @@ Epoch 100/100
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fbea017e910&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fee6c20aa50&gt;]</pre>
 </div>
 
 </div>
@@ -18099,7 +18045,7 @@ Epoch 100/100
 
 
 <div class="output_png output_subarea ">
-<img src="output_168_1.png"
+<img src="output_174_1.png"
 >
 </div>
 
@@ -18257,14 +18203,14 @@ Epoch 100/100
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[array([0.45778683], dtype=float32),
- array([0.6885685], dtype=float32),
- array([0.9778905], dtype=float32),
- array([1.1875604], dtype=float32),
- array([0.9594357], dtype=float32),
- array([0.25748938], dtype=float32),
- array([0.19613841], dtype=float32),
- array([0.36290795], dtype=float32)]</pre>
+<pre>[array([0.30769038], dtype=float32),
+ array([0.4280029], dtype=float32),
+ array([0.55284894], dtype=float32),
+ array([0.58208543], dtype=float32),
+ array([0.66887414], dtype=float32),
+ array([0.48585978], dtype=float32),
+ array([0.4140136], dtype=float32),
+ array([0.41893739], dtype=float32)]</pre>
 </div>
 
 </div>
@@ -18310,14 +18256,14 @@ Epoch 100/100
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[2649591.6647506 ],
-       [3693450.99117829],
-       [5002097.04068065],
-       [5950465.05623423],
-       [4918623.31028926],
-       [1743616.85699537],
-       [1466117.38835234],
-       [2220440.52401337]])</pre>
+<pre>array([[1970683.35905831],
+       [2514874.54844717],
+       [3079571.55765895],
+       [3211812.52747061],
+       [3604370.64720503],
+       [2776569.76171499],
+       [2451598.88882101],
+       [2473869.91841634]])</pre>
 </div>
 
 </div>
@@ -18397,7 +18343,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_179_0.png"
+<img src="output_185_0.png"
 >
 </div>
 
@@ -18439,7 +18385,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_180_0.png"
+<img src="output_186_0.png"
 >
 </div>
 
@@ -18478,7 +18424,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>mse 7.29665e+12
+<pre>mse 2.34703e+12
 </pre>
 </div>
 </div>
@@ -18536,42 +18482,42 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
     <tr>
       <th>2017-05-01</th>
       <td>832191.8000</td>
-      <td>2649591.6648</td>
+      <td>1970683.3591</td>
     </tr>
     <tr>
       <th>2017-06-01</th>
       <td>905690.5000</td>
-      <td>3693450.9912</td>
+      <td>2514874.5484</td>
     </tr>
     <tr>
       <th>2017-07-01</th>
       <td>1240611.7000</td>
-      <td>5002097.0407</td>
+      <td>3079571.5577</td>
     </tr>
     <tr>
       <th>2017-08-01</th>
       <td>1307715.0000</td>
-      <td>5950465.0562</td>
+      <td>3211812.5275</td>
     </tr>
     <tr>
       <th>2017-09-01</th>
       <td>1590959.3000</td>
-      <td>4918623.3103</td>
+      <td>3604370.6472</td>
     </tr>
     <tr>
       <th>2017-10-01</th>
       <td>1269731.6000</td>
-      <td>1743616.8570</td>
+      <td>2776569.7617</td>
     </tr>
     <tr>
       <th>2017-11-01</th>
       <td>1491095.8000</td>
-      <td>1466117.3884</td>
+      <td>2451598.8888</td>
     </tr>
     <tr>
       <th>2017-12-01</th>
       <td>1676201.4000</td>
-      <td>2220440.5240</td>
+      <td>2473869.9184</td>
     </tr>
   </tbody>
 </table>
@@ -18630,6 +18576,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
       <th>Model name</th>
       <th>MAE</th>
       <th>Best para</th>
+      <th>mse</th>
     </tr>
   </thead>
   <tbody>
@@ -18638,30 +18585,35 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
       <td>SARIMA with auto_arima</td>
       <td>290493316389.1049</td>
       <td>(0,0,1),(0,0,1,12)</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>0</th>
       <td>SARIMA with Grid Search</td>
-      <td>57961923350.2968</td>
+      <td>NaN</td>
       <td>(1, 0, 0),(1, 0, 1, 4)</td>
+      <td>57961923350.2968</td>
     </tr>
     <tr>
       <th>0</th>
       <td>SARIMAX with Grid Search</td>
-      <td>31390066067.7888</td>
+      <td>NaN</td>
       <td>(2, 1, 2) (2, 0, 1, 12)</td>
+      <td>31390066067.7888</td>
     </tr>
     <tr>
       <th>0</th>
       <td>Facebook's Prophet</td>
-      <td>1009771003677.5349</td>
+      <td>NaN</td>
       <td>None</td>
+      <td>1009771003677.5349</td>
     </tr>
     <tr>
       <th>0</th>
       <td>RNN</td>
-      <td>7296648253089.4648</td>
+      <td>NaN</td>
       <td>None</td>
+      <td>2347028103948.2949</td>
     </tr>
   </tbody>
 </table>
@@ -18748,7 +18700,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_189_0.png"
+<img src="output_195_0.png"
 >
 </div>
 
@@ -18780,7 +18732,7 @@ Freq: MS, Name: totalSales, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="prompt input_prompt">In&nbsp;[108]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../data&#39;</span>
