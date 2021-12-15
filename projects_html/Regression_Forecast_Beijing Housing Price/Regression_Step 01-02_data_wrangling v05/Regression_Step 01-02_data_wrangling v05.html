@@ -13151,7 +13151,7 @@ $( document ).ready(function(){
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Abstract">Abstract<a class="anchor-link" href="#Abstract">&#182;</a></h2><p>Machine learning applications have evolved in the fields of ranging from Natural Language Processing to the vast majority of business functions, one of which is taking place in a real estate field. While machine learning does not take over the real estate professinoals tasks, it will help people perform complicated task especially realted to a realtively large amount of data.</p>
-<h2 id="Objectiives">Objectiives<a class="anchor-link" href="#Objectiives">&#182;</a></h2><p>This project focuses on quantitative data science and mainly aims to perform two goals. One is to predict housing price based on multiple variables such as room size or building types etc. The other is to forecast sales of a real estate company.</p>
+<h2 id="Objectives">Objectives<a class="anchor-link" href="#Objectives">&#182;</a></h2><p>This project focuses on quantitative data science and mainly aims to perform two goals. One is to predict housing price based on multiple variables such as room size or building types etc. The other is to forecast sales of a real estate company.</p>
 
 </div>
 </div>
@@ -13203,6 +13203,54 @@ Community average price.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Categories-Assignement">Categories Assignement<a class="anchor-link" href="#Categories-Assignement">&#182;</a></h1><p>According to <a href='https://www.kaggle.com/eraw0x/house-prices-in-beijing-eda-arima'>this page</a>, the category labels can be decoded as foloowing, but in this project we go ahead with the original encoded dataset.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(buildingType == 1 ~ "Tower",
+buildingType == 2 ~ "Bungalow",
+buildingType == 3 ~ "Plate/Tower",
+buildingType == 4 ~ "Plate")</p>
+<p>(renovationCondition == 1 ~ "Other",
+renovationCondition == 2 ~ "Rough",
+renovationCondition == 3 ~ "Simplicity",
+renovationCondition == 4 ~ "Hardcover")</p>
+<p>(buildingStructure == 1 ~ "Unavailable",
+buildingStructure == 2 ~ "Mixed",
+buildingStructure == 3 ~ "Brick/Wood",
+buildingStructure == 4 ~ "Brick/Concrete",
+buildingStructure == 5 ~ "Steel",
+buildingStructure == 6 ~ "Steel/Concrete")</p>
+<p>(elevator == 1 ~ "Has_Elevator",
+elevator != 1 ~ "No_elevator"))</p>
+<p>(subway == 1 ~ "Has_Subway",
+subway != 1 ~ "No_Subway")</p>
+<p>(fiveYearsProperty == 1 ~ "Ownership &lt; 5y",
+fiveYearsProperty != 1 ~ "Ownership &gt; 5y")</p>
+<p>(district == 1 ~ "DongCheng",
+district == 2 ~ "FengTai",
+district == 3 ~ "DaXing",
+district == 4 ~ "FaXing",
+district == 5 ~ "FangShang",
+district == 6 ~ "ChangPing",
+district == 7 ~ "ChaoYang",
+district == 8 ~ "HaiDian",
+district == 9 ~ "ShiJingShan",
+district == 10 ~ "XiCheng",
+district == 11 ~ "TongZhou",
+district == 12 ~ "ShunYi",
+district == 13 ~ "MenTouGou"))</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>This notebook is data wrangling part of a self projects of Housing price in Beijing.</p>
 
 </div>
@@ -13218,6 +13266,20 @@ from sklearn, import LinearRegression</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -15113,19 +15175,6 @@ Separate them into two of new columns.</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15469,7 +15518,7 @@ dtype: float64
 
 
 <div class="output_png output_subarea ">
-<img src="output_68_1.png"
+<img src="output_70_1.png"
 >
 </div>
 
@@ -16659,7 +16708,7 @@ dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_96_1.png"
+<img src="output_98_1.png"
 >
 </div>
 
