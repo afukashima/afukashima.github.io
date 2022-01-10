@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Recom_Step 04_Collaborative Filtering v03</title>
+<title>Recom_Step 01_Problem Statement</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13128,7 +13128,7 @@ div#notebook {
 <script>
 $( document ).ready(function(){
 
-            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "251.504px"}, "toc_section_display": true, "toc_window_display": false};
+            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "235.293px"}, "toc_section_display": true, "toc_window_display": false};
 
             // fire the main function with these parameters
             require(['nbextensions/toc2/toc2'], function (toc2) {
@@ -13143,29 +13143,15 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Regression_Step-04-Collaborative-Filtering">Regression_Step 04 Collaborative Filtering<a class="anchor-link" href="#Regression_Step-04-Collaborative-Filtering">&#182;</a></h1>
+<h1 id="Step-01_Introduction">Step 01_Introduction<a class="anchor-link" href="#Step-01_Introduction">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this step, we eventually make a simple recommendation system using Collaborative Filtering.</p>
-<blockquote><p>Collaborative recommender systems focus on the attributes of the items and give you recommendations based on the similarity between them.</p>
-</blockquote>
-<p>The data is from the previous step, and specifically speaking, the steps for this recommendation system are as follwoing.</p>
-<ol>
-<li>define a target reeviewer</li>
-<li>find specific movies that have been watched by other reviewers who watched the same movies as the target reviewer has watched</li>
-<li>filter out the specific movies using any metric such as movie_score or overall score. The threshold can be arbitrally set.</li>
-</ol>
+<h2 id="Context">Context<a class="anchor-link" href="#Context">&#182;</a></h2><p>Filming market is great interest all the time. As time passes, the competition has become more fierce than ever, and the survival competition among the productions and film‐distributing agencies has become fierce. In this situation, improving the quality of the movie itself is not enough to maintain their current market  status, and another factor they may have to invest their resources is digital market.</p>
+<h2 id="Criteria-for-success">Criteria for success<a class="anchor-link" href="#Criteria-for-success">&#182;</a></h2><p>The objectives in this project is to provide the recommendation of the products based on the existing customer experience.</p>
 
 </div>
 </div>
@@ -13173,7 +13159,34 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Imports">Imports<a class="anchor-link" href="#Imports">&#182;</a></h1>
+<h1 id="Source-of-a-data-set">Source of a data set<a class="anchor-link" href="#Source-of-a-data-set">&#182;</a></h1><p>Source: Amazon review data (2018)
+<a href="http://deepyeti.ucsd.edu/jianmo/amazon/index.html">http://deepyeti.ucsd.edu/jianmo/amazon/index.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Major-features-and-labels">Major features and labels<a class="anchor-link" href="#Major-features-and-labels">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>asin: Amazon Standard Identification Number. This string uniquely identifies a product and can be treated as the product ID.</li>
+<li>reviewerID: The unique ident for each customer</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Import">Import<a class="anchor-link" href="#Import">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13198,242 +13211,17 @@ $( document ).ready(function(){
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-
-<span class="kn">from</span> <span class="nn">library.sb_utils</span> <span class="kn">import</span> <span class="n">save_file</span>
-
-<span class="c1"># For normalization</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span>
-
-<span class="c1"># For metrics</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span><span class="n">mean_absolute_error</span><span class="p">,</span><span class="n">explained_variance_score</span>
-
 <span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">library.sb_utils</span> <span class="kn">import</span> <span class="n">save_file</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Set-parameters">Set parameters<a class="anchor-link" href="#Set-parameters">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># answer = input(&quot;Revise or Create a model? Enter Yes (y) or No (n): &quot;) </span>
-<span class="c1"># if answer == &quot;y&quot;: </span>
-<span class="c1">#     willReviseFlag = True</span>
-<span class="c1"># elif answer == &quot;n&quot;: </span>
-<span class="c1">#     willReviseFlag = False</span>
-<span class="c1"># else: </span>
-<span class="c1">#     print(&quot;Please enter yes or no.&quot;)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># random seed</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-
-
-<span class="c1"># model file location</span>
-<span class="n">modelfilepath</span> <span class="o">=</span> <span class="s1">&#39;../models&#39;</span> <span class="c1"># old name was modelpath</span>
-
-<span class="k">def</span> <span class="nf">save_CVmodel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">modelname</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="p">):</span>
-    <span class="c1"># Set the model info</span>
-    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">sklearn_version</span>
-    <span class="kn">import</span> <span class="nn">datetime</span>
-    
-    <span class="n">best_model</span> <span class="o">=</span> <span class="n">model</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">pandas_version</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">numpy_version</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">sklearn_version</span> <span class="o">=</span> <span class="n">sklearn_version</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">X_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">build_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-
-    <span class="c1"># save the model</span>
-    <span class="n">save_file</span><span class="p">(</span><span class="n">best_model</span><span class="p">,</span><span class="n">modelname</span><span class="p">,</span> <span class="n">modelfilepath</span><span class="p">)</span>
-    
-<span class="k">def</span> <span class="nf">saveFunc</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">model</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">revisedFlag</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
-        <span class="n">save_CVmodel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">model_path</span><span class="p">[</span><span class="mi">10</span><span class="p">:],</span><span class="n">modelfilepath</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The model was Not revised&#39;</span><span class="p">)</span>
-        
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set the number of display</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># or 199</span>
-
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://github.com/jbmouret/matplotlib_for_papers/blob/master/src/plot_variance_matplotlib_white.py</span>
-<span class="k">def</span> <span class="nf">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
-    <span class="c1"># Delete unnecessary lines</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># Remove frame color</span>
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
-        <span class="n">frame</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
-        <span class="n">frame</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">pass</span>
-
-    <span class="c1"># y axis grid line</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add the metrics to the ModelComparison</span>
-<span class="k">def</span> <span class="nf">addModel</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">model</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="c1"># Set a variable for Best para</span>
-    <span class="k">if</span> <span class="n">model</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">Best_para</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">best_params_</span> 
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">Best_para</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    
-    <span class="n">df2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">&#39;Model name&#39;</span><span class="p">:</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-                        <span class="s1">&#39;MAE&#39;</span><span class="p">:</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">),</span>
-                        <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">)),</span>
-                        <span class="s1">&#39;Explained_variance_score&#39;</span><span class="p">:</span><span class="n">explained_variance_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">),</span>
-                        <span class="s1">&#39;Best para&#39;</span><span class="p">:</span> <span class="n">Best_para</span><span class="p">,</span>
-                      <span class="p">}</span> 
-                    <span class="p">])</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span><span class="n">df2</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define a function to load an existing model</span>
-<span class="k">def</span> <span class="nf">load_CVmodel</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span><span class="n">expected_model_version</span> <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span><span class="p">):</span>
-    <span class="kn">import</span> <span class="nn">pickle</span>
-    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">sklearn_version</span>
-    
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected model version has been loaded&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">version</span> <span class="o">!=</span> <span class="n">expected_model_version</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected model version doesn&#39;t matc h version loaded&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">sklearn_version</span> <span class="o">!=</span> <span class="n">sklearn_version</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: model created under different sklearn version&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">model</span>
-
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected model not found. Run the model fit&quot;</span><span class="p">)</span>
-        
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">set_config</span>
-
-<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pdb</span> 1
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Automatic pdb calling has been turned ON
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13447,16 +13235,100 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set the number of display</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+</pre></div>
 
-<span class="o">%</span><span class="k">pdb</span> 0
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Objective">Objective<a class="anchor-link" href="#Objective">&#182;</a></h1><p>The goal of this project is to create Hybrid Recommendation System</p>
+<p>In this notebook, we wrangle data and make data ready for EDA, which will be the next step.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>xxx</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Load-data">Load data<a class="anchor-link" href="#Load-data">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load in the data</span>
+<span class="n">metaPath</span> <span class="o">=</span> <span class="s1">&#39;../data/meta_Movies_and_TV.json.gz&#39;</span>
+<span class="n">reviewPath</span> <span class="o">=</span> <span class="s1">&#39;../data/Movies_and_TV.json.gz&#39;</span>
+
+<span class="c1"># http://deepyeti.ucsd.edu/jianmo/amazon/categoryFilesSmal/Movies_and_TV_5.json.gz</span>
+<span class="c1"># http://deepyeti.ucsd.edu/jianmo/amazon/categoryFilesSmall/Movies_and_TV.csv</span>
+
+
+<span class="n">metaData</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">reviewData</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">metaPath</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">metaData</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+
+<span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">reviewPath</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">reviewData</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert list into pandas dataframe</span>
+
+<span class="n">meta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">metaData</span><span class="p">)</span>
+<span class="n">meta</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13473,7 +13345,32 @@ $( document ).ready(function(){
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Automatic pdb calling has been turned OFF
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 203766 entries, 0 to 203765
+Data columns (total 19 columns):
+ #   Column           Non-Null Count   Dtype 
+---  ------           --------------   ----- 
+ 0   category         203766 non-null  object
+ 1   tech1            203766 non-null  object
+ 2   description      203766 non-null  object
+ 3   fit              203766 non-null  object
+ 4   title            203766 non-null  object
+ 5   also_buy         203766 non-null  object
+ 6   tech2            203766 non-null  object
+ 7   brand            203766 non-null  object
+ 8   feature          203766 non-null  object
+ 9   rank             203766 non-null  object
+ 10  also_view        203766 non-null  object
+ 11  main_cat         203766 non-null  object
+ 12  similar_item     203766 non-null  object
+ 13  date             203766 non-null  object
+ 14  price            203766 non-null  object
+ 15  asin             203766 non-null  object
+ 16  imageURL         203766 non-null  object
+ 17  imageURLHighRes  203766 non-null  object
+ 18  details          195392 non-null  object
+dtypes: object(19)
+memory usage: 29.5+ MB
 </pre>
 </div>
 </div>
@@ -13484,31 +13381,267 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://github.com/jbmouret/matplotlib_for_papers/blob/master/src/plot_variance_matplotlib_white.py</span>
-<span class="k">def</span> <span class="nf">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
-    <span class="c1"># Delete unnecessary lines</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert list into pandas dataframe</span>
 
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># Remove frame color</span>
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
-        <span class="n">frame</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
-        <span class="n">frame</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">pass</span>
-
-    <span class="c1"># y axis grid line</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    
+<span class="n">review</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">reviewData</span><span class="p">)</span>
+<span class="n">review</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 8765568 entries, 0 to 8765567
+Data columns (total 12 columns):
+ #   Column          Dtype  
+---  ------          -----  
+ 0   overall         float64
+ 1   verified        bool   
+ 2   reviewTime      object 
+ 3   reviewerID      object 
+ 4   asin            object 
+ 5   style           object 
+ 6   reviewerName    object 
+ 7   reviewText      object 
+ 8   summary         object 
+ 9   unixReviewTime  int64  
+ 10  vote            object 
+ 11  image           object 
+dtypes: bool(1), float64(1), int64(1), object(9)
+memory usage: 744.0+ MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category</th>
+      <th>tech1</th>
+      <th>description</th>
+      <th>fit</th>
+      <th>title</th>
+      <th>also_buy</th>
+      <th>tech2</th>
+      <th>brand</th>
+      <th>feature</th>
+      <th>rank</th>
+      <th>also_view</th>
+      <th>main_cat</th>
+      <th>similar_item</th>
+      <th>date</th>
+      <th>price</th>
+      <th>asin</th>
+      <th>imageURL</th>
+      <th>imageURLHighRes</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[Movies &amp; TV, Movies]</td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td>Understanding Seizures and Epilepsy</td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>886,503 in Movies &amp; TV (</td>
+      <td>[]</td>
+      <td>Movies &amp; TV</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0000695009</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[Movies &amp; TV, Movies]</td>
+      <td></td>
+      <td>[]</td>
+      <td></td>
+      <td>Spirit Led&amp;mdash;Moving By Grace In The Holy S...</td>
+      <td>[]</td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>342,688 in Movies &amp; TV (</td>
+      <td>[]</td>
+      <td>Movies &amp; TV</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0000791156</td>
+      <td>[https://images-na.ssl-images-amazon.com/image...</td>
+      <td>[https://images-na.ssl-images-amazon.com/image...</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">review</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>overall</th>
+      <th>verified</th>
+      <th>reviewTime</th>
+      <th>reviewerID</th>
+      <th>asin</th>
+      <th>style</th>
+      <th>reviewerName</th>
+      <th>reviewText</th>
+      <th>summary</th>
+      <th>unixReviewTime</th>
+      <th>vote</th>
+      <th>image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.0000</td>
+      <td>True</td>
+      <td>03 11, 2013</td>
+      <td>A3478QRKQDOPQ2</td>
+      <td>0001527665</td>
+      <td>{'Format:': ' VHS Tape'}</td>
+      <td>jacki</td>
+      <td>really happy they got evangelised .. spoiler a...</td>
+      <td>great</td>
+      <td>1362960000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.0000</td>
+      <td>True</td>
+      <td>02 18, 2013</td>
+      <td>A2VHSG6TZHU1OB</td>
+      <td>0001527665</td>
+      <td>{'Format:': ' Amazon Video'}</td>
+      <td>Ken P</td>
+      <td>Having lived in West New Guinea (Papua) during...</td>
+      <td>Realistic and Accurate</td>
+      <td>1361145600</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13516,17 +13649,119 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Load-Data">Load Data<a class="anchor-link" href="#Load-Data">&#182;</a></h1>
+<h1 id="Extract-only-the-necessary-data">Extract only the necessary data<a class="anchor-link" href="#Extract-only-the-necessary-data">&#182;</a></h1><p>Among the data, the columns necessary for recommendation system are those which may contribute predictive information to how a given user might rate an item.</p>
+<ul>
+<li><p>meta data</p>
+<ul>
+<li>category</li>
+<li>description</li>
+<li>title</li>
+<li>brand</li>
+<li>asin</li>
+<li>and the others</li>
+</ul>
+</li>
+<li><p>review data</p>
+<ul>
+<li>overall</li>
+<li>reviewTime</li>
+<li>reviewerID</li>
+<li>asis</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # make a small size dataframe of meta</span>
+<span class="c1"># dfm = meta[[</span>
+<span class="c1">#     &#39;category&#39;,</span>
+<span class="c1">#     &#39;description&#39;,</span>
+<span class="c1">#     &#39;title&#39;,</span>
+<span class="c1">#     &#39;brand&#39;,</span>
+<span class="c1">#     &#39;asin&#39;,</span>
+<span class="c1"># ]]</span>
+
+
+<span class="c1"># For meta data, we use raw data</span>
+<span class="n">dfm</span> <span class="o">=</span> <span class="n">meta</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># make a small size dataframe of review</span>
+<span class="n">dfr</span> <span class="o">=</span> <span class="n">review</span><span class="p">[[</span>
+    <span class="s1">&#39;overall&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;reviewTime&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;reviewerID&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;asin&#39;</span><span class="p">,</span>
+<span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">gc</span>
+
+<span class="k">del</span> <span class="n">meta</span>
+<span class="k">del</span> <span class="n">review</span>
+<span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>63</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/step3_dfm.csv&#39;</span><span class="p">,</span> <span class="n">keep_default_na</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-<span class="n">dfr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/step3_dfr.csv&#39;</span><span class="p">,</span><span class="n">parse_dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;reviewTime&#39;</span><span class="p">],</span> <span class="n">keep_default_na</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert dataframe values to string</span>
+<span class="n">dfm</span> <span class="o">=</span> <span class="n">dfm</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">dfr</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13539,7 +13774,10 @@ $( document ).ready(function(){
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfr</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save the data to a new csv file</span>
+<span class="n">datapath</span> <span class="o">=</span> <span class="s1">&#39;../data&#39;</span>
+<span class="n">save_file</span><span class="p">(</span><span class="n">dfm</span><span class="p">,</span> <span class="s1">&#39;step1_dfm.csv&#39;</span><span class="p">,</span> <span class="n">datapath</span><span class="p">)</span>
+<span class="n">save_file</span><span class="p">(</span><span class="n">dfr</span><span class="p">,</span> <span class="s1">&#39;step1_dfr.csv&#39;</span><span class="p">,</span> <span class="n">datapath</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13556,1281 +13794,16 @@ $( document ).ready(function(){
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 8514315 entries, 0 to 8514314
-Data columns (total 8 columns):
- #   Column              Dtype         
----  ------              -----         
- 0   overall             float64       
- 1   reviewTime          datetime64[ns]
- 2   reviewerID          object        
- 3   asin                object        
- 4   ave_reviewer_rate   int64         
- 5   reviews_totalCount  int64         
- 6   movie_score         int64         
- 7   cat_score           int64         
-dtypes: datetime64[ns](1), float64(1), int64(4), object(2)
-memory usage: 519.7+ MB
+<pre>A file already exists with this name.
+
+Do you want to overwrite? (Y/N)y
+Writing file.  &#34;../data/step1_dfm.csv&#34;
+A file already exists with this name.
+
+Do you want to overwrite? (Y/N)y
+Writing file.  &#34;../data/step1_dfr.csv&#34;
 </pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sort by time</span>
-<span class="n">dfr</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;reviewTime&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-to-use">Data to use<a class="anchor-link" href="#Data-to-use">&#182;</a></h1><p>For the first model, we use the most basic feature, which is movie_score. Here, asin is the unique ID of a product.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># choose the data</span>
-<span class="c1"># movie_rate = dfr[[&#39;reviewerID&#39;,&#39;asin&#39;,&#39;overall&#39;]]</span>
-<span class="n">movie_rate</span> <span class="o">=</span> <span class="n">dfr</span><span class="p">[[</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">,</span><span class="s1">&#39;asin&#39;</span><span class="p">,</span><span class="s1">&#39;overall&#39;</span><span class="p">]]</span>
-
-
-
-<span class="c1"># Convert to appropriate types</span>
-<span class="n">movie_rate</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">movie_rate</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
-<span class="n">movie_rate</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 8514315 entries, 740153 to 8514032
-Data columns (total 3 columns):
- #   Column      Dtype 
----  ------      ----- 
- 0   reviewerID  object
- 1   asin        object
- 2   overall     int64 
-dtypes: int64(1), object(2)
-memory usage: 259.8+ MB
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check the null just in case</span>
-<span class="n">movie_rate</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[17]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">movie_rate</span><span class="p">[</span><span class="s1">&#39;overall&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[18]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>count   8514315.0000
-mean    4.2316      
-std     1.2224      
-min     1.0000      
-25%     4.0000      
-50%     5.0000      
-75%     5.0000      
-max     5.0000      
-Name: overall, dtype: float64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import liblaries for recommendation system</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">surprise</span> <span class="kn">import</span> <span class="n">Reader</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">SVD</span><span class="p">,</span> <span class="n">SVDpp</span><span class="p">,</span> <span class="n">SlopeOne</span><span class="p">,</span> <span class="n">NMF</span><span class="p">,</span> <span class="n">NormalPredictor</span><span class="p">,</span> <span class="n">KNNBaseline</span><span class="p">,</span> <span class="n">KNNBasic</span><span class="p">,</span> <span class="n">KNNWithMeans</span><span class="p">,</span> <span class="n">KNNWithZScore</span><span class="p">,</span> <span class="n">BaselineOnly</span><span class="p">,</span> <span class="n">CoClustering</span><span class="p">,</span> <span class="n">accuracy</span>
-<span class="kn">from</span> <span class="nn">surprise.model_selection</span> <span class="kn">import</span> <span class="n">cross_validate</span><span class="p">,</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">RandomizedSearchCV</span>
-<span class="kn">import</span> <span class="nn">time</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Selection-of-data-size">Selection of data size<a class="anchor-link" href="#Selection-of-data-size">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>No more than 5e5</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A reader is still needed but only the rating_scale param is requiered.</span>
-<span class="n">reader</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">rating_scale</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-
-<span class="c1"># list to store RMSE and sample size</span>
-<span class="n">rmse</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">size_considered</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">runtime_list</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># decide the size list           8522126</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="n">n</span><span class="o">*</span><span class="mi">1000</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">5</span><span class="p">)]:</span>
-
-    <span class="c1"># Set a data size</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">load_from_df</span><span class="p">(</span>
-        <span class="c1">#     movie_rate.sample(i,random_state=42),</span>
-        <span class="c1">#     movie_rate[:i],</span>
-        <span class="n">movie_rate</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">:],</span>
-        <span class="n">reader</span><span class="p">)</span>
-
-
-    <span class="n">size_considered</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-
-
-    <span class="c1">#Split into test and train</span>
-    <span class="n">trainset</span><span class="p">,</span> <span class="n">testset</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">test_size</span> <span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-
-    <span class="c1"># User based collaborative filtering</span>
-    <span class="n">knn</span> <span class="o">=</span> <span class="n">KNNWithMeans</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">sim_options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;pearson_baseline&#39;</span><span class="p">,</span> <span class="s1">&#39;user_based&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span><span class="n">n_job</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-
-
-    <span class="c1"># fit</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-    <span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trainset</span><span class="p">)</span>
-    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-
-    <span class="c1"># predict ratings for the testset</span>
-    <span class="n">knn_pred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">testset</span><span class="p">)</span>
-
-    <span class="c1"># store the RMSE score</span>
-    <span class="n">rmse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="o">.</span><span class="n">rmse</span><span class="p">(</span><span class="n">knn_pred</span><span class="p">))</span>
-
-    <span class="c1"># store the runtime</span>
-    <span class="n">runtime_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span>
-
-
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
-
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-
-<span class="c1"># Effect of Datasize on Accuracy</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">size_considered</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Effect of Datasize on Accuracy&#39;</span><span class="p">)</span>
-
-
-<span class="c1"># Effect of Datasize on Modeling Accuracy (RMSE)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">size_considered</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">runtime_list</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Effect of Datasize on Run time&#39;</span><span class="p">)</span>
-
-<span class="n">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2971
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2639
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2868
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2760
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2942
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2844
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2742
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.3014
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2677
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2866
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2701
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2724
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2743
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2676
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2412
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2556
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2571
-==========
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-RMSE: 1.2563
-==========
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_29_1.png"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Base-model">Base model<a class="anchor-link" href="#Base-model">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set a data size</span>
-<span class="n">i</span> <span class="o">=</span> <span class="mi">30000</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">load_from_df</span><span class="p">(</span><span class="n">movie_rate</span><span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">:],</span><span class="n">reader</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span>
-<span class="c1"># knn was previosuly defined as below </span>
-<span class="n">knn</span> <span class="o">=</span> <span class="n">KNNWithMeans</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-                   <span class="n">sim_options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;pearson_baseline&#39;</span><span class="p">,</span> <span class="s1">&#39;user_based&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-                  <span class="p">)</span>
-
-<span class="c1"># Run 3-fold cross-validation and print results.</span>
-<span class="n">knn_cv</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">measures</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;RMSE&#39;</span><span class="p">],</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 2 µs, sys: 0 ns, total: 2 µs
-Wall time: 6.2 µs
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-Estimating biases using als...
-Computing the pearson_baseline similarity matrix...
-Done computing similarity matrix.
-Evaluating RMSE of algorithm KNNWithMeans on 3 split(s).
-
-                  Fold 1  Fold 2  Fold 3  Mean    Std     
-RMSE (testset)    1.2941  1.2938  1.2597  1.2825  0.0161  
-Fit time          7.18    7.45    7.48    7.37    0.14    
-Test time         0.11    0.10    0.10    0.10    0.00    
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span><span class="o">=</span><span class="p">[]</span>
-
-<span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">knn_cv</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">KNNWithMeans</span><span class="p">())</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Algorithm&#39;</span><span class="p">]))</span>
-<span class="n">stock</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
-
-<span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Algorithm&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;test_rmse&#39;</span><span class="p">)</span>
-<span class="n">ModelComparison</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[23]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>test_rmse</th>
-      <th>fit_time</th>
-      <th>test_time</th>
-    </tr>
-    <tr>
-      <th>Algorithm</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>KNNWithMeans</th>
-      <td>1.2825</td>
-      <td>7.3704</td>
-      <td>0.1040</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Train-other-Memory-Based/Model-Based-Collaborative-filtering">Train other Memory-Based/Model-Based Collaborative filtering<a class="anchor-link" href="#Train-other-Memory-Based/Model-Based-Collaborative-filtering">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Iterate over all algorithms</span>
-<span class="k">for</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="p">[</span><span class="n">KNNWithZScore</span><span class="p">(),</span> <span class="n">SVD</span><span class="p">(),</span> <span class="n">SVDpp</span><span class="p">(),</span> <span class="n">SlopeOne</span><span class="p">(),</span>
-                  <span class="n">NMF</span><span class="p">(),</span> <span class="n">NormalPredictor</span><span class="p">(),</span> <span class="n">BaselineOnly</span><span class="p">(),</span> 
-                  <span class="n">KNNBasic</span><span class="p">(),</span> <span class="n">CoClustering</span><span class="p">(),</span> <span class="n">KNNBaseline</span><span class="p">()]:</span>
-
-    <span class="c1"># Perform cross validation</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">algorithm</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">measures</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;RMSE&#39;</span><span class="p">],</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    
-    
-    <span class="c1"># Get results &amp; append algorithm name</span>
-    <span class="n">tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">algorithm</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Algorithm&#39;</span><span class="p">]))</span>
-    <span class="n">stock</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
-    
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Algorithm&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;test_rmse&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Computing the msd similarity matrix...
-Done computing similarity matrix.
-Computing the msd similarity matrix...
-Done computing similarity matrix.
-Computing the msd similarity matrix...
-Done computing similarity matrix.
-Estimating biases using als...
-Estimating biases using als...
-Estimating biases using als...
-Computing the msd similarity matrix...
-Done computing similarity matrix.
-Computing the msd similarity matrix...
-Done computing similarity matrix.
-Computing the msd similarity matrix...
-Done computing similarity matrix.
-Estimating biases using als...
-Computing the msd similarity matrix...
-Done computing similarity matrix.
-Estimating biases using als...
-Computing the msd similarity matrix...
-Done computing similarity matrix.
-Estimating biases using als...
-Computing the msd similarity matrix...
-Done computing similarity matrix.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[24]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>test_rmse</th>
-      <th>fit_time</th>
-      <th>test_time</th>
-    </tr>
-    <tr>
-      <th>Algorithm</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>SVDpp</th>
-      <td>1.2389</td>
-      <td>136.8147</td>
-      <td>0.0528</td>
-    </tr>
-    <tr>
-      <th>SVD</th>
-      <td>1.2440</td>
-      <td>0.9893</td>
-      <td>0.0378</td>
-    </tr>
-    <tr>
-      <th>KNNBaseline</th>
-      <td>1.2459</td>
-      <td>6.5228</td>
-      <td>0.1995</td>
-    </tr>
-    <tr>
-      <th>BaselineOnly</th>
-      <td>1.2483</td>
-      <td>0.0597</td>
-      <td>0.0348</td>
-    </tr>
-    <tr>
-      <th>KNNWithMeans</th>
-      <td>1.2825</td>
-      <td>7.3704</td>
-      <td>0.1040</td>
-    </tr>
-    <tr>
-      <th>SlopeOne</th>
-      <td>1.2841</td>
-      <td>1.0442</td>
-      <td>0.0442</td>
-    </tr>
-    <tr>
-      <th>KNNWithZScore</th>
-      <td>1.2870</td>
-      <td>6.8908</td>
-      <td>0.1680</td>
-    </tr>
-    <tr>
-      <th>KNNBasic</th>
-      <td>1.2935</td>
-      <td>6.5668</td>
-      <td>0.1241</td>
-    </tr>
-    <tr>
-      <th>CoClustering</th>
-      <td>1.3126</td>
-      <td>1.5562</td>
-      <td>0.0331</td>
-    </tr>
-    <tr>
-      <th>NMF</th>
-      <td>1.3311</td>
-      <td>2.2093</td>
-      <td>0.0524</td>
-    </tr>
-    <tr>
-      <th>NormalPredictor</th>
-      <td>1.6475</td>
-      <td>0.0191</td>
-      <td>0.0541</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="SearchCV-with-the-best-model">SearchCV with the best model<a class="anchor-link" href="#SearchCV-with-the-best-model">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">,</span> <span class="n">Integer</span>
-
-<span class="c1"># Set the search parameter</span>
-<span class="c1"># param_grid = {</span>
-<span class="c1">#     &#39;n_factors&#39;: [n for n in range(15,31)],</span>
-<span class="c1">#     &#39;n_epochs&#39;:  [n for n in range(25,40)],</span>
-<span class="c1">#     &#39;init_mean&#39;:[n for n in np.arange(1,5,0.1)],</span>
-<span class="c1">#     &#39;init_std_dev&#39;:[n for n in np.arange(0,3,0.1)],</span>
-<span class="c1">#     &#39;lr_all&#39;:[n for n in np.arange(0,0.1,0.001)],</span>
-<span class="c1">#     &#39;reg_all&#39;:[n for n in np.arange(0,0.5,0.02)],</span>
-<span class="c1"># }</span>
-
-<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;n_factors&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span>
-    <span class="s1">&#39;n_epochs&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span>
-    <span class="s1">&#39;init_mean&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
-    <span class="s1">&#39;init_std_dev&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span>
-    <span class="s1">&#39;lr_all&#39;</span><span class="p">:[</span><span class="mf">0.003</span><span class="p">,</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.007</span><span class="p">],</span>
-    <span class="s1">&#39;reg_all&#39;</span><span class="p">:[</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.06</span><span class="p">],</span>
-<span class="p">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">surprise.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
-
-<span class="n">sp_rand</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">SVDpp</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">measures</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">],</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">sp_rand</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="c1"># tmp = pd.DataFrame.from_dict(results).mean(axis=0)</span>
-<span class="c1"># tmp = tmp.append(pd.Series([str(algorithm).split(&#39; &#39;)[0].split(&#39;.&#39;)[-1]], index=[&#39;Algorithm&#39;]))</span>
-<span class="c1"># stock.append(tmp)</span>
-
-<span class="n">training_parameters</span> <span class="o">=</span> <span class="n">sp_rand</span><span class="o">.</span><span class="n">best_params</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BEST RMSE: </span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sp_rand</span><span class="o">.</span><span class="n">best_score</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BEST params: </span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">training_parameters</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>BEST RMSE: 	 1.339620243307882
-BEST params: 	 {&#39;n_factors&#39;: 25, &#39;n_epochs&#39;: 30, &#39;init_mean&#39;: 1, &#39;init_std_dev&#39;: 0.1, &#39;lr_all&#39;: 0.005, &#39;reg_all&#39;: 0.06}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>These parameter will be used in the next prediction.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>BEST RMSE:   1.0081786719365071
-BEST params:     {'n_factors': 30, 'n_epochs': 20, 'init_mean': 2, 'init_std_dev': 0.2, 'lr_all': 0.003, 'reg_all': 0.02}
-CPU times: user 2.02 s, sys: 257 ms, total: 2.28 s
-Wall time: 2.85 s</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># print out the best parameter in the form for the next step</span>
-<span class="n">para</span><span class="o">=</span><span class="n">sp_rand</span><span class="o">.</span><span class="n">best_params</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Model-accuracy">Model accuracy<a class="anchor-link" href="#Model-accuracy">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A reader is needed but only the rating_scale param is requiered.</span>
-<span class="n">reader</span> <span class="o">=</span> <span class="n">Reader</span><span class="p">(</span><span class="n">rating_scale</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-
-<span class="c1"># Set a data size</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">load_from_df</span><span class="p">(</span>
-<span class="c1">#     movie_rate.sample(i,random_state=42),</span>
-<span class="c1">#     movie_rate[i:2*i],</span>
-    <span class="n">movie_rate</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">:</span><span class="o">-</span><span class="n">i</span><span class="p">],</span>
-    <span class="n">reader</span><span class="p">)</span>
-
-<span class="c1"># Split into test and train</span>
-<span class="n">trainset</span><span class="p">,</span> <span class="n">testset</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">test_size</span> <span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-
-<span class="c1"># set an algorithm</span>
-<span class="n">sp</span> <span class="o">=</span> <span class="n">SVDpp</span><span class="p">(</span><span class="o">**</span><span class="n">para</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">sp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trainset</span><span class="p">)</span>
-<span class="n">test_pred</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">testset</span><span class="p">)</span>
-<span class="n">accuracy</span><span class="o">.</span><span class="n">rmse</span><span class="p">(</span><span class="n">test_pred</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>RMSE: 1.4442
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[28]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.444175168513792</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">actual_rating</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">user</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">rating</span> <span class="ow">in</span> <span class="n">testset</span><span class="p">:</span>
-    <span class="n">actual_rating</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">test_pred</span><span class="p">:</span>
-    <span class="n">comparison</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">item</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
-
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">dataset</span> <span class="p">[</span><span class="s1">&#39;actual_score&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">actual_rating</span>
-<span class="n">dataset</span> <span class="p">[</span><span class="s1">&#39;predicted_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Actual Rating vs Predicted Rating&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
-<span class="n">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_44_0.png"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Prediction">Prediction<a class="anchor-link" href="#Prediction">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prediction</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;asin&#39;</span><span class="p">:</span> <span class="p">[],</span><span class="s1">&#39;predicted_score&#39;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
-
-<span class="c1"># </span>
-<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">test_pred</span><span class="p">:</span>
-    <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">uid</span><span class="p">)</span>
-    <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;asin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">iid</span><span class="p">)</span>
-    <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;predicted_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">est</span><span class="p">)</span>
-
-<span class="c1">#prediction</span>
-<span class="n">prediction_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>  
-<span class="n">prediction_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[31]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>reviewerID</th>
-      <th>asin</th>
-      <th>predicted_score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>A2Z9W7UHX01CRK</td>
-      <td>B00QKS2DP6</td>
-      <td>3.6748</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>A20EEWWSFMZ1PN</td>
-      <td>B001XRLWLU</td>
-      <td>5.0000</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>A3V7D2S5DCUH5J</td>
-      <td>0790729628</td>
-      <td>5.0000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>A1F1GZJWAID2OA</td>
-      <td>B00EOBB6DQ</td>
-      <td>3.7785</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>A1NJXFQ47QS7LB</td>
-      <td>B00C12ZIN4</td>
-      <td>4.9385</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prediction_df</span><span class="p">[</span><span class="s2">&quot;predicted_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[32]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>count   9000.0000
-mean    4.4858   
-std     0.6034   
-min     1.2741   
-25%     3.9676   
-50%     5.0000   
-75%     5.0000   
-max     5.0000   
-Name: predicted_score, dtype: float64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Collaborative-Filtering">Collaborative Filtering<a class="anchor-link" href="#Collaborative-Filtering">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-
-<span class="c1"># extract the predicted score from the given model</span>
-<span class="k">def</span> <span class="nf">find_predictedScore</span><span class="p">(</span><span class="n">reviewerID</span><span class="p">,</span> <span class="n">asin</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">dfm</span><span class="p">):</span>
-    <span class="n">review_prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="n">reviewerID</span><span class="p">,</span> <span class="n">iid</span><span class="o">=</span><span class="n">asin</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">review_prediction</span><span class="o">.</span><span class="n">est</span>
-
-<span class="c1"># gives details regarding a sain from dfm</span>
-<span class="k">def</span> <span class="nf">find_details</span><span class="p">(</span><span class="n">asin</span><span class="p">,</span> <span class="n">dfm</span><span class="p">):</span>
-    <span class="n">details</span> <span class="o">=</span> <span class="n">dfm</span><span class="p">[</span><span class="n">dfm</span><span class="p">[</span><span class="s1">&#39;asin&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">asin</span><span class="p">][[</span><span class="s1">&#39;asin&#39;</span><span class="p">,</span> <span class="s1">&#39;brand&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]]</span>
-    <span class="k">return</span> <span class="n">details</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span> <span class="o">=</span> <span class="s1">&#39;records&#39;</span><span class="p">)</span>
-
-<span class="c1"># gives the movies that the reviewer has already reviewed</span>
-<span class="k">def</span> <span class="nf">find_reviewed</span><span class="p">(</span><span class="n">reviewerID</span><span class="p">,</span> <span class="n">dfr</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">dfr</span><span class="p">[</span><span class="n">dfr</span><span class="o">.</span><span class="n">reviewerID</span> <span class="o">==</span> <span class="n">reviewerID</span><span class="p">][</span><span class="s1">&#39;asin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
-
-<span class="c1"># filter products that have been already reviewed</span>
-<span class="k">def</span> <span class="nf">filter_asinWill</span><span class="p">(</span><span class="n">asinWill</span><span class="p">,</span> <span class="n">asinWas</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">asinWill</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">asinWill</span><span class="o">.</span><span class="n">asin</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">asinWas</span><span class="p">))]</span>
-
-<span class="c1"># recommend the not-reviewerd but high score movies</span>
-<span class="k">def</span> <span class="nf">scoreBasedRecommendation</span><span class="p">(</span><span class="n">reviewerID</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">dfm</span><span class="p">,</span> <span class="n">reviewDF</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_recs</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
-    <span class="n">asins</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;asin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">asins</span><span class="p">)</span>
-    
-    <span class="n">recs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">asin</span> <span class="ow">in</span> <span class="n">asins</span><span class="p">:</span>
-        <span class="n">rating</span> <span class="o">=</span> <span class="n">find_predictedScore</span><span class="p">(</span><span class="n">reviewerID</span><span class="p">,</span> <span class="n">asin</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">dfm</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">rating</span> <span class="o">&gt;=</span> <span class="n">thresh</span><span class="p">:</span>
-            <span class="n">info</span> <span class="o">=</span> <span class="n">find_details</span><span class="p">(</span><span class="n">asin</span><span class="p">,</span> <span class="n">dfm</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="c1">#             print(len(info))</span>
-            <span class="n">info</span><span class="p">[</span><span class="s1">&#39;est_rating&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rating</span>
-            <span class="n">recs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-<span class="c1">#             print(len(recs))</span>
-            
-    <span class="n">dfRec</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">recs</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;est_rating&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-    <span class="n">filter_asinWill</span><span class="p">(</span><span class="n">dfRec</span><span class="p">,</span> <span class="n">find_reviewed</span><span class="p">(</span><span class="n">reviewerID</span><span class="p">,</span> <span class="n">dfr</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">dfRec</span><span class="p">[:</span><span class="n">max_recs</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># output the recommendation for a user</span>
-<span class="n">scoreBasedRecommendation</span><span class="p">(</span><span class="s1">&#39;A37M6XSQAYXBMD&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="n">dfm</span><span class="p">,</span> <span class="n">dfr</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_recs</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[34]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>asin</th>
-      <th>brand</th>
-      <th>title</th>
-      <th>category</th>
-      <th>description</th>
-      <th>est_rating</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>4077</th>
-      <td>630401709X</td>
-      <td>Jane Fonda</td>
-      <td>They Shoot Horses, Don't They? VHS</td>
-      <td>['Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']</td>
-      <td>["They Shoot Horses Don't They - VHS"]</td>
-      <td>5.0000</td>
-    </tr>
-    <tr>
-      <th>2132</th>
-      <td>B005LAII2Q</td>
-      <td>Jonah Hill</td>
-      <td>The Watch</td>
-      <td>['Studio Specials', '20th Century Fox Home Entertainment', 'Action', 'General']</td>
-      <td>['Four everyday suburban guys come together to form a neighborhood watch group, but only as an excuse to escape their humdrum lives one night a week. But when they accidentally discover that their town has become overrun with aliens posing as ordinary suburbanites, they have no choice but to save their neighborhood -- and the world -- from total extermination.', "As the advances in CGI special effects have continued to keep action-movie audiences roaring for bigger and better displays of digital bombast, a trend in Hollywood comedies has upped the ante in a parallel way. Raunchy, risqu, and just plain filthy humor is standard fare for audiences who like their vulgar laughs as much as their superheroic explosions. The two worlds collide in The Watch, a dirty shoot-'em-up whose comic core counters the extreme sci-fi story of an alien race that can't take a joke. Fortunately, the decidedly non-superhuman heroes battle it out with equal parts punches and punch lines. The first-rate cast is headed by Ben Stiller, who has plenty of experience with filthy humor and big-budget action. He also has the movie-star charisma to bring high concept down to the toilet or the gutter, whichever happens to be funnier. Stiller plays Evan, the upstanding, uptight manager of an Ohio Costco who starts to really care about crime after one of his security guards is brutally murdered. The police can't really be bothered (Will Forte is excellent as a pompous local lawman), so Evan starts a neighborhood watch as a way to take back the night. Unfortunately his recruits turn out to be a less than vigilant vigilante group, with Vince Vaughn as a brawny motor mouth obsessed with protecting his teen daughter, Jonah Hill as an off-kilter arms expert who was rejected by the police academy (for good reason), and the indeterminately ethnic Richard Ayoade (excellent, as he was in the British sitcom The IT Crowd), who's focused only on the kind of action that involves sex and females. The quartet's individual issues are played at maximum laugh-per-minute volume and remain part of the story even after the team realizes their crime problem isn't from the inner city, it's from outer space. Turns out a hive of aliens have commandeered Evan's Costco as a base of operations to dominate humanity. After all, what better place to stage an Earth takeover than a place that has everything? (Costco should get a big-box good sport award for signing off on such wall-to-wall product placement.) The script by Jared Stern, Seth Rogen, and Evan Goldberg (the latter two's brilliant writing career also includes Superbad and The Pineapple Express) is chock-a-block with jokes that touch the penis in nearly every way imaginable. Think masturbation, think Magnum condoms, think vibrant or fruitless bodily fluids and you'll be thinking like the obsessive lugs in The Watch. And it's not just human penises that are made the butt of most of the jokes. In one of many playful plot contrivances, the aliens' genitals become cause for out-of-this-world vulgarity. Apparently Hollywood man-children aren't the only beings in the universe who don't think with their heads. These aliens have a very peculiar Achilles' heel. Here's a hint: it's also nowhere near their feet. And even though this soft spot is their brain, it's not inside their skull. The phallic jokes never let up, but at least most of them are funny. The Watch tries so hard for nonstop laughs that it can't help but yield a high rate of success, especially when the material is worked by such an estimable ensemble of comedy pros. It's clear that director Akiva Schaffer fostered a strong improv vibe on the set (his background is directing shorts on SNL). He's best at capturing a spontaneous sketch-comedy tone that drives the constant one-upsmanship between the filthy, shocking shenanigans of the four leads. They get ample help from the supporting cast. In addition to Will Forte as the disinterested cop, Rosemary DeWitt is terrific as Evan's demanding wife. And in an extended, uncredited cameo Billy Crudup plays the weirdest, most enigmatic creepy-insinuation-guy ever. Talk about hiding a dirty secret! There's an overall hit-or-miss quality of comedy and action in The Watch, though there are plenty more tick marks in the hit column. It's all bad-mannered good fun with the badge of a hard-R rating worn as proudly as a giant splooge of green alien slime. --Ted Fry"]</td>
-      <td>5.0000</td>
-    </tr>
-    <tr>
-      <th>2134</th>
-      <td>B00J4OI1QS</td>
-      <td>Burl Ives</td>
-      <td>20-Movie Western Collection 4</td>
-      <td>['Boxed Sets', 'Westerns']</td>
-      <td>['20-Movie Western Collection 4 DVD Burl Ives, Willie Nelson']</td>
-      <td>5.0000</td>
-    </tr>
-    <tr>
-      <th>2135</th>
-      <td>6304584954</td>
-      <td>Andrea Prodan</td>
-      <td>Bible Collection VHS</td>
-      <td>['Boxed Sets', 'Special Interests', 'Religion &amp; Spirituality']</td>
-      <td>['Witness the frailty, triumph, and glory of Old Testament heroes Abraham, David, Jacob, Joseph, Moses, and Samson and Delilah. Stars include Richard Harris, Dennis Hopper, Elizabeth Hurley, Jonathan Pryce, Barbara Hershey, Leonard Nimoy, and Ben Kingsley. Experience anew the beloved stories you know by heart with this outstanding collection.']</td>
-      <td>5.0000</td>
-    </tr>
-    <tr>
-      <th>5078</th>
-      <td>B000FVQLIO</td>
-      <td>Hugh Laurie</td>
-      <td>House: Season Two</td>
-      <td>['Boxed Sets', 'Drama']</td>
-      <td>['Golden Globe winner Hugh Laurie is on call as sardonic Dr. Gregory House in Season Two of the smash-hit House, television\'s most intelligent and provocative drama. This 6-disc collection features all 24 innovative episodes, exclusive bonus materials and some of today\'s brightest guest stars, including Sela Ward, Ron Livingston, LL Cool J and Cynthia Nixon. Be a part of this medical mystery-solving team as House and his staff take on baffling cases in the gripping show critics are calling "both hilarious and heartbreaking; this could be network TV\'s best current series." - David Kronke, Los Angeles Daily News', 'The overall strength of the second season of House, M.D. proves that its first-year success wasn\'t a fluke. This season starts with Dr. House (Golden Globe winner Hugh Laurie) pursuing his ex-wife Stacy (Sela Ward) and ending with a tragedy that could potentially be deadly for himself and two colleagues. The premise of each show follows a set routine--a patient is brought in with unusual symptoms; House challenges his trio of underlings to diagnose the problem; they treat the patient, usually incorrectly the first few tries; and then at the very last minute--through a revelation that often has little to do with the patient--House figures out what\'s wrong and saves the day. It would be easy for this set up to grow old fast. But because of the smart writing, nuanced acting, and believability of the characters (who\'re often dealing with unbelievable scenarios), the formula works on each of the 24 episodes that aired on Fox during the 2005-2006 season. Viewers have been conditioned by the Marcus Welbys of the TV world to think of doctors as saviors. Even on ER, the most narcissistic physician was selfless at heart. But House is a different breed. When he\'s at an off-track betting parlor and a woman collapses, he doesn\'t miss a beat. Still eying his race on television, he asks, "Is anybody here a doctor?" He\'ll mock a sick patient\'s complaints with a sarcastic, "Boo hoo!" And, if there happens to be a dead body around, he has no qualms about shooting it if he believes that could help diagnose another gun-shot victim.', 'Not that he\'s any more reasonable or compassionate to his boss Cuddy (Lisa Edelstein), his oncologist best friend Wilson (Tony winner Robert Sean Leonard), or his young charges Foreman (Omar Epps), Cameron (Jennifer Morrison), and Chase (Jesse Spencer). He instructs his doctors to break into patients\' homes as if they\'re cat burglars. He does not know the meaning of the phrase "politically correct." But because he spits out insults (as if he has a mild case of Tourette\'s) equally to both his patients and colleagues, the latter never flinch at his constant stream of inappropriateness. When his three young doctors storm into his office to report the declining condition of a patient by blurting out, "We have rectal bleeding," House says, "What? All three of you?" To sensitive Wilson, who is trying to get some work done without being interrupted, House says, "I know you\'re in there. I can hear you caring." And when Foreman\'s father says, "My son says you\'re a manipulative bastard," House replies, "It\'s a pet name. I call him Dr. Bling." Of course House actually does care about his patients, but he views a good bedside manner as the luxury of a doctor who has a healthy patient. But dying patients with seemingly incurable diseases need something more. They need House. --Jae-Ha Kim']</td>
-      <td>5.0000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
 </div>
 
 </div>
@@ -14847,10 +13820,21 @@ Name: predicted_score, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Although the data has as many as 8M, using my laptop, the practical calculation time was limited to only upto 100k.</p>
-<p>The datum for the start of sampling was the latest data. But as seen in the step 03 EDA, there are imbalance in terms of time frame, it is unknown how the datum has affected the accuracy of this model.</p>
-<p>Overall score instead of movie_score has been used as the metric to filter out movies. The moview_score has not been tested yet. It will be interesting to compare the difference in accuracy caused by the different metrics.</p>
-<p>Based on the RMSE as a metric, although the SVDpp ensemble model procides the best performance at the time when I am writing, top 4 are within 0.1 RMSE, which are SVD, KNNBaseline, and Baselineonly. We are using the SVDpp for this collaborative recommendation. The example of recommendation for the model reviwerer, A37M6XSQAYXBMD, is as shown in the section right above, "Collaborative Filtering".</p>
+<ul>
+<li><p>The key processes and findings from this notebook are as follows.</p>
+<ul>
+<li>Original rows in the data: 203766 rows in meta data, 8765568 rows in review data.</li>
+<li>Rows deleted: 0 rows </li>
+</ul>
+</li>
+<li><p>The remaining columnns</p>
+<ul>
+<li>5 columns for meta data, 4 columns for review data.</li>
+</ul>
+</li>
+<li>The review data will be used for analysis, and the meta data is necessary to look up for the details of a product using with asin which is the unique ID of a product.</li>
+<li>The summary and vote have been dropped but they are potentially good features.</li>
+</ul>
 
 </div>
 </div>
