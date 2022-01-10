@@ -13128,7 +13128,7 @@ div#notebook {
 <script>
 $( document ).ready(function(){
 
-            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "251.504px"}, "toc_section_display": true, "toc_window_display": false};
+            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "251.504px"}, "toc_section_display": true, "toc_window_display": true};
 
             // fire the main function with these parameters
             require(['nbextensions/toc2/toc2'], function (toc2) {
@@ -13157,8 +13157,10 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this step, we eventually make a simple recommendation system using Collaborative Filtering.</p>
-<blockquote><p>Collaborative recommender systems focus on the attributes of the items and give you recommendations based on the similarity between them.</p>
+<p>In this step, we eventually make a simple recommendation system using model-based Collaborative Filtering.</p>
+<blockquote><p>Collaborative recommender systems focus on the attributes of the items and give you recommendations based on the similarity between them.
+For the difference in the 
+types of collaborative systems, refer to this website. <a href="https://towardsdatascience.com/various-implementations-of-collaborative-filtering-100385c6dfe0">https://towardsdatascience.com/various-implementations-of-collaborative-filtering-100385c6dfe0</a></p>
 </blockquote>
 <p>The data is from the previous step, and specifically speaking, the steps for this recommendation system are as follwoing.</p>
 <ol>
@@ -13557,7 +13559,7 @@ $( document ).ready(function(){
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 8514315 entries, 0 to 8514314
+RangeIndex: 8507696 entries, 0 to 8507695
 Data columns (total 8 columns):
  #   Column              Dtype         
 ---  ------              -----         
@@ -13570,7 +13572,7 @@ Data columns (total 8 columns):
  6   movie_score         int64         
  7   cat_score           int64         
 dtypes: datetime64[ns](1), float64(1), int64(4), object(2)
-memory usage: 519.7+ MB
+memory usage: 519.3+ MB
 </pre>
 </div>
 </div>
@@ -13632,7 +13634,7 @@ memory usage: 519.7+ MB
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 8514315 entries, 740153 to 8514032
+Int64Index: 8507696 entries, 740153 to 8507413
 Data columns (total 3 columns):
  #   Column      Dtype 
 ---  ------      ----- 
@@ -13640,7 +13642,7 @@ Data columns (total 3 columns):
  1   asin        object
  2   overall     int64 
 dtypes: int64(1), object(2)
-memory usage: 259.8+ MB
+memory usage: 259.6+ MB
 </pre>
 </div>
 </div>
@@ -13707,8 +13709,8 @@ memory usage: 259.8+ MB
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>count   8514315.0000
-mean    4.2316      
+<pre>count   8507696.0000
+mean    4.2315      
 std     1.2224      
 min     1.0000      
 25%     4.0000      
@@ -13842,92 +13844,92 @@ Name: overall, dtype: float64</pre>
 <pre>Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2971
+RMSE: 1.2895
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2639
+RMSE: 1.2653
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2868
+RMSE: 1.2958
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2760
+RMSE: 1.2672
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2942
+RMSE: 1.2614
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2844
+RMSE: 1.2789
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2742
+RMSE: 1.2989
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.3014
+RMSE: 1.2746
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2677
+RMSE: 1.2694
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2866
+RMSE: 1.2776
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2701
+RMSE: 1.2843
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2724
+RMSE: 1.2747
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2743
+RMSE: 1.2733
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2676
+RMSE: 1.2761
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2412
+RMSE: 1.2635
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2556
+RMSE: 1.2586
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2571
+RMSE: 1.2584
 ==========
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
-RMSE: 1.2563
+RMSE: 1.2574
 ==========
 </pre>
 </div>
@@ -14003,7 +14005,7 @@ RMSE: 1.2563
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>CPU times: user 2 µs, sys: 0 ns, total: 2 µs
-Wall time: 6.2 µs
+Wall time: 5.96 µs
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
@@ -14016,9 +14018,9 @@ Done computing similarity matrix.
 Evaluating RMSE of algorithm KNNWithMeans on 3 split(s).
 
                   Fold 1  Fold 2  Fold 3  Mean    Std     
-RMSE (testset)    1.2941  1.2938  1.2597  1.2825  0.0161  
-Fit time          7.18    7.45    7.48    7.37    0.14    
-Test time         0.11    0.10    0.10    0.10    0.00    
+RMSE (testset)    1.2886  1.2879  1.2706  1.2824  0.0083  
+Fit time          7.00    7.59    7.34    7.31    0.24    
+Test time         0.10    0.09    0.09    0.09    0.01    
 </pre>
 </div>
 </div>
@@ -14089,9 +14091,9 @@ Test time         0.11    0.10    0.10    0.10    0.00
   <tbody>
     <tr>
       <th>KNNWithMeans</th>
-      <td>1.2825</td>
-      <td>7.3704</td>
-      <td>0.1040</td>
+      <td>1.2824</td>
+      <td>7.3106</td>
+      <td>0.0937</td>
     </tr>
   </tbody>
 </table>
@@ -14214,69 +14216,69 @@ Done computing similarity matrix.
   <tbody>
     <tr>
       <th>SVDpp</th>
-      <td>1.2389</td>
-      <td>136.8147</td>
-      <td>0.0528</td>
+      <td>1.2390</td>
+      <td>1.5027</td>
+      <td>0.0530</td>
     </tr>
     <tr>
       <th>SVD</th>
-      <td>1.2440</td>
-      <td>0.9893</td>
-      <td>0.0378</td>
+      <td>1.2438</td>
+      <td>1.0195</td>
+      <td>0.0381</td>
     </tr>
     <tr>
       <th>KNNBaseline</th>
-      <td>1.2459</td>
-      <td>6.5228</td>
-      <td>0.1995</td>
+      <td>1.2466</td>
+      <td>6.9774</td>
+      <td>0.1143</td>
     </tr>
     <tr>
       <th>BaselineOnly</th>
-      <td>1.2483</td>
-      <td>0.0597</td>
-      <td>0.0348</td>
+      <td>1.2491</td>
+      <td>0.0506</td>
+      <td>0.0334</td>
     </tr>
     <tr>
       <th>KNNWithMeans</th>
-      <td>1.2825</td>
-      <td>7.3704</td>
-      <td>0.1040</td>
+      <td>1.2824</td>
+      <td>7.3106</td>
+      <td>0.0937</td>
     </tr>
     <tr>
       <th>SlopeOne</th>
-      <td>1.2841</td>
-      <td>1.0442</td>
-      <td>0.0442</td>
+      <td>1.2858</td>
+      <td>0.9191</td>
+      <td>0.0411</td>
     </tr>
     <tr>
       <th>KNNWithZScore</th>
-      <td>1.2870</td>
-      <td>6.8908</td>
-      <td>0.1680</td>
+      <td>1.2867</td>
+      <td>6.6801</td>
+      <td>0.1654</td>
     </tr>
     <tr>
       <th>KNNBasic</th>
-      <td>1.2935</td>
-      <td>6.5668</td>
-      <td>0.1241</td>
+      <td>1.2931</td>
+      <td>6.2681</td>
+      <td>0.1067</td>
     </tr>
     <tr>
       <th>CoClustering</th>
-      <td>1.3126</td>
-      <td>1.5562</td>
-      <td>0.0331</td>
+      <td>1.3077</td>
+      <td>1.5992</td>
+      <td>0.0346</td>
     </tr>
     <tr>
       <th>NMF</th>
-      <td>1.3311</td>
-      <td>2.2093</td>
-      <td>0.0524</td>
+      <td>1.3289</td>
+      <td>2.0310</td>
+      <td>0.0374</td>
     </tr>
     <tr>
       <th>NormalPredictor</th>
-      <td>1.6475</td>
-      <td>0.0191</td>
-      <td>0.0541</td>
+      <td>1.6518</td>
+      <td>0.0193</td>
+      <td>0.0828</td>
     </tr>
   </tbody>
 </table>
@@ -14363,8 +14365,8 @@ Done computing similarity matrix.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>BEST RMSE: 	 1.339620243307882
-BEST params: 	 {&#39;n_factors&#39;: 25, &#39;n_epochs&#39;: 30, &#39;init_mean&#39;: 1, &#39;init_std_dev&#39;: 0.1, &#39;lr_all&#39;: 0.005, &#39;reg_all&#39;: 0.06}
+<pre>BEST RMSE: 	 1.4277991989461263
+BEST params: 	 {&#39;n_factors&#39;: 30, &#39;n_epochs&#39;: 10, &#39;init_mean&#39;: 1, &#39;init_std_dev&#39;: 0, &#39;lr_all&#39;: 0.007, &#39;reg_all&#39;: 0.04}
 </pre>
 </div>
 </div>
@@ -14452,7 +14454,7 @@ Wall time: 2.85 s</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>RMSE: 1.4442
+<pre>RMSE: 1.4330
 </pre>
 </div>
 </div>
@@ -14465,7 +14467,7 @@ Wall time: 2.85 s</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1.444175168513792</pre>
+<pre>1.4329931157323368</pre>
 </div>
 
 </div>
@@ -14476,7 +14478,7 @@ Wall time: 2.85 s</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="p">[]</span>
@@ -14534,7 +14536,7 @@ Wall time: 2.85 s</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">prediction</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;asin&#39;</span><span class="p">:</span> <span class="p">[],</span><span class="s1">&#39;predicted_score&#39;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
@@ -14560,7 +14562,7 @@ Wall time: 2.85 s</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[31]:</div>
+    <div class="prompt output_prompt">Out[30]:</div>
 
 
 
@@ -14591,33 +14593,33 @@ Wall time: 2.85 s</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>A2Z9W7UHX01CRK</td>
-      <td>B00QKS2DP6</td>
-      <td>3.6748</td>
+      <td>A2WWVDVEZQAN33</td>
+      <td>B01BTDOSTK</td>
+      <td>5.0000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>A20EEWWSFMZ1PN</td>
-      <td>B001XRLWLU</td>
-      <td>5.0000</td>
+      <td>A1K44C55Y3HF2Y</td>
+      <td>B00COVV2FA</td>
+      <td>3.7359</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>A3V7D2S5DCUH5J</td>
-      <td>0790729628</td>
-      <td>5.0000</td>
+      <td>A1N623X1H2HN45</td>
+      <td>B017AD7CDM</td>
+      <td>4.2470</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>A1F1GZJWAID2OA</td>
-      <td>B00EOBB6DQ</td>
-      <td>3.7785</td>
+      <td>A3RRTQOR5U99M4</td>
+      <td>B00PMDSVTM</td>
+      <td>5.0000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>A1NJXFQ47QS7LB</td>
-      <td>B00C12ZIN4</td>
-      <td>4.9385</td>
+      <td>A3R03FTMTV8CMJ</td>
+      <td>B00R8GUXPG</td>
+      <td>5.0000</td>
     </tr>
   </tbody>
 </table>
@@ -14632,7 +14634,7 @@ Wall time: 2.85 s</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">prediction_df</span><span class="p">[</span><span class="s2">&quot;predicted_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -14648,17 +14650,17 @@ Wall time: 2.85 s</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[32]:</div>
+    <div class="prompt output_prompt">Out[31]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>count   9000.0000
-mean    4.4858   
-std     0.6034   
-min     1.2741   
-25%     3.9676   
+mean    4.4600   
+std     0.6126   
+min     1.0000   
+25%     3.8750   
 50%     5.0000   
 75%     5.0000   
 max     5.0000   
@@ -14680,7 +14682,7 @@ Name: predicted_score, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
@@ -14732,7 +14734,7 @@ Name: predicted_score, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># output the recommendation for a user</span>
@@ -14749,7 +14751,7 @@ Name: predicted_score, dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[34]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -14782,48 +14784,48 @@ Name: predicted_score, dtype: float64</pre>
   </thead>
   <tbody>
     <tr>
-      <th>4077</th>
-      <td>630401709X</td>
-      <td>Jane Fonda</td>
-      <td>They Shoot Horses, Don't They? VHS</td>
-      <td>['Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']</td>
-      <td>["They Shoot Horses Don't They - VHS"]</td>
+      <th>0</th>
+      <td>B004K8X136</td>
+      <td>Various</td>
+      <td>Scooby-Doo Fun Pack</td>
+      <td>['Characters &amp; Series', 'Scooby Doo']</td>
+      <td>['Scooby-Doo! Abracadabra Doo:Presto! It’s the all-new Scooby-Doo movie with a magic touch. When a secluded school for magicians faces danger from a fantastical flying creature outside and sinister forces inside, there’s just one thing to say: Abracadabra-Doo!, the newest feature-length case for Scooby-Doo and the Mystery Inc. crew. While visiting Velma’s sister Madelyn, who’s enrolled at the Whirlen Merlin Magic Academy, the gang gets lots more than a rabbit emerging from a hat. A greedy ice-cream mogul wants to close the place, a screaming banshee gives everyone the creeps and a mythological half-dragon, half-lion animal known as a gryphon seems all too real. Can Scooby-Doo, Shaggy, Daphne, Fred and Velma learn enough tricks of the trade to uncover the secrets that will save the school? Abracadabra! With these mystery solvers around, having fun is always magical.Scooby-Doo and the Goblin King:Follows that lovable Great Dane Scooby-Doo and his pal Shaggy as they try to stop a second-rate, carnival magician named the Amazing Krudsky (Wayne Knight) from turning everyone into horrible Halloween monsters, after he steals the light magic from Princess Fairy Willow (Hayden Panettiere). Scooby-Doo and Shaggy board the Grim Reaper Railroad, which is bound for the fantastic world of Halloween land to retrieve the powerful Goblin scepter from the Goblin King (Tim Curry), before Krudsky can. Along the way, the Mystery Inc. crew encounters several enchanting creatures such as the infamous Headless Horseman, the helpful Jack O’Lantern and a frisky broomstick that take them on the ride of their life. The film also features the voice talents of Jay Leno, Lauren Becall, Lary Joe Campbell, Wayne Knight, Wally Shawn, Russi Taylor and Thom Adcox.Scooby-Doo and the Alien Invaders:Get Ready for Close Encounters of the Scooby Kind!  A cosmic case of UFOs, intergalactic intrigue and out-of-this-world romance launches Scooby, Shaggy and the Mystery, Inc. kids into their most unearthly adventure ever! Stranded in a remote desert town, the gang soon discovers the place is crawling with flying saucer buffs, secretive scientists... and less-than-friendly extraterrestrials! Then, after being chased by aliens and beamed aboard a UFO, something even weirder happens to Shaggy and Scooby-- they fall head-over-heels in love! As clues to the mystery of the alien invaders lead them from a top-secret government research base to a huge network of caves hidden under the town, our love-struck heroes join the rest of the gang in a race to crack a case that re-defines the term "far out!"']</td>
       <td>5.0000</td>
     </tr>
     <tr>
-      <th>2132</th>
-      <td>B005LAII2Q</td>
-      <td>Jonah Hill</td>
-      <td>The Watch</td>
-      <td>['Studio Specials', '20th Century Fox Home Entertainment', 'Action', 'General']</td>
-      <td>['Four everyday suburban guys come together to form a neighborhood watch group, but only as an excuse to escape their humdrum lives one night a week. But when they accidentally discover that their town has become overrun with aliens posing as ordinary suburbanites, they have no choice but to save their neighborhood -- and the world -- from total extermination.', "As the advances in CGI special effects have continued to keep action-movie audiences roaring for bigger and better displays of digital bombast, a trend in Hollywood comedies has upped the ante in a parallel way. Raunchy, risqu, and just plain filthy humor is standard fare for audiences who like their vulgar laughs as much as their superheroic explosions. The two worlds collide in The Watch, a dirty shoot-'em-up whose comic core counters the extreme sci-fi story of an alien race that can't take a joke. Fortunately, the decidedly non-superhuman heroes battle it out with equal parts punches and punch lines. The first-rate cast is headed by Ben Stiller, who has plenty of experience with filthy humor and big-budget action. He also has the movie-star charisma to bring high concept down to the toilet or the gutter, whichever happens to be funnier. Stiller plays Evan, the upstanding, uptight manager of an Ohio Costco who starts to really care about crime after one of his security guards is brutally murdered. The police can't really be bothered (Will Forte is excellent as a pompous local lawman), so Evan starts a neighborhood watch as a way to take back the night. Unfortunately his recruits turn out to be a less than vigilant vigilante group, with Vince Vaughn as a brawny motor mouth obsessed with protecting his teen daughter, Jonah Hill as an off-kilter arms expert who was rejected by the police academy (for good reason), and the indeterminately ethnic Richard Ayoade (excellent, as he was in the British sitcom The IT Crowd), who's focused only on the kind of action that involves sex and females. The quartet's individual issues are played at maximum laugh-per-minute volume and remain part of the story even after the team realizes their crime problem isn't from the inner city, it's from outer space. Turns out a hive of aliens have commandeered Evan's Costco as a base of operations to dominate humanity. After all, what better place to stage an Earth takeover than a place that has everything? (Costco should get a big-box good sport award for signing off on such wall-to-wall product placement.) The script by Jared Stern, Seth Rogen, and Evan Goldberg (the latter two's brilliant writing career also includes Superbad and The Pineapple Express) is chock-a-block with jokes that touch the penis in nearly every way imaginable. Think masturbation, think Magnum condoms, think vibrant or fruitless bodily fluids and you'll be thinking like the obsessive lugs in The Watch. And it's not just human penises that are made the butt of most of the jokes. In one of many playful plot contrivances, the aliens' genitals become cause for out-of-this-world vulgarity. Apparently Hollywood man-children aren't the only beings in the universe who don't think with their heads. These aliens have a very peculiar Achilles' heel. Here's a hint: it's also nowhere near their feet. And even though this soft spot is their brain, it's not inside their skull. The phallic jokes never let up, but at least most of them are funny. The Watch tries so hard for nonstop laughs that it can't help but yield a high rate of success, especially when the material is worked by such an estimable ensemble of comedy pros. It's clear that director Akiva Schaffer fostered a strong improv vibe on the set (his background is directing shorts on SNL). He's best at capturing a spontaneous sketch-comedy tone that drives the constant one-upsmanship between the filthy, shocking shenanigans of the four leads. They get ample help from the supporting cast. In addition to Will Forte as the disinterested cop, Rosemary DeWitt is terrific as Evan's demanding wife. And in an extended, uncredited cameo Billy Crudup plays the weirdest, most enigmatic creepy-insinuation-guy ever. Talk about hiding a dirty secret! There's an overall hit-or-miss quality of comedy and action in The Watch, though there are plenty more tick marks in the hit column. It's all bad-mannered good fun with the badge of a hard-R rating worn as proudly as a giant splooge of green alien slime. --Ted Fry"]</td>
+      <th>2594</th>
+      <td>B010MJ851Y</td>
+      <td>Ben Kingsley</td>
+      <td>Tut</td>
+      <td>['Paramount Home Entertainment', 'Drama']</td>
+      <td>["Tut recounts the astounding saga of one of history's most extraordinary rulers, Tutankhamun (King Tut), his rise to power and his struggle to lead Egypt to glory, while his closest advisors, friends and lovers scheme for their own nefarious interests. This event series opens up a fascinating window into a world filled with heart-breaking romance, epic battles, political backstabbing, conspiracy, jealousy, and even murder -- proving that Tut's world was not so far removed from our own."]</td>
       <td>5.0000</td>
     </tr>
     <tr>
-      <th>2134</th>
-      <td>B00J4OI1QS</td>
-      <td>Burl Ives</td>
-      <td>20-Movie Western Collection 4</td>
-      <td>['Boxed Sets', 'Westerns']</td>
-      <td>['20-Movie Western Collection 4 DVD Burl Ives, Willie Nelson']</td>
+      <th>2575</th>
+      <td>6300247945</td>
+      <td>Paul McCartney</td>
+      <td>Give My Regards to Broad Street VHS</td>
+      <td>['Art House &amp; International', 'By Country', 'United Kingdom', 'Music &amp; Musicals']</td>
+      <td>['Screenwriter/Star Paul McCartney creates a rousing musical fantasy about a pop singer/composer (McCartney) who discovers the master tapes of his new unreleased album have disappeared. If he doesn\'t locate them by midnight, businessmen will take over his company. Among the musical highlights are fourteen spectacularly staged McCartney tunes including Beatles classics "Yesterday," "Eleanor Rigby" and "Good Day Sunshine."']</td>
       <td>5.0000</td>
     </tr>
     <tr>
-      <th>2135</th>
-      <td>6304584954</td>
-      <td>Andrea Prodan</td>
-      <td>Bible Collection VHS</td>
-      <td>['Boxed Sets', 'Special Interests', 'Religion &amp; Spirituality']</td>
-      <td>['Witness the frailty, triumph, and glory of Old Testament heroes Abraham, David, Jacob, Joseph, Moses, and Samson and Delilah. Stars include Richard Harris, Dennis Hopper, Elizabeth Hurley, Jonathan Pryce, Barbara Hershey, Leonard Nimoy, and Ben Kingsley. Experience anew the beloved stories you know by heart with this outstanding collection.']</td>
+      <th>2576</th>
+      <td>B001A5ES9I</td>
+      <td>Various</td>
+      <td>Batman Beyond:Retrn Joker/Myst Btwm(DBFE</td>
+      <td>['Genre for Featured Categories', 'Kids &amp; Family']</td>
+      <td>['&lt;![CDATA[', 'Batman Beyond: The Return of the Joker/Batman: Mystery of the Batwoman Double Feature (DVD)', 'Batman Beyond: The Return of the Joker The greatest villain of all comes out of the past to threaten Batman, Bruce Wayne and all of Gotham City in Batman Beyond: Return of the Joker, the first feature-length Batman Beyond movie. The sleeker, deadlier and seemingly immortal Clown Prince of Crime is back with his own unique brand of havoc and mayhem. While trying to uncover the Joker\'s secrets, the new Batman, Terry McGinnis, discovers the greatest mystery in the life of the original Caped Crusader: What happened the night he fought the Joker for the last time. When Bruce Wayne is almost killed in one of the Joker\'s latest attacks, Batman vows to avenge his mentor and put the Joker to rest forever. Get ready for heart-stomping action, awesomeadventure and amazing revelations in Batman Beyond: Return of the Joker. Batman: Mystery of the Batwoman The Dark Knight is back in this all-new feature-length thriller featuring the voices of Kelly Ripa (Live! With Regis and Kelly), Kyra Sedgwick (Born on the Fourth of July) and Hector Elizondo (The Princess Diaries). The Penguin and Rupert Thorn are criminal cohorts with a scheme to sell illegal weapons. But there\'s a new super hero in Gotham City who has other plans for the evil entrepreneurs - Batwoman! With high-tech gadgets and powerful punches, Batwoman proves to be a formidable crimefighter - the only problem is that the Dark Knight has no clue who she is! And when Batwoman crosses the criminal line, Batman must identify whether or not this new player is really an ally! Join the world\'s greatest detective in this exciting new adventure that will keep you guessing until the mask is pulled off! The DVD includes an exclusive Batman animated short, "Chase Me" from the Emmy(R) Award winning writers Alan Burnett and Paul Dini.']</td>
       <td>5.0000</td>
     </tr>
     <tr>
-      <th>5078</th>
-      <td>B000FVQLIO</td>
-      <td>Hugh Laurie</td>
-      <td>House: Season Two</td>
-      <td>['Boxed Sets', 'Drama']</td>
-      <td>['Golden Globe winner Hugh Laurie is on call as sardonic Dr. Gregory House in Season Two of the smash-hit House, television\'s most intelligent and provocative drama. This 6-disc collection features all 24 innovative episodes, exclusive bonus materials and some of today\'s brightest guest stars, including Sela Ward, Ron Livingston, LL Cool J and Cynthia Nixon. Be a part of this medical mystery-solving team as House and his staff take on baffling cases in the gripping show critics are calling "both hilarious and heartbreaking; this could be network TV\'s best current series." - David Kronke, Los Angeles Daily News', 'The overall strength of the second season of House, M.D. proves that its first-year success wasn\'t a fluke. This season starts with Dr. House (Golden Globe winner Hugh Laurie) pursuing his ex-wife Stacy (Sela Ward) and ending with a tragedy that could potentially be deadly for himself and two colleagues. The premise of each show follows a set routine--a patient is brought in with unusual symptoms; House challenges his trio of underlings to diagnose the problem; they treat the patient, usually incorrectly the first few tries; and then at the very last minute--through a revelation that often has little to do with the patient--House figures out what\'s wrong and saves the day. It would be easy for this set up to grow old fast. But because of the smart writing, nuanced acting, and believability of the characters (who\'re often dealing with unbelievable scenarios), the formula works on each of the 24 episodes that aired on Fox during the 2005-2006 season. Viewers have been conditioned by the Marcus Welbys of the TV world to think of doctors as saviors. Even on ER, the most narcissistic physician was selfless at heart. But House is a different breed. When he\'s at an off-track betting parlor and a woman collapses, he doesn\'t miss a beat. Still eying his race on television, he asks, "Is anybody here a doctor?" He\'ll mock a sick patient\'s complaints with a sarcastic, "Boo hoo!" And, if there happens to be a dead body around, he has no qualms about shooting it if he believes that could help diagnose another gun-shot victim.', 'Not that he\'s any more reasonable or compassionate to his boss Cuddy (Lisa Edelstein), his oncologist best friend Wilson (Tony winner Robert Sean Leonard), or his young charges Foreman (Omar Epps), Cameron (Jennifer Morrison), and Chase (Jesse Spencer). He instructs his doctors to break into patients\' homes as if they\'re cat burglars. He does not know the meaning of the phrase "politically correct." But because he spits out insults (as if he has a mild case of Tourette\'s) equally to both his patients and colleagues, the latter never flinch at his constant stream of inappropriateness. When his three young doctors storm into his office to report the declining condition of a patient by blurting out, "We have rectal bleeding," House says, "What? All three of you?" To sensitive Wilson, who is trying to get some work done without being interrupted, House says, "I know you\'re in there. I can hear you caring." And when Foreman\'s father says, "My son says you\'re a manipulative bastard," House replies, "It\'s a pet name. I call him Dr. Bling." Of course House actually does care about his patients, but he views a good bedside manner as the luxury of a doctor who has a healthy patient. But dying patients with seemingly incurable diseases need something more. They need House. --Jae-Ha Kim']</td>
+      <th>5111</th>
+      <td>B0001OGV0S</td>
+      <td>Victor Jory</td>
+      <td>The Green Archer</td>
+      <td>['Genre for Featured Categories', 'Action &amp; Adventure']</td>
+      <td>['A thunderbolt of thrills await you in the suspense-loaded, action-exploded, super-serial from the mighty pen of author Edgar Wallace. Thru 15 riveting chapters you will be treated to English castles, secret passages and mysterious appearances by the protector of good -- The Green Archer! Released in 1940 by Columbia.  Bonus Features:  Chapter Selection Menus, Bios, Bonus Serial Trailers, VCI Classic Cliffhanger Promo Reel| Slim Double Keepcase  Specs:  2-DVD9s; Dolby Digital Mono; 302 minutes; B&amp;W; 1.33:1 Aspect Ratio; MPAA - NR; Year - 1940; SRP - $19.99.']</td>
       <td>5.0000</td>
     </tr>
   </tbody>

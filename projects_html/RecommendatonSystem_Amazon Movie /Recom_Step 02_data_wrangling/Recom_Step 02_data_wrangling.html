@@ -13279,21 +13279,6 @@ $( document ).ready(function(){
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop duplicates</span>
-<span class="n">dfm</span> <span class="o">=</span> <span class="n">dfm</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-<span class="n">dfr</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13303,7 +13288,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Any null entries</span>
@@ -13320,7 +13305,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13352,7 +13337,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -13373,31 +13358,31 @@ $( document ).ready(function(){
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 181839 entries, 0 to 203765
+RangeIndex: 203766 entries, 0 to 203765
 Data columns (total 19 columns):
  #   Column           Non-Null Count   Dtype 
 ---  ------           --------------   ----- 
- 0   category         181839 non-null  object
- 1   tech1            181839 non-null  object
- 2   description      181839 non-null  object
- 3   fit              181839 non-null  object
- 4   title            181839 non-null  object
- 5   also_buy         181839 non-null  object
- 6   tech2            181839 non-null  object
- 7   brand            181839 non-null  object
- 8   feature          181839 non-null  object
- 9   rank             181839 non-null  object
- 10  also_view        181839 non-null  object
- 11  main_cat         181839 non-null  object
- 12  similar_item     181839 non-null  object
- 13  date             181839 non-null  object
- 14  price            181839 non-null  object
- 15  asin             181839 non-null  object
- 16  imageURL         181839 non-null  object
- 17  imageURLHighRes  181839 non-null  object
- 18  details          181839 non-null  object
+ 0   category         203766 non-null  object
+ 1   tech1            203766 non-null  object
+ 2   description      203766 non-null  object
+ 3   fit              203766 non-null  object
+ 4   title            203766 non-null  object
+ 5   also_buy         203766 non-null  object
+ 6   tech2            203766 non-null  object
+ 7   brand            203766 non-null  object
+ 8   feature          203766 non-null  object
+ 9   rank             203766 non-null  object
+ 10  also_view        203766 non-null  object
+ 11  main_cat         203766 non-null  object
+ 12  similar_item     203766 non-null  object
+ 13  date             203766 non-null  object
+ 14  price            203766 non-null  object
+ 15  asin             203766 non-null  object
+ 16  imageURL         203766 non-null  object
+ 17  imageURLHighRes  203766 non-null  object
+ 18  details          203766 non-null  object
 dtypes: object(19)
-memory usage: 27.7+ MB
+memory usage: 29.5+ MB
 </pre>
 </div>
 </div>
@@ -13415,7 +13400,7 @@ memory usage: 27.7+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">category</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
@@ -13431,7 +13416,7 @@ memory usage: 27.7+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13460,46 +13445,46 @@ memory usage: 27.7+ MB
   <tbody>
     <tr>
       <th>['Movies &amp; TV', 'Movies']</th>
-      <td>28983</td>
+      <td>30831</td>
     </tr>
     <tr>
       <th>['Movies &amp; TV', 'Genre for Featured Categories', 'Action &amp; Adventure']</th>
-      <td>8965</td>
+      <td>10761</td>
     </tr>
     <tr>
       <th>['Movies &amp; TV', 'Genre for Featured Categories', 'Drama']</th>
-      <td>8284</td>
+      <td>9639</td>
     </tr>
     <tr>
       <th>['Movies &amp; TV', 'Genre for Featured Categories', 'Documentary']</th>
-      <td>7948</td>
+      <td>8843</td>
     </tr>
     <tr>
-      <th>['Movies &amp; TV', 'Genre for Featured Categories', 'Special Interests']</th>
-      <td>7574</td>
+      <th>['Movies &amp; TV', 'Genre for Featured Categories', 'Kids &amp; Family']</th>
+      <td>8029</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
     </tr>
     <tr>
-      <th>['Movies &amp; TV', 'Studio Specials', 'MGM Home Entertainment', 'MGM Western Legends']</th>
+      <th>['Movies &amp; TV', 'Charlie Rose Store', 'Entertainment', 'Television']</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>['Movies &amp; TV', 'HBO']</th>
+      <th>['Movies &amp; TV', 'Independently Distributed', 'Documentary', 'Made in USA', 'Woven Badge', 'Ribbed back neck and cuffs', 'Printed front with plain back']</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>['Movies &amp; TV', 'Yoga', 'By Instructor', 'Patricia Walden']</th>
+      <th>['Movies &amp; TV', 'Studio Specials', 'Sony Pictures Home Entertainment']</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>['Movies &amp; TV', 'Art House &amp; International', 'By Original Language', 'Vietnamese']</th>
+      <th>['Movies &amp; TV', 'African American Cinema', 'Breakthrough Cinema']</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>['Movies &amp; TV', 'Mini-DVD', 'Animation']</th>
+      <th>['Movies &amp; TV', 'Fully Loaded DVDs', 'Five Star Collection']</th>
       <td>1</td>
     </tr>
   </tbody>
@@ -13524,7 +13509,7 @@ memory usage: 27.7+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check what is in &#39;Special Interests&#39; category</span>
@@ -13541,7 +13526,7 @@ memory usage: 27.7+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13583,7 +13568,7 @@ memory usage: 27.7+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Convert the list-like string to list</span>
@@ -13598,7 +13583,7 @@ memory usage: 27.7+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_cat</span> <span class="o">=</span> <span class="n">dfm</span><span class="o">.</span><span class="n">category</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
@@ -13615,7 +13600,7 @@ memory usage: 27.7+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13640,7 +13625,7 @@ memory usage: 27.7+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfr</span><span class="o">.</span><span class="n">overall</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -13656,17 +13641,17 @@ memory usage: 27.7+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>5.0    5334927
-4.0    1456764
-3.0     717158
-1.0     616996
-2.0     396281
+<pre>5.0    5491586
+4.0    1498047
+3.0     735907
+1.0     633153
+2.0     406875
 Name: overall, dtype: int64</pre>
 </div>
 
@@ -13678,7 +13663,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfr</span><span class="p">[</span><span class="n">dfr</span><span class="o">.</span><span class="n">overall</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
@@ -13694,7 +13679,7 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13737,7 +13722,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># for i in range(max_cat):</span>
@@ -13751,7 +13736,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># remove &#39;Movies &amp; TV&#39; as this meta and review dataframe is only ordinally from &#39;Movies &amp; TV&#39; category, and it is unnecessary</span>
@@ -13785,7 +13770,7 @@ Name: overall, dtype: int64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_27_0.png"
+<img src="output_26_0.png"
 >
 </div>
 
@@ -13797,7 +13782,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># stock = []</span>
@@ -13815,13 +13800,373 @@ Name: overall, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="main_cat">main_cat<a class="anchor-link" href="#main_cat">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">main_cat</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>main_cat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Movies &amp; TV</th>
+      <td>203464</td>
+    </tr>
+    <tr>
+      <th>Sports &amp; Outdoors</th>
+      <td>118</td>
+    </tr>
+    <tr>
+      <th>Books</th>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>Amazon Home</th>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>&lt;img src="https://images-na.ssl-images-amazon.com/images/G/01/digital/music/logos/amzn_music_logo_subnav._CB471835632_.png" class="nav-categ-image" alt="Digital Music"/&gt;</th>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>Toys &amp; Games</th>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>All Electronics</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>nan</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>Cell Phones &amp; Accessories</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Industrial &amp; Scientific</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>Health &amp; Personal Care</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>&lt;img src="https://images-na.ssl-images-amazon.com/images/G/01/nav2/images/gui/amazon-fashion-store-new._CB520838675_.png" class="nav-categ-image" alt="AMAZON FASHION"/&gt;</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>All Beauty</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Arts, Crafts &amp; Sewing</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Office Products</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Pet Supplies</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Tools &amp; Home Improvement</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Musical Instruments</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Home Audio &amp; Theater</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Camera &amp; Photo</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Grocery</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Baby</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Video Games</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span><span class="p">[</span><span class="n">dfm</span><span class="p">[</span><span class="s1">&#39;main_cat&#39;</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;Movies &amp; TV&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[17]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category</th>
+      <th>tech1</th>
+      <th>description</th>
+      <th>fit</th>
+      <th>title</th>
+      <th>also_buy</th>
+      <th>tech2</th>
+      <th>brand</th>
+      <th>feature</th>
+      <th>rank</th>
+      <th>also_view</th>
+      <th>main_cat</th>
+      <th>similar_item</th>
+      <th>date</th>
+      <th>price</th>
+      <th>asin</th>
+      <th>imageURL</th>
+      <th>imageURLHighRes</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>793</th>
+      <td>[Christian Video, Biography]</td>
+      <td>nan</td>
+      <td>['When Superbook falls onto a computer keyboar...</td>
+      <td>nan</td>
+      <td>Moses &amp;amp; Plagues/Moses &amp;amp; Israelites (Su...</td>
+      <td>[]</td>
+      <td>nan</td>
+      <td>Tyndale</td>
+      <td>[]</td>
+      <td>5,869,236 in Books (</td>
+      <td>[]</td>
+      <td>Books</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>084236837X</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>nan</td>
+    </tr>
+    <tr>
+      <th>794</th>
+      <td>[Christian Video, Bible]</td>
+      <td>nan</td>
+      <td>['Two inquisitive children stumble upon an anc...</td>
+      <td>nan</td>
+      <td>Nehemiah &amp;amp; the Wall / Job (Superbook Video...</td>
+      <td>[]</td>
+      <td>nan</td>
+      <td>Visit Amazon's Tyndale Page</td>
+      <td>[]</td>
+      <td>8,536,790 in Books (</td>
+      <td>['B00N37I5R2']</td>
+      <td>Books</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>0842368167</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>nan</td>
+    </tr>
+    <tr>
+      <th>898</th>
+      <td>[Musicals &amp; Performing Arts]</td>
+      <td>nan</td>
+      <td>["Learn how to play and practice the classic r...</td>
+      <td>nan</td>
+      <td>Basic Afro-Cuban Rhythms for Drum Set and Hand...</td>
+      <td>[]</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>[]</td>
+      <td>3,758,302 in Books (</td>
+      <td>[]</td>
+      <td>Books</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>$14.62</td>
+      <td>0876390300</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>nan</td>
+    </tr>
+    <tr>
+      <th>1274</th>
+      <td>[Movies]</td>
+      <td>nan</td>
+      <td>["The Family Video can be enjoyed as pure ente...</td>
+      <td>nan</td>
+      <td>Family</td>
+      <td>[]</td>
+      <td>nan</td>
+      <td>Memory Lane</td>
+      <td>[]</td>
+      <td>6,710,279 in Books (</td>
+      <td>[]</td>
+      <td>Books</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>$5.49</td>
+      <td>0976224976</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>nan</td>
+    </tr>
+    <tr>
+      <th>1498</th>
+      <td>[TV]</td>
+      <td>nan</td>
+      <td>["Beverly Hills 90210 - The Complete First Sea...</td>
+      <td>nan</td>
+      <td>Beverly Hills 90210 - The First Season [DVD]</td>
+      <td>[]</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>[]</td>
+      <td>2,550,757 in Beauty &amp; Personal Care (</td>
+      <td>[]</td>
+      <td>All Beauty</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>nan</td>
+      <td>1415717214</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>nan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>They are unnecessary.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span> <span class="o">=</span> <span class="n">dfm</span><span class="p">[</span><span class="n">dfm</span><span class="p">[</span><span class="s1">&#39;main_cat&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Movies &amp; TV&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="description-column">description column<a class="anchor-link" href="#description-column">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check the description</span>
@@ -13838,7 +14183,7 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -13866,11 +14211,11 @@ Name: overall, dtype: int64</pre>
   </thead>
   <tbody>
     <tr>
-      <th>['This set includes the ultimate Israeli instinctive shooting with the combat pistol DVD. It includes the Israeli rifle course and it includes the LOTAR DVD as well. 3 DVDs in total.', "&lt;i&gt;When sold by Amazon.com, this product will be manufactured on demand using DVD-R recordable media. Amazon.com's standard return policy will apply.&lt;/i&gt;"]</th>
+      <th>['WITCHOUSE']</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>['', 'U.S. SEALS', 'NUMEROUS OF SHIPS BEGIN TO DISAPPEARING WITHOUT A TRACE, THE PRESIDENT SENT THE NAVY SEALS TO INVESTIGATE THE RUMOR THAT MORDERN-DAY PIRATES ARE ONC AGAIN CONTROLLING THE WAVES']</th>
+      <th>["Marco's latest release is his most detailed yet. The DVD includes almost one full hour of drum solos, performance with the Marco Minnemann big band and guitar hero Mike Kneally, several play-along tracks, instructional footage, comprehensive bonus feature"]</th>
       <td>1</td>
     </tr>
   </tbody>
@@ -13886,7 +14231,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check the data in the row of 66812.</span>
@@ -13903,13 +14248,13 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;[&#34;Eric Liddell is best known as the main character in Hollywood\&#39;s 1981 release of Chariots of Fire. But it was his fascinating life as a missionary that proved his spiritual mettle. This Olympic medalist from Scotland lived-and died-for the testimony of Jesus Christ. In this 3-part DVD with author and Day of Discovery host David McCasland, you\&#39;ll trace Eric\&#39;s life from the 1924 Olympics to his years in war-torn China. You\&#39;ll hear testimonies from historians, friends, and family about his life as a boy, an athlete, a missionary, and a bible teacher. But most of all you\&#39;ll learn about a man sold out for God.&#34;]&#39;</pre>
+<pre>&#39;[]&#39;</pre>
 </div>
 
 </div>
@@ -13928,7 +14273,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Fill empty categories with empty string</span>
@@ -13945,7 +14290,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># confirm the result</span>
@@ -13962,13 +14307,13 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[22]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;[&#34;Eric Liddell is best known as the main character in Hollywood\&#39;s 1981 release of Chariots of Fire. But it was his fascinating life as a missionary that proved his spiritual mettle. This Olympic medalist from Scotland lived-and died-for the testimony of Jesus Christ. In this 3-part DVD with author and Day of Discovery host David McCasland, you\&#39;ll trace Eric\&#39;s life from the 1924 Olympics to his years in war-torn China. You\&#39;ll hear testimonies from historians, friends, and family about his life as a boy, an athlete, a missionary, and a bible teacher. But most of all you\&#39;ll learn about a man sold out for God.&#34;]&#39;</pre>
+<pre>&#39;&#39;</pre>
 </div>
 
 </div>
@@ -13979,7 +14324,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check other rows</span>
@@ -13996,7 +14341,7 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[23]:</div>
 
 
 
@@ -14036,7 +14381,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
@@ -14052,7 +14397,7 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -14081,51 +14426,51 @@ Name: overall, dtype: int64</pre>
   <tbody>
     <tr>
       <th>nan</th>
-      <td>58</td>
+      <td>59</td>
     </tr>
     <tr>
-      <th>WWE</th>
-      <td>10</td>
+      <th>Treasure Island</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>Live</th>
+      <td>11</td>
     </tr>
     <tr>
       <th>Mozart: Don Giovanni</th>
       <td>10</td>
     </tr>
     <tr>
-      <th>Treasure Island</th>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>In Concert</th>
-      <td>9</td>
+      <th>WWE</th>
+      <td>10</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
     </tr>
     <tr>
-      <th>Mind of a Chef</th>
+      <th>Revolution (2012) ( (R)evolution ) [ Blu-Ray, Reg.A/B/C Import - Germany ]</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>FANTASTIC VOYAGE: EVOLUTION OF SCIENCE FICTION</th>
+      <th>Dido &amp;amp; Aeneas: A Choreographic Opera</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Rails to the Catskills</th>
+      <th>All About John Deere For Kids  VHS#4</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>The Fast Show Series Two Region 2</th>
+      <th>Believe: The Eddie Izzard Story 2010</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Bump! American Highlights</th>
+      <th>No Man's Land / Ronin / Harley Davidson and the Marlboro Man / Blown Away</th>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>177978 rows × 1 columns</p>
+<p>177707 rows × 1 columns</p>
 </div>
 </div>
 
@@ -14137,7 +14482,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Clean html letter code</span>
@@ -14157,7 +14502,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
@@ -14173,7 +14518,7 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[26]:</div>
 
 
 
@@ -14202,51 +14547,51 @@ Name: overall, dtype: int64</pre>
   <tbody>
     <tr>
       <th>no-title</th>
-      <td>58</td>
+      <td>59</td>
     </tr>
     <tr>
-      <th>WWE</th>
-      <td>10</td>
+      <th>Treasure Island</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>Live</th>
+      <td>11</td>
     </tr>
     <tr>
       <th>Mozart: Don Giovanni</th>
       <td>10</td>
     </tr>
     <tr>
-      <th>In Concert</th>
+      <th>WWE</th>
       <td>10</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>9</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
     </tr>
     <tr>
-      <th>Goosebumps Zathura Jumanji 3 Movie Collection</th>
+      <th>The Goon Show Old Time Radio OTR Mp3 Collection on DVD - Offering 82 episodes with 38 hours of entertainment</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>A Taste of History World Travel Special Edition</th>
+      <th>Remembering September 11th</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Arabian Sinbad Treasure Chest</th>
+      <th>Boy of Two Worlds</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Mind of a Chef</th>
+      <th>Girl Who Leapt Through Space 2</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Bump! American Highlights</th>
+      <th>No Man's Land / Ronin / Harley Davidson and the Marlboro Man / Blown Away</th>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>177784 rows × 1 columns</p>
+<p>177513 rows × 1 columns</p>
 </div>
 </div>
 
@@ -14265,7 +14610,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">brand</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
@@ -14281,7 +14626,7 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -14310,51 +14655,51 @@ Name: overall, dtype: int64</pre>
   <tbody>
     <tr>
       <th>nan</th>
-      <td>60705</td>
+      <td>66132</td>
     </tr>
     <tr>
       <th>Various</th>
-      <td>3058</td>
+      <td>3178</td>
     </tr>
     <tr>
       <th>.</th>
-      <td>1027</td>
-    </tr>
-    <tr>
-      <th>-</th>
-      <td>420</td>
+      <td>1041</td>
     </tr>
     <tr>
       <th>\n</th>
-      <td>408</td>
+      <td>434</td>
+    </tr>
+    <tr>
+      <th>-</th>
+      <td>427</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
     </tr>
     <tr>
-      <th>Maria Lindberg</th>
+      <th>Paola Mendoza</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Elladee Brown</th>
+      <th>Narration by Heather Ryan</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Terry Wilson</th>
+      <th>Jzsef Madaras</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Florence and the Machine</th>
+      <th>Kato Buss</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Narrated by Hector Elizondo</th>
+      <th>Grant Withers Frankie Darro</th>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>55412 rows × 1 columns</p>
+<p>55256 rows × 1 columns</p>
 </div>
 </div>
 
@@ -14366,7 +14711,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Clean html letter code</span>
@@ -14386,7 +14731,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">brand</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
@@ -14402,7 +14747,7 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+    <div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -14431,15 +14776,15 @@ Name: overall, dtype: int64</pre>
   <tbody>
     <tr>
       <th>no-brand</th>
-      <td>63124</td>
+      <td>68695</td>
     </tr>
     <tr>
       <th>Various</th>
-      <td>3058</td>
+      <td>3178</td>
     </tr>
     <tr>
       <th>Learn more</th>
-      <td>356</td>
+      <td>358</td>
     </tr>
     <tr>
       <th>Sinister Cinema</th>
@@ -14447,35 +14792,35 @@ Name: overall, dtype: int64</pre>
     </tr>
     <tr>
       <th>John Wayne</th>
-      <td>203</td>
+      <td>233</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
     </tr>
     <tr>
-      <th>Stephen Heywood</th>
+      <th>Narration by Heather Ryan</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Maria Lindberg</th>
+      <th>Jzsef Madaras</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Elladee Brown</th>
+      <th>Kato Buss</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Terry Wilson</th>
+      <th>Ty Burrell</th>
       <td>1</td>
     </tr>
     <tr>
-      <th>Narrated by Hector Elizondo</th>
+      <th>Grant Withers Frankie Darro</th>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>55402 rows × 1 columns</p>
+<p>55246 rows × 1 columns</p>
 </div>
 </div>
 
@@ -14494,7 +14839,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The number of products: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dfm</span><span class="o">.</span><span class="n">asin</span><span class="o">.</span><span class="n">nunique</span><span class="p">()))</span>
@@ -14514,7 +14859,7 @@ Name: overall, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>The number of products: 181839
+<pre>The number of products: 181552
 </pre>
 </div>
 </div>
@@ -14532,7 +14877,7 @@ Name: overall, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfr</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -14553,16 +14898,16 @@ Name: overall, dtype: int64</pre>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 8522126 entries, 0 to 8765567
+RangeIndex: 8765568 entries, 0 to 8765567
 Data columns (total 4 columns):
- #   Column      Dtype 
----  ------      ----- 
- 0   overall     object
- 1   reviewTime  object
- 2   reviewerID  object
- 3   asin        object
-dtypes: object(4)
-memory usage: 325.1+ MB
+ #   Column      Dtype         
+---  ------      -----         
+ 0   overall     float64       
+ 1   reviewTime  datetime64[ns]
+ 2   reviewerID  object        
+ 3   asin        object        
+dtypes: datetime64[ns](1), float64(1), object(2)
+memory usage: 267.5+ MB
 </pre>
 </div>
 </div>
@@ -14580,7 +14925,7 @@ memory usage: 325.1+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfr</span><span class="p">[[</span><span class="s1">&#39;overall&#39;</span><span class="p">,</span><span class="s1">&#39;reviewTime&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
@@ -14596,7 +14941,7 @@ memory usage: 325.1+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[32]:</div>
 
 
 
@@ -14620,25 +14965,26 @@ memory usage: 325.1+ MB
     <tr style="text-align: right;">
       <th></th>
       <th>count</th>
-      <th>unique</th>
-      <th>top</th>
-      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>overall</th>
-      <td>8522126</td>
-      <td>5</td>
+      <td>8765568.0</td>
+      <td>4.233011</td>
+      <td>1.221438</td>
+      <td>1.0</td>
+      <td>4.0</td>
       <td>5.0</td>
-      <td>5334927</td>
-    </tr>
-    <tr>
-      <th>reviewTime</th>
-      <td>8522126</td>
-      <td>7476</td>
-      <td>2016-03-29</td>
-      <td>28863</td>
+      <td>5.0</td>
+      <td>5.0</td>
     </tr>
   </tbody>
 </table>
@@ -14660,7 +15006,7 @@ memory usage: 325.1+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The number of reviewer in review data: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dfr</span><span class="o">.</span><span class="n">reviewerID</span><span class="o">.</span><span class="n">nunique</span><span class="p">()))</span>
@@ -14698,7 +15044,7 @@ memory usage: 325.1+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The number of products in review data: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dfr</span><span class="o">.</span><span class="n">asin</span><span class="o">.</span><span class="n">nunique</span><span class="p">()))</span>
@@ -14730,6 +15076,28 @@ memory usage: 325.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Delete-unnecessary-data">Delete unnecessary data<a class="anchor-link" href="#Delete-unnecessary-data">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Delete the rows that only exist in the either review or meta data</span>
+<span class="n">dfm</span> <span class="o">=</span> <span class="n">dfm</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">dfr</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Save-data">Save data<a id="9." /><a class="anchor-link" href="#Save-data">&#182;</a></h1><p><strong>This should be done aftre imputation of communityAverage as there are null values in the column.</strong></p>
 
 </div>
@@ -14737,7 +15105,7 @@ memory usage: 325.1+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save the data to a new csv file</span>
@@ -14788,7 +15156,7 @@ Writing file.  &#34;../data/step2_cleaned_dfr.csv&#34;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The key processes and findings from this notebook are as follows.</p>
 <ul>
-<li>Rows deleted: 0 row</li>
+<li>Rows deleted: The rows(asin in the meta data) have been deleted.</li>
 <li>Columnns deleted: 0 column</li>
 <li>meta data<ul>
 <li>Category column: Some data which seem unnecessary such as 'Movies or TV' have been removed (possibly they could have been splited into separate columns of 'Movies or TV' and 'Featured genre') It was expected to visualise the structure of category usig node to clarify the structure, but it takes time and not the main purpose here, so category data was remained as it is.</li>
