@@ -13345,6 +13345,8 @@ This project focuses on quantitative data science and mainly aims to perform two
 <span class="n">df_sales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/time_sales_data_step3b_EDA.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
 <span class="n">ModelComparison</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/ModelComparison_data_step4_EDA.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># This is necessary for making pipeline</span>
 <span class="n">dummy_step04</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/dummies_in_step4_EDA.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 
@@ -13358,7 +13360,7 @@ This project focuses on quantitative data science and mainly aims to perform two
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df0</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df0</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13371,50 +13373,238 @@ This project focuses on quantitative data science and mainly aims to perform two
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 312631 entries, 0 to 312630
-Data columns (total 31 columns):
- #   Column               Non-Null Count   Dtype  
----  ------               --------------   -----  
- 0   url                  312631 non-null  object 
- 1   id                   312631 non-null  object 
- 2   Lng                  312631 non-null  float64
- 3   Lat                  312631 non-null  float64
- 4   Cid                  312631 non-null  int64  
- 5   tradeTime            312631 non-null  object 
- 6   followers            312631 non-null  int64  
- 7   totalPrice           312631 non-null  float64
- 8   price                312631 non-null  int64  
- 9   square               312631 non-null  float64
- 10  livingRoom           312631 non-null  int64  
- 11  drawingRoom          312631 non-null  int64  
- 12  kitchen              312631 non-null  int64  
- 13  bathRoom             312631 non-null  int64  
- 14  buildingType         312631 non-null  int64  
- 15  constructionTime     312631 non-null  int64  
- 16  renovationCondition  312631 non-null  int64  
- 17  buildingStructure    312631 non-null  int64  
- 18  ladderRatio          312631 non-null  float64
- 19  elevator             312631 non-null  int64  
- 20  fiveYearsProperty    312631 non-null  int64  
- 21  subway               312631 non-null  int64  
- 22  district             312631 non-null  int64  
- 23  year                 312631 non-null  int64  
- 24  month                312631 non-null  int64  
- 25  floorType            312631 non-null  int64  
- 26  floorHeight          312631 non-null  int64  
- 27  DOM_cat              312631 non-null  object 
- 28  10yrBond_up%         312631 non-null  float64
- 29  hmi_up%              312631 non-null  float64
- 30  sse_up%              312631 non-null  float64
-dtypes: float64(8), int64(19), object(4)
-memory usage: 73.9+ MB
-</pre>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>url</th>
+      <th>id</th>
+      <th>Lng</th>
+      <th>Lat</th>
+      <th>Cid</th>
+      <th>tradeTime</th>
+      <th>followers</th>
+      <th>totalPrice</th>
+      <th>price</th>
+      <th>square</th>
+      <th>livingRoom</th>
+      <th>drawingRoom</th>
+      <th>kitchen</th>
+      <th>bathRoom</th>
+      <th>buildingType</th>
+      <th>constructionTime</th>
+      <th>renovationCondition</th>
+      <th>buildingStructure</th>
+      <th>ladderRatio</th>
+      <th>elevator</th>
+      <th>fiveYearsProperty</th>
+      <th>subway</th>
+      <th>district</th>
+      <th>year</th>
+      <th>month</th>
+      <th>floorType</th>
+      <th>floorHeight</th>
+      <th>DOM_cat</th>
+      <th>10yrBond_up%</th>
+      <th>hmi_up%</th>
+      <th>sse_up%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>https://bj.lianjia.com/chengjiao/BJHD84136716.html</td>
+      <td>BJHD84136716</td>
+      <td>116.2843</td>
+      <td>39.9427</td>
+      <td>1111027378362</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>618.0000</td>
+      <td>38868</td>
+      <td>159.0000</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2001</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.5000</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>8</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>N</td>
+      <td>-0.0423</td>
+      <td>-0.0212</td>
+      <td>0.0424</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>https://bj.lianjia.com/chengjiao/BJCY84233046.html</td>
+      <td>BJCY84233046</td>
+      <td>116.5054</td>
+      <td>39.9391</td>
+      <td>1111027379229</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>95.0000</td>
+      <td>20145</td>
+      <td>47.1600</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1995</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.5000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>N</td>
+      <td>-0.0423</td>
+      <td>-0.0212</td>
+      <td>0.0424</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>https://bj.lianjia.com/chengjiao/BJCY84129495.html</td>
+      <td>BJCY84129495</td>
+      <td>116.4551</td>
+      <td>39.9315</td>
+      <td>1111027376792</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>223.0000</td>
+      <td>28916</td>
+      <td>77.1200</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1988</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0.3330</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>5</td>
+      <td>6</td>
+      <td>N</td>
+      <td>-0.0423</td>
+      <td>-0.0212</td>
+      <td>0.0424</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>https://bj.lianjia.com/chengjiao/BJCY84131603.html</td>
+      <td>BJCY84131603</td>
+      <td>116.4595</td>
+      <td>39.9540</td>
+      <td>1111027381384</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>164.4000</td>
+      <td>21885</td>
+      <td>75.1200</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1984</td>
+      <td>1</td>
+      <td>6</td>
+      <td>0.2500</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>3</td>
+      <td>16</td>
+      <td>N</td>
+      <td>-0.0423</td>
+      <td>-0.0212</td>
+      <td>0.0424</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>https://bj.lianjia.com/chengjiao/BJHD56417864.html</td>
+      <td>BJHD56417864</td>
+      <td>116.3815</td>
+      <td>39.9778</td>
+      <td>1111027381832</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>107.0000</td>
+      <td>23363</td>
+      <td>45.8000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1996</td>
+      <td>1</td>
+      <td>6</td>
+      <td>0.0710</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>8</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>5</td>
+      <td>9</td>
+      <td>N</td>
+      <td>-0.0423</td>
+      <td>-0.0212</td>
+      <td>0.0424</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -13433,7 +13623,8 @@ memory usage: 73.9+ MB
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ModelComparison</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check the best stack model and the models that used in the stack model</span>
+<span class="n">ModelComparison</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]]</span>
 </pre></div>
 
     </div>
@@ -13471,10 +13662,9 @@ memory usage: 73.9+ MB
       <th></th>
       <th>Model name</th>
       <th>MAE</th>
-      <th>MSE</th>
+      <th>RMSE</th>
       <th>Explained_variance_score</th>
       <th>Best para</th>
-      <th>RMSE</th>
     </tr>
   </thead>
   <tbody>
@@ -13482,28 +13672,25 @@ memory usage: 73.9+ MB
       <th>7</th>
       <td>RandomForestRegressor w/ BayesSearchCV</td>
       <td>4558.5951</td>
-      <td>NaN</td>
+      <td>7073.6714</td>
       <td>0.9149</td>
       <td>OrderedDict([('rf__max_depth', 100), ('rf__min_samples_leaf', 1), ('rf__min_samples_split', 2), ('rf__n_estimators', 600)])</td>
-      <td>7073.6714</td>
     </tr>
     <tr>
       <th>9</th>
       <td>GradientBoostingRegressor w/ BayesSearchCV</td>
       <td>4196.3939</td>
-      <td>NaN</td>
+      <td>6513.0618</td>
       <td>0.9278</td>
       <td>OrderedDict([('gb__learning_rate', 0.11413168586297671), ('gb__max_depth', 8), ('gb__n_estimators', 1000)])</td>
-      <td>6513.0618</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Stacking ensemble</td>
       <td>4111.6664</td>
-      <td>NaN</td>
+      <td>6431.3238</td>
       <td>0.9296</td>
       <td>NaN</td>
-      <td>6431.3238</td>
     </tr>
   </tbody>
 </table>
@@ -13559,19 +13746,6 @@ memory usage: 73.9+ MB
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -14054,7 +14228,8 @@ memory usage: 73.9+ MB
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;modelPrice_stack&#39;</span><span class="p">]</span>
     
 <span class="n">calModelGap</span><span class="p">(</span><span class="n">price_prediction_stack</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">price_prediction_stack</span><span class="p">[</span><span class="s1">&#39;gap&#39;</span><span class="p">],</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">price_prediction_stack</span><span class="p">[</span><span class="s1">&#39;gap&#39;</span><span class="p">],</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -14073,7 +14248,7 @@ memory usage: 73.9+ MB
 
 
 <div class="output_png output_subarea ">
-<img src="output_36_0.png"
+<img src="output_35_0.png"
 >
 </div>
 
@@ -14104,7 +14279,7 @@ memory usage: 73.9+ MB
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;gap&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;gap&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,)[[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="s1">&#39;modelPrice_stack&#39;</span><span class="p">,</span><span class="s1">&#39;gap&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14140,37 +14315,7 @@ memory usage: 73.9+ MB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>url</th>
-      <th>id</th>
-      <th>Lng</th>
-      <th>Lat</th>
-      <th>Cid</th>
-      <th>tradeTime</th>
-      <th>followers</th>
-      <th>totalPrice</th>
       <th>price</th>
-      <th>square</th>
-      <th>livingRoom</th>
-      <th>drawingRoom</th>
-      <th>kitchen</th>
-      <th>bathRoom</th>
-      <th>buildingType</th>
-      <th>constructionTime</th>
-      <th>renovationCondition</th>
-      <th>buildingStructure</th>
-      <th>ladderRatio</th>
-      <th>elevator</th>
-      <th>fiveYearsProperty</th>
-      <th>subway</th>
-      <th>district</th>
-      <th>year</th>
-      <th>month</th>
-      <th>floorType</th>
-      <th>floorHeight</th>
-      <th>DOM_cat</th>
-      <th>10yrBond_up%</th>
-      <th>hmi_up%</th>
-      <th>sse_up%</th>
       <th>modelPrice_stack</th>
       <th>gap</th>
     </tr>
@@ -14178,181 +14323,31 @@ memory usage: 73.9+ MB
   <tbody>
     <tr>
       <th>312572</th>
-      <td>https://bj.lianjia.com/chengjiao/101102439295.html</td>
-      <td>101102439295</td>
-      <td>116.4130</td>
-      <td>40.0564</td>
-      <td>1111027376788</td>
-      <td>2018-01-03</td>
-      <td>0</td>
-      <td>190.0000</td>
       <td>20128</td>
-      <td>94.4000</td>
-      <td>2</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>4</td>
-      <td>1998</td>
-      <td>4</td>
-      <td>2</td>
-      <td>0.5000</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>6</td>
-      <td>2018</td>
-      <td>1</td>
-      <td>1</td>
-      <td>6</td>
-      <td>M</td>
-      <td>0.0074</td>
-      <td>-0.0064</td>
-      <td>0.0525</td>
       <td>59674.6286</td>
       <td>-39546.6286</td>
     </tr>
     <tr>
       <th>312518</th>
-      <td>https://bj.lianjia.com/chengjiao/101102321043.html</td>
-      <td>101102321043</td>
-      <td>116.3600</td>
-      <td>39.9397</td>
-      <td>1111027375999</td>
-      <td>2018-01-02</td>
-      <td>153</td>
-      <td>525.0000</td>
       <td>84000</td>
-      <td>62.5000</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-      <td>1998</td>
-      <td>4</td>
-      <td>6</td>
-      <td>0.2000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>10</td>
-      <td>2018</td>
-      <td>1</td>
-      <td>0</td>
-      <td>12</td>
-      <td>L</td>
-      <td>0.0074</td>
-      <td>-0.0064</td>
-      <td>0.0525</td>
       <td>108788.5022</td>
       <td>-24788.5022</td>
     </tr>
     <tr>
       <th>312581</th>
-      <td>https://bj.lianjia.com/chengjiao/101102213253.html</td>
-      <td>101102213253</td>
-      <td>116.3546</td>
-      <td>39.9239</td>
-      <td>1111027382064</td>
-      <td>2018-01-03</td>
-      <td>132</td>
-      <td>510.0000</td>
       <td>90266</td>
-      <td>56.5000</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>4</td>
-      <td>1973</td>
-      <td>3</td>
-      <td>2</td>
-      <td>0.3330</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>10</td>
-      <td>2018</td>
-      <td>1</td>
-      <td>5</td>
-      <td>5</td>
-      <td>L</td>
-      <td>0.0074</td>
-      <td>-0.0064</td>
-      <td>0.0525</td>
       <td>114565.7628</td>
       <td>-24299.7628</td>
     </tr>
     <tr>
       <th>312499</th>
-      <td>https://bj.lianjia.com/chengjiao/101102388385.html</td>
-      <td>101102388385</td>
-      <td>116.3586</td>
-      <td>39.9321</td>
-      <td>1111027376241</td>
-      <td>2018-01-02</td>
-      <td>49</td>
-      <td>415.5000</td>
       <td>102593</td>
-      <td>40.5000</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1992</td>
-      <td>3</td>
-      <td>2</td>
-      <td>0.2000</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>10</td>
-      <td>2018</td>
-      <td>1</td>
-      <td>5</td>
-      <td>20</td>
-      <td>L</td>
-      <td>0.0074</td>
-      <td>-0.0064</td>
-      <td>0.0525</td>
       <td>126589.6197</td>
       <td>-23996.6197</td>
     </tr>
     <tr>
       <th>312580</th>
-      <td>https://bj.lianjia.com/chengjiao/101102334763.html</td>
-      <td>101102334763</td>
-      <td>116.3852</td>
-      <td>39.9005</td>
-      <td>1111027376564</td>
-      <td>2018-01-03</td>
-      <td>82</td>
-      <td>970.0000</td>
       <td>92575</td>
-      <td>104.7800</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-      <td>1999</td>
-      <td>3</td>
-      <td>6</td>
-      <td>0.5000</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>10</td>
-      <td>2018</td>
-      <td>1</td>
-      <td>0</td>
-      <td>13</td>
-      <td>L</td>
-      <td>0.0074</td>
-      <td>-0.0064</td>
-      <td>0.0525</td>
       <td>112260.5957</td>
       <td>-19685.5957</td>
     </tr>
@@ -14388,6 +14383,7 @@ memory usage: 73.9+ MB
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;renovationCondition&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;gap&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">price_prediction_stack</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;renovationCondition&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;gap&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">price_prediction_stack</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -14406,7 +14402,7 @@ memory usage: 73.9+ MB
 
 
 <div class="output_png output_subarea ">
-<img src="output_42_0.png"
+<img src="output_41_0.png"
 >
 </div>
 
@@ -14437,6 +14433,7 @@ memory usage: 73.9+ MB
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;renovationCondition&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;modelPrice_stack&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">price_prediction_stack</span><span class="p">,)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;renovationCondition&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;modelPrice_stack&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">price_prediction_stack</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -14455,7 +14452,7 @@ memory usage: 73.9+ MB
 
 
 <div class="output_png output_subarea ">
-<img src="output_44_0.png"
+<img src="output_43_0.png"
 >
 </div>
 
@@ -14468,7 +14465,7 @@ memory usage: 73.9+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-different-are-Hardcover-renovationa-(cat4)-and-Simplicity-renovation-(cat3)?">How different are Hardcover renovationa (cat4) and Simplicity renovation (cat3)?<a class="anchor-link" href="#How-different-are-Hardcover-renovationa-(cat4)-and-Simplicity-renovation-(cat3)?">&#182;</a></h1>
+<h1 id="Q2-How-different-are-Hardcover-renovationa-(cat4)-and-Simplicity-renovation-(cat3)?">Q2 How different are Hardcover renovationa (cat4) and Simplicity renovation (cat3)?<a class="anchor-link" href="#Q2-How-different-are-Hardcover-renovationa-(cat4)-and-Simplicity-renovation-(cat3)?">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14477,40 +14474,6 @@ memory usage: 73.9+ MB
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>According to this, there seem to be no difference between <strong>Hardcover renovationa (cat4)</strong> and <strong>Simplicity renovation (cat3)</strong>. If this is true, there is no merit to spend extra money for renovation.</p>
 <p>Next, we statistically test this.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Hypothesis-formulation">Hypothesis formulation<a class="anchor-link" href="#Hypothesis-formulation">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Our Null hypothesis is just:</p>
-<p><strong>H null</strong>: the observed difference in the mean Hardcover renovationa (cat4) and mean Simplicity renovation (cat3) is due to chance (and thus not due to the renovation).</p>
-<p><strong>H alternative</strong>: the observed difference is not due to chance (and is actually due to renovation)</p>
-<p>We're also going to pick a significance level of 0.05.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Permutation-test">Permutation test<a class="anchor-link" href="#Permutation-test">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Is there wny difference among categories?
-Here, we perform permutaiton test. The data to use is modelPrice_stack predicted by the financial model.</p>
 
 </div>
 </div>
@@ -14638,52 +14601,52 @@ Here, we perform permutaiton test. The data to use is modelPrice_stack predicted
     </tr>
     <tr>
       <th>mean</th>
-      <td>56337.4815</td>
-      <td>48710.3333</td>
-      <td>62775.5333</td>
-      <td>58832.5690</td>
+      <td>60151.6667</td>
+      <td>55634.0000</td>
+      <td>58569.6267</td>
+      <td>60485.0603</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>16056.4667</td>
-      <td>7909.9932</td>
-      <td>24019.9766</td>
-      <td>22053.5279</td>
+      <td>22080.2110</td>
+      <td>11219.6777</td>
+      <td>22481.7999</td>
+      <td>22139.2084</td>
     </tr>
     <tr>
       <th>min</th>
-      <td>34462.0000</td>
-      <td>39615.0000</td>
-      <td>25902.0000</td>
       <td>20128.0000</td>
+      <td>42718.0000</td>
+      <td>29152.0000</td>
+      <td>24771.0000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>39875.0000</td>
-      <td>46074.5000</td>
-      <td>44691.0000</td>
-      <td>43027.7500</td>
+      <td>43111.0000</td>
+      <td>51968.0000</td>
+      <td>40759.5000</td>
+      <td>44651.5000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>55792.0000</td>
-      <td>52534.0000</td>
-      <td>56923.0000</td>
-      <td>52427.5000</td>
+      <td>60065.0000</td>
+      <td>61218.0000</td>
+      <td>52216.0000</td>
+      <td>55588.0000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>67469.5000</td>
-      <td>53258.0000</td>
-      <td>74276.5000</td>
-      <td>69039.0000</td>
+      <td>73648.5000</td>
+      <td>62092.0000</td>
+      <td>69816.0000</td>
+      <td>71390.2500</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>87391.0000</td>
-      <td>53982.0000</td>
+      <td>102970.0000</td>
+      <td>62966.0000</td>
+      <td>124690.0000</td>
       <td>142120.0000</td>
-      <td>122165.0000</td>
     </tr>
   </tbody>
 </table>
@@ -14747,19 +14710,19 @@ Here, we perform permutaiton test. The data to use is modelPrice_stack predicted
   <tbody>
     <tr>
       <th>1</th>
-      <td>56337.4815</td>
+      <td>60151.6667</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>48710.3333</td>
+      <td>55634.0000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>62775.5333</td>
+      <td>58569.6267</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>58832.5690</td>
+      <td>60485.0603</td>
     </tr>
   </tbody>
 </table>
@@ -14788,13 +14751,133 @@ Here, we perform permutaiton test. The data to use is modelPrice_stack predicted
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Check-the-distribution-of-the-data">Check the distribution of the data<a class="anchor-link" href="#Check-the-distribution-of-the-data">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">renoCat3_normal</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">normaltest</span><span class="p">(</span><span class="n">renoCat3</span><span class="p">)</span>
+<span class="n">renoCat3_normal</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[24]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>NormaltestResult(statistic=7.416516310425134, pvalue=0.024520196472229375)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">renoCat4_normal</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">normaltest</span><span class="p">(</span><span class="n">renoCat4</span><span class="p">)</span>
+<span class="n">renoCat4_normal</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[25]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>NormaltestResult(statistic=21.59639592609782, pvalue=2.043629721204032e-05)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Both are not normal.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Hypothesis-formulation">Hypothesis formulation<a class="anchor-link" href="#Hypothesis-formulation">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our Null hypothesis is just:</p>
+<p><strong>H null</strong>: the observed difference in the mean Hardcover renovationa (cat4) and mean Simplicity renovation (cat3) is due to chance (and thus not due to the renovation).</p>
+<p><strong>H alternative</strong>: the observed difference is not due to chance (and is actually due to renovation)</p>
+<p>We're also going to pick a significance level of 0.05.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Permutation-test">Permutation test<a class="anchor-link" href="#Permutation-test">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Is there wny difference among categories?
+Here, we perform permutaiton test. The data to use is modelPrice_stack predicted by the financial model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">renoCat3</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">renoCat4</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">);</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">renoCat4</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -14813,7 +14896,7 @@ Here, we perform permutaiton test. The data to use is modelPrice_stack predicted
 
 
 <div class="output_png output_subarea ">
-<img src="output_54_0.png"
+<img src="output_57_0.png"
 >
 </div>
 
@@ -14825,7 +14908,7 @@ Here, we perform permutaiton test. The data to use is modelPrice_stack predicted
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Another way per the Datacamp in sec.11.3</span>
@@ -14878,7 +14961,7 @@ Here, we perform permutaiton test. The data to use is modelPrice_stack predicted
 
     <span class="c1"># Compute p-value: p</span>
     <span class="c1"># two-tailed</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">perm_replicates</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">empirical_diff_means</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">perm_replicates</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">perm_replicates</span> <span class="o">&gt;=</span> <span class="n">empirical_diff_means</span><span class="p">)</span><span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">perm_replicates</span><span class="p">)</span>
 
     <span class="c1"># Print the result</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;empirical_diff_means &#39;</span><span class="p">,</span><span class="n">empirical_diff_means</span><span class="p">)</span>
@@ -14887,7 +14970,6 @@ Here, we perform permutaiton test. The data to use is modelPrice_stack predicted
     
     <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">perm_replicates</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">empirical_diff_means</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">empirical_diff_means</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14897,10 +14979,11 @@ Here, we perform permutaiton test. The data to use is modelPrice_stack predicted
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">permutationTest</span><span class="p">(</span><span class="n">renoCat3</span><span class="p">,</span><span class="n">renoCat4</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -14918,7 +15001,7 @@ Here, we perform permutaiton test. The data to use is modelPrice_stack predicted
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>empirical_diff_means  2175.9769057778904
-p-value = 0.5204
+p-value = 0.259
 </pre>
 </div>
 </div>
@@ -14931,7 +15014,7 @@ p-value = 0.5204
 
 
 <div class="output_png output_subarea ">
-<img src="output_56_1.png"
+<img src="output_59_1.png"
 >
 </div>
 
@@ -14952,13 +15035,63 @@ p-value = 0.5204
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Q2-How-much-appreciation-in-price-will-be-expected-if-Hardcover-renovationa-(cat4)-are-applied-to-all-houses??">Q2 How much appreciation in price will be expected if Hardcover renovationa (cat4) are applied to all houses??<a class="anchor-link" href="#Q2-How-much-appreciation-in-price-will-be-expected-if-Hardcover-renovationa-(cat4)-are-applied-to-all-houses??">&#182;</a></h1>
+<h2 id="T-test-for-the-means-of-two-independent-samples">T-test for the means of two independent samples<a class="anchor-link" href="#T-test-for-the-means-of-two-independent-samples">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span>
+
+<span class="n">ttest</span><span class="p">,</span><span class="n">pval</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">renoCat3</span><span class="p">,</span><span class="n">renoCat4</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ttest&quot;</span><span class="p">,</span><span class="n">ttest</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p value&#39;</span><span class="p">,</span><span class="nb">format</span><span class="p">(</span><span class="n">pval</span><span class="p">,</span> <span class="s1">&#39;.70f&#39;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">pval</span> <span class="o">&lt;</span><span class="mf">0.05</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;we reject null hypothesis&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;we accept null hypothesis&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ttest 0.6587096332454351
+p value 0.5109942771942638239934808552789036184549331665039062500000000000000000
+we accept null hypothesis
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Q3-How-much-appreciation-in-price-will-be-expected-if-Hardcover-renovationa-(cat4)-are-applied-to-all-houses??">Q3 How much appreciation in price will be expected if Hardcover renovationa (cat4) are applied to all houses??<a class="anchor-link" href="#Q3-How-much-appreciation-in-price-will-be-expected-if-Hardcover-renovationa-(cat4)-are-applied-to-all-houses??">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a dataframe for this question</span>
@@ -14972,7 +15105,7 @@ p-value = 0.5204
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Change therenovationCondition to 4</span>
@@ -14990,7 +15123,7 @@ p-value = 0.5204
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[31]:</div>
 
 
 
@@ -15230,7 +15363,7 @@ p-value = 0.5204
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Predict new prices</span>
@@ -15246,7 +15379,7 @@ p-value = 0.5204
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">price_prediction_stack</span><span class="p">[</span><span class="s1">&#39;renovTo4_pct&#39;</span><span class="p">]</span> <span class="o">=</span>\
@@ -15265,7 +15398,7 @@ p-value = 0.5204
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[30]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -15362,7 +15495,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>41530.9343</td>
       <td>-1508.9343</td>
-      <td>81899</td>
+      <td>33379</td>
       <td>41884.6914</td>
       <td>0.8518</td>
     </tr>
@@ -15401,7 +15534,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>45648.7808</td>
       <td>-1115.7808</td>
-      <td>34731</td>
+      <td>60724</td>
       <td>43790.4875</td>
       <td>-4.0708</td>
     </tr>
@@ -15440,7 +15573,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>76082.0756</td>
       <td>-5050.0756</td>
-      <td>50372</td>
+      <td>80887</td>
       <td>76264.9116</td>
       <td>0.2403</td>
     </tr>
@@ -15479,7 +15612,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>53840.2484</td>
       <td>-6676.2484</td>
-      <td>60000</td>
+      <td>42764</td>
       <td>52863.0531</td>
       <td>-1.8150</td>
     </tr>
@@ -15518,7 +15651,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>51993.8408</td>
       <td>-6462.8408</td>
-      <td>55350</td>
+      <td>79767</td>
       <td>51324.8209</td>
       <td>-1.2867</td>
     </tr>
@@ -15535,15 +15668,23 @@ p-value = 0.5204
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">price_prediction_stack</span><span class="p">[</span>
-    <span class="p">(</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renovationCondition</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
-    <span class="o">|</span>
-    <span class="p">(</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renovationCondition</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>
-    <span class="o">|</span>
-    <span class="p">(</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renovationCondition</span><span class="o">==</span><span class="mi">3</span><span class="p">)][[</span><span class="s1">&#39;renovTo4_pct&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span><span class="p">(</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renovationCondition</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renovationCondition</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renovationCondition</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">f</span><span class="p">][[</span><span class="s1">&#39;renovTo4_pct&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 
     </div>
@@ -15556,7 +15697,7 @@ p-value = 0.5204
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[31]:</div>
+    <div class="prompt output_prompt">Out[35]:</div>
 
 
 
@@ -15637,13 +15778,474 @@ p-value = 0.5204
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Q3-Which-house-should-be-renovated?">Q3 Which house should be renovated?<a class="anchor-link" href="#Q3-Which-house-should-be-renovated?">&#182;</a></h1>
+<h1 id="Q4-Which-house-should-be-renovated?">Q4 Which house should be renovated?<a class="anchor-link" href="#Q4-Which-house-should-be-renovated?">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's find the houses that should be renovated with teo sigma confidence.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sigma</span> <span class="o">=</span> <span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">renovTo4_pct</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">sigma</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.7300768097850087</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># filter out the only price_renovation3to4 that have significant level of positive percentage increase (price_renovation3to4) of two sigma.</span>
+<span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renovTo4_pct</span><span class="o">&gt;</span><span class="n">sigma</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>url</th>
+      <th>id</th>
+      <th>Lng</th>
+      <th>Lat</th>
+      <th>Cid</th>
+      <th>tradeTime</th>
+      <th>followers</th>
+      <th>totalPrice</th>
+      <th>price</th>
+      <th>square</th>
+      <th>livingRoom</th>
+      <th>drawingRoom</th>
+      <th>kitchen</th>
+      <th>bathRoom</th>
+      <th>buildingType</th>
+      <th>constructionTime</th>
+      <th>renovationCondition</th>
+      <th>buildingStructure</th>
+      <th>ladderRatio</th>
+      <th>elevator</th>
+      <th>fiveYearsProperty</th>
+      <th>subway</th>
+      <th>district</th>
+      <th>year</th>
+      <th>month</th>
+      <th>floorType</th>
+      <th>floorHeight</th>
+      <th>DOM_cat</th>
+      <th>10yrBond_up%</th>
+      <th>hmi_up%</th>
+      <th>sse_up%</th>
+      <th>modelPrice_stack</th>
+      <th>gap</th>
+      <th>Permutation1</th>
+      <th>price_renovation3to4</th>
+      <th>renovTo4_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>312512</th>
+      <td>https://bj.lianjia.com/chengjiao/101101498405.html</td>
+      <td>101101498405</td>
+      <td>116.5044</td>
+      <td>39.9294</td>
+      <td>1111027376016</td>
+      <td>2018-01-02</td>
+      <td>77</td>
+      <td>284.0000</td>
+      <td>55350</td>
+      <td>51.3100</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1994</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.3330</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>L</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>61604.4431</td>
+      <td>-6254.4431</td>
+      <td>61218</td>
+      <td>63179.2484</td>
+      <td>2.5563</td>
+    </tr>
+    <tr>
+      <th>312520</th>
+      <td>https://bj.lianjia.com/chengjiao/101102376390.html</td>
+      <td>101102376390</td>
+      <td>116.3570</td>
+      <td>40.0451</td>
+      <td>1111027381343</td>
+      <td>2018-01-02</td>
+      <td>20</td>
+      <td>260.0000</td>
+      <td>72626</td>
+      <td>35.8000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1984</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0.3330</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>L</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>83069.7322</td>
+      <td>-10443.7322</td>
+      <td>50492</td>
+      <td>84349.6275</td>
+      <td>1.5407</td>
+    </tr>
+    <tr>
+      <th>312549</th>
+      <td>https://bj.lianjia.com/chengjiao/101102296820.html</td>
+      <td>101102296820</td>
+      <td>116.4418</td>
+      <td>39.9920</td>
+      <td>1111027379657</td>
+      <td>2018-01-03</td>
+      <td>59</td>
+      <td>370.0000</td>
+      <td>63487</td>
+      <td>58.2800</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1998</td>
+      <td>3</td>
+      <td>6</td>
+      <td>0.1670</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>3</td>
+      <td>24</td>
+      <td>L</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>79108.8329</td>
+      <td>-15621.8329</td>
+      <td>44313</td>
+      <td>81092.6219</td>
+      <td>2.5077</td>
+    </tr>
+    <tr>
+      <th>312555</th>
+      <td>https://bj.lianjia.com/chengjiao/101102437883.html</td>
+      <td>101102437883</td>
+      <td>116.3421</td>
+      <td>39.7497</td>
+      <td>1111027378968</td>
+      <td>2018-01-03</td>
+      <td>20</td>
+      <td>222.0000</td>
+      <td>39728</td>
+      <td>55.8800</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1997</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0.5000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>2</td>
+      <td>6</td>
+      <td>M</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>48869.2394</td>
+      <td>-9141.2394</td>
+      <td>92269</td>
+      <td>49592.4455</td>
+      <td>1.4799</td>
+    </tr>
+    <tr>
+      <th>312564</th>
+      <td>https://bj.lianjia.com/chengjiao/101102244732.html</td>
+      <td>101102244732</td>
+      <td>116.4278</td>
+      <td>39.8706</td>
+      <td>1111027378724</td>
+      <td>2018-01-03</td>
+      <td>0</td>
+      <td>222.0000</td>
+      <td>60000</td>
+      <td>37.0000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1991</td>
+      <td>3</td>
+      <td>6</td>
+      <td>0.2000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>5</td>
+      <td>15</td>
+      <td>L</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>70895.2327</td>
+      <td>-10895.2327</td>
+      <td>43684</td>
+      <td>72074.5362</td>
+      <td>1.6634</td>
+    </tr>
+    <tr>
+      <th>312576</th>
+      <td>https://bj.lianjia.com/chengjiao/101101814992.html</td>
+      <td>101101814992</td>
+      <td>116.5038</td>
+      <td>39.9307</td>
+      <td>1111027374762</td>
+      <td>2018-01-03</td>
+      <td>82</td>
+      <td>1460.0000</td>
+      <td>80896</td>
+      <td>180.4800</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2011</td>
+      <td>4</td>
+      <td>6</td>
+      <td>0.1670</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>5</td>
+      <td>32</td>
+      <td>L</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>68910.0095</td>
+      <td>11985.9905</td>
+      <td>81899</td>
+      <td>70046.3228</td>
+      <td>1.6490</td>
+    </tr>
+    <tr>
+      <th>312580</th>
+      <td>https://bj.lianjia.com/chengjiao/101102334763.html</td>
+      <td>101102334763</td>
+      <td>116.3852</td>
+      <td>39.9005</td>
+      <td>1111027376564</td>
+      <td>2018-01-03</td>
+      <td>82</td>
+      <td>970.0000</td>
+      <td>92575</td>
+      <td>104.7800</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1999</td>
+      <td>3</td>
+      <td>6</td>
+      <td>0.5000</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>10</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13</td>
+      <td>L</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>112260.5957</td>
+      <td>-19685.5957</td>
+      <td>81009</td>
+      <td>114954.1485</td>
+      <td>2.3994</td>
+    </tr>
+    <tr>
+      <th>312623</th>
+      <td>https://bj.lianjia.com/chengjiao/101102443459.html</td>
+      <td>101102443459</td>
+      <td>116.6474</td>
+      <td>39.8963</td>
+      <td>1111027380847</td>
+      <td>2018-01-03</td>
+      <td>1</td>
+      <td>405.0000</td>
+      <td>42718</td>
+      <td>94.8100</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2004</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0.5000</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>11</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>M</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>50567.7067</td>
+      <td>-7849.7067</td>
+      <td>86053</td>
+      <td>51896.7998</td>
+      <td>2.6283</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Those houses are the-financial-modelically worthwhile investment of renovation.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Q5-What-kind-of-houses-have-significant-positive-renovTo4_pct?">Q5 What kind of houses have significant positive renovTo4_pct?<a class="anchor-link" href="#Q5-What-kind-of-houses-have-significant-positive-renovTo4_pct?">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add a new column of boolean if renovTo4_pct is positive or not. </span>
@@ -15668,7 +16270,7 @@ p-value = 0.5204
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[32]:</div>
+    <div class="prompt output_prompt">Out[38]:</div>
 
 
 
@@ -15766,7 +16368,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>41530.9343</td>
       <td>-1508.9343</td>
-      <td>81899</td>
+      <td>33379</td>
       <td>41884.6914</td>
       <td>0.8518</td>
       <td>1</td>
@@ -15806,7 +16408,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>45648.7808</td>
       <td>-1115.7808</td>
-      <td>34731</td>
+      <td>60724</td>
       <td>43790.4875</td>
       <td>-4.0708</td>
       <td>0</td>
@@ -15846,7 +16448,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>76082.0756</td>
       <td>-5050.0756</td>
-      <td>50372</td>
+      <td>80887</td>
       <td>76264.9116</td>
       <td>0.2403</td>
       <td>1</td>
@@ -15886,7 +16488,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>53840.2484</td>
       <td>-6676.2484</td>
-      <td>60000</td>
+      <td>42764</td>
       <td>52863.0531</td>
       <td>-1.8150</td>
       <td>0</td>
@@ -15926,7 +16528,7 @@ p-value = 0.5204
       <td>0.0525</td>
       <td>51993.8408</td>
       <td>-6462.8408</td>
-      <td>55350</td>
+      <td>79767</td>
       <td>51324.8209</td>
       <td>-1.2867</td>
       <td>0</td>
@@ -15944,7 +16546,7 @@ p-value = 0.5204
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">,</span>
@@ -15965,7 +16567,7 @@ p-value = 0.5204
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Using pairplot, it is found that the columns, 'livingRoom', 'buildingType', 'followers', had more difference between renoPlus boolean than thetohers.</p>
+<p>Using pairplot, it is found that the columns, 'livingRoom', 'buildingType', 'followers', had more difference between renoPlus boolean than the others.</p>
 <p>Next, check the histgrams of these columns to find which houses are better to renovate.</p>
 
 </div>
@@ -15973,14 +16575,14 @@ p-value = 0.5204
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;livingRoom&#39;</span><span class="p">,</span> <span class="s1">&#39;buildingType&#39;</span><span class="p">,</span> <span class="s1">&#39;followers&#39;</span><span class="p">]):</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">price_prediction_stack</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">_</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;dodge&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;renoPlus&quot;</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -15999,7 +16601,203 @@ p-value = 0.5204
 
 
 <div class="output_png output_subarea ">
-<img src="output_70_0.png"
+<img src="output_81_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renoPlus</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">livingRoom</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renoPlus</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">livingRoom</span>
+<span class="n">permutationTest</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>empirical_diff_means  0.09058050383351568
+p-value = 0.2502
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_82_1.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renoPlus</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">livingRoom</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renoPlus</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">livingRoom</span>
+<span class="n">permutationTest</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>empirical_diff_means  0.09058050383351568
+p-value = 0.2523
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_83_1.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renoPlus</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">buildingType</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renoPlus</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">buildingType</span>
+<span class="n">permutationTest</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>empirical_diff_means  -0.06122672508214677
+p-value = 0.6339
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_84_1.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renoPlus</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">followers</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">renoPlus</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">followers</span>
+<span class="n">permutationTest</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>empirical_diff_means  1.3173055859802858
+p-value = 0.456
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_85_1.png"
 >
 </div>
 
@@ -16012,7 +16810,374 @@ p-value = 0.5204
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It is hard to find the significant difference, but it can be said that the houses with higher followers have more appreciation in price after hardcore renovation.</p>
+<p>We conclude that renovation will not bring significant difference in a house price.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Q6-Listed-price(price)-vs-Predicted-price(modelPrice)-?">Q6 Listed price(price) vs Predicted price(modelPrice) ?<a class="anchor-link" href="#Q6-Listed-price(price)-vs-Predicted-price(modelPrice)-?">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">price_prediction_stack</span><span class="p">[[</span><span class="s1">&#39;gap&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[45]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>gap</th>
+      <td>221.0000</td>
+      <td>-5719.9478</td>
+      <td>6178.2942</td>
+      <td>-39546.6286</td>
+      <td>-8531.2841</td>
+      <td>-5254.5392</td>
+      <td>-2127.4770</td>
+      <td>26304.9237</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">price_prediction_stack</span><span class="p">[</span><span class="s1">&#39;gap&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># price - modelPrice_stack is too low(-)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">gap</span><span class="o">&lt;-</span><span class="mi">2</span><span class="o">*</span><span class="n">sig</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;gap&#39;</span><span class="p">))</span>
+                                                                    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[47]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>21</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># price - modelPrice_stack is too high(+)</span>
+<span class="c1"># houses which listed prices are much lower thatn predicted model</span>
+<span class="n">price_prediction_stack</span><span class="p">[</span><span class="n">price_prediction_stack</span><span class="o">.</span><span class="n">gap</span><span class="o">&gt;</span><span class="mf">1.9</span><span class="o">*</span><span class="n">sig</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;gap&#39;</span><span class="p">,</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[48]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>url</th>
+      <th>id</th>
+      <th>Lng</th>
+      <th>Lat</th>
+      <th>Cid</th>
+      <th>tradeTime</th>
+      <th>followers</th>
+      <th>totalPrice</th>
+      <th>price</th>
+      <th>square</th>
+      <th>livingRoom</th>
+      <th>drawingRoom</th>
+      <th>kitchen</th>
+      <th>bathRoom</th>
+      <th>buildingType</th>
+      <th>constructionTime</th>
+      <th>renovationCondition</th>
+      <th>buildingStructure</th>
+      <th>ladderRatio</th>
+      <th>elevator</th>
+      <th>fiveYearsProperty</th>
+      <th>subway</th>
+      <th>district</th>
+      <th>year</th>
+      <th>month</th>
+      <th>floorType</th>
+      <th>floorHeight</th>
+      <th>DOM_cat</th>
+      <th>10yrBond_up%</th>
+      <th>hmi_up%</th>
+      <th>sse_up%</th>
+      <th>modelPrice_stack</th>
+      <th>gap</th>
+      <th>Permutation1</th>
+      <th>price_renovation3to4</th>
+      <th>renovTo4_pct</th>
+      <th>renoPlus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>312469</th>
+      <td>https://bj.lianjia.com/chengjiao/101102086891.html</td>
+      <td>101102086891</td>
+      <td>116.4621</td>
+      <td>39.9238</td>
+      <td>1111027380611</td>
+      <td>2018-01-02</td>
+      <td>27</td>
+      <td>2260.0000</td>
+      <td>124690</td>
+      <td>181.2500</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2008</td>
+      <td>4</td>
+      <td>6</td>
+      <td>0.7500</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>5</td>
+      <td>25</td>
+      <td>L</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>98385.0763</td>
+      <td>26304.9237</td>
+      <td>71577</td>
+      <td>93544.8068</td>
+      <td>-4.9197</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>312576</th>
+      <td>https://bj.lianjia.com/chengjiao/101101814992.html</td>
+      <td>101101814992</td>
+      <td>116.5038</td>
+      <td>39.9307</td>
+      <td>1111027374762</td>
+      <td>2018-01-03</td>
+      <td>82</td>
+      <td>1460.0000</td>
+      <td>80896</td>
+      <td>180.4800</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2011</td>
+      <td>4</td>
+      <td>6</td>
+      <td>0.1670</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>5</td>
+      <td>32</td>
+      <td>L</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>68910.0095</td>
+      <td>11985.9905</td>
+      <td>81899</td>
+      <td>70046.3228</td>
+      <td>1.6490</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>312605</th>
+      <td>https://bj.lianjia.com/chengjiao/101102278923.html</td>
+      <td>101102278923</td>
+      <td>116.4575</td>
+      <td>39.8764</td>
+      <td>1111027375273</td>
+      <td>2018-01-03</td>
+      <td>21</td>
+      <td>479.0000</td>
+      <td>56923</td>
+      <td>84.1500</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2009</td>
+      <td>3</td>
+      <td>6</td>
+      <td>0.2500</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>0</td>
+      <td>28</td>
+      <td>L</td>
+      <td>0.0074</td>
+      <td>-0.0064</td>
+      <td>0.0525</td>
+      <td>45196.4565</td>
+      <td>11726.5435</td>
+      <td>52216</td>
+      <td>45670.7225</td>
+      <td>1.0493</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Those may be worthwhile to review and revise those prices.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are not so many feature values that real estate company can change regarding their product. One of them is renovation, and we have checked how the renovation will contribute to the increase in house price. Our conclusion is that it will unfortunately not bring signicant diffference in the appreciation in housing price, it can be said that it may be brive to cut off renovatio cost as reasonably as possible.</p>
+<p>In addition to the renovation factor, we also filter out the houses which prices had better to be reconsidered.</p>
 
 </div>
 </div>

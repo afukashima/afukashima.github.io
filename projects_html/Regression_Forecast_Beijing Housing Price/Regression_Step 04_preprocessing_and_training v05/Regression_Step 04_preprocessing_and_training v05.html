@@ -13241,45 +13241,6 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save-related functions</span>
-
-<span class="c1"># model file location</span>
-<span class="n">modelfilepath</span> <span class="o">=</span> <span class="s1">&#39;../models&#39;</span> <span class="c1"># old name was modelpath</span>
-
-<span class="k">def</span> <span class="nf">save_CVmodel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">modelname</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="p">):</span>
-    <span class="c1"># Set the model info</span>
-    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">sklearn_version</span>
-    <span class="kn">import</span> <span class="nn">datetime</span>
-    
-    <span class="n">best_model</span> <span class="o">=</span> <span class="n">model</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">pandas_version</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">numpy_version</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">sklearn_version</span> <span class="o">=</span> <span class="n">sklearn_version</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">X_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-    <span class="n">best_model</span><span class="o">.</span><span class="n">build_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-
-    <span class="c1"># save the model</span>
-    <span class="n">save_file</span><span class="p">(</span><span class="n">best_model</span><span class="p">,</span><span class="n">modelname</span><span class="p">,</span> <span class="n">modelfilepath</span><span class="p">)</span>
-    
-<span class="k">def</span> <span class="nf">saveFunc</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">model</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">revisedFlag</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
-        <span class="n">save_CVmodel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">model_path</span><span class="p">[</span><span class="mi">10</span><span class="p">:],</span><span class="n">modelfilepath</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The model was Not revised&#39;</span><span class="p">)</span>
-        
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -13332,9 +13293,7 @@ $( document ).ready(function(){
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save-related functions</span>
-
-<span class="c1"># model file location</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># model file location</span>
 <span class="n">modelfilepath</span> <span class="o">=</span> <span class="s1">&#39;../models&#39;</span> <span class="c1"># old name was modelpath</span>
 
 <span class="k">def</span> <span class="nf">save_CVmodel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">modelname</span><span class="p">,</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="p">):</span>
@@ -14885,7 +14844,7 @@ Name: DOM_cat, Length: 43215, dtype: int64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_54_0.png"
+<img src="output_53_0.png"
 >
 </div>
 
@@ -14993,7 +14952,7 @@ Name: DOM_cat, Length: 43215, dtype: int64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_59_0.png"
+<img src="output_58_0.png"
 >
 </div>
 
@@ -15062,7 +15021,7 @@ Name: DOM_cat, Length: 43215, dtype: int64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_62_0.png"
+<img src="output_61_0.png"
 >
 </div>
 
@@ -15385,7 +15344,7 @@ Lowest(Best) RMSE:  0.9528054697624913
 
 
 <div class="output_png output_subarea ">
-<img src="output_76_0.png"
+<img src="output_75_0.png"
 >
 </div>
 
@@ -15420,7 +15379,7 @@ Lowest(Best) RMSE:  0.9528054697624913
 
 
 <div class="output_png output_subarea ">
-<img src="output_77_0.png"
+<img src="output_76_0.png"
 >
 </div>
 
@@ -15470,7 +15429,7 @@ Lowest(Best) RMSE:  0.9528054697624913
 
 
 <div class="output_png output_subarea ">
-<img src="output_79_0.png"
+<img src="output_78_0.png"
 >
 </div>
 
@@ -15777,7 +15736,7 @@ Lowest(Best) RMSE:  7585.827851068554
 
 
 <div class="output_png output_subarea ">
-<img src="output_92_0.png"
+<img src="output_91_0.png"
 >
 </div>
 
@@ -15812,7 +15771,7 @@ Lowest(Best) RMSE:  7585.827851068554
 
 
 <div class="output_png output_subarea ">
-<img src="output_93_0.png"
+<img src="output_92_0.png"
 >
 </div>
 
@@ -15862,7 +15821,7 @@ Lowest(Best) RMSE:  7585.827851068554
 
 
 <div class="output_png output_subarea ">
-<img src="output_95_0.png"
+<img src="output_94_0.png"
 >
 </div>
 
@@ -16182,7 +16141,7 @@ Lowest(Best) RMSE:  8077.545850191279
 
 
 <div class="output_png output_subarea ">
-<img src="output_108_0.png"
+<img src="output_107_0.png"
 >
 </div>
 
@@ -16217,7 +16176,7 @@ Lowest(Best) RMSE:  8077.545850191279
 
 
 <div class="output_png output_subarea ">
-<img src="output_109_0.png"
+<img src="output_108_0.png"
 >
 </div>
 
@@ -16267,7 +16226,7 @@ Lowest(Best) RMSE:  8077.545850191279
 
 
 <div class="output_png output_subarea ">
-<img src="output_111_0.png"
+<img src="output_110_0.png"
 >
 </div>
 
@@ -16585,7 +16544,7 @@ Lowest(Best) RMSE:  7907.609502599416
 
 
 <div class="output_png output_subarea ">
-<img src="output_123_0.png"
+<img src="output_122_0.png"
 >
 </div>
 
@@ -16620,7 +16579,7 @@ Lowest(Best) RMSE:  7907.609502599416
 
 
 <div class="output_png output_subarea ">
-<img src="output_124_0.png"
+<img src="output_123_0.png"
 >
 </div>
 
@@ -16670,7 +16629,7 @@ Lowest(Best) RMSE:  7907.609502599416
 
 
 <div class="output_png output_subarea ">
-<img src="output_126_0.png"
+<img src="output_125_0.png"
 >
 </div>
 
@@ -16992,7 +16951,7 @@ Lowest(Best) RMSE:  7613.589304250172
 
 
 <div class="output_png output_subarea ">
-<img src="output_138_0.png"
+<img src="output_137_0.png"
 >
 </div>
 
@@ -17027,7 +16986,7 @@ Lowest(Best) RMSE:  7613.589304250172
 
 
 <div class="output_png output_subarea ">
-<img src="output_139_0.png"
+<img src="output_138_0.png"
 >
 </div>
 
@@ -17077,7 +17036,7 @@ Lowest(Best) RMSE:  7613.589304250172
 
 
 <div class="output_png output_subarea ">
-<img src="output_141_0.png"
+<img src="output_140_0.png"
 >
 </div>
 
@@ -17741,7 +17700,7 @@ To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriat
 
 
 <div class="output_png output_subarea ">
-<img src="output_166_0.png"
+<img src="output_165_0.png"
 >
 </div>
 
@@ -17777,7 +17736,7 @@ To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriat
 
 
 <div class="output_png output_subarea ">
-<img src="output_167_0.png"
+<img src="output_166_0.png"
 >
 </div>
 
@@ -18270,7 +18229,7 @@ best params: OrderedDict([(&#39;rf__max_depth&#39;, 100), (&#39;rf__min_samples_
 
 
 <div class="output_png output_subarea ">
-<img src="output_182_0.png"
+<img src="output_181_0.png"
 >
 </div>
 
@@ -18339,7 +18298,7 @@ best params: OrderedDict([(&#39;rf__max_depth&#39;, 100), (&#39;rf__min_samples_
 
 
 <div class="output_png output_subarea ">
-<img src="output_186_0.png"
+<img src="output_185_0.png"
 >
 </div>
 
@@ -18375,7 +18334,7 @@ best params: OrderedDict([(&#39;rf__max_depth&#39;, 100), (&#39;rf__min_samples_
 
 
 <div class="output_png output_subarea ">
-<img src="output_187_0.png"
+<img src="output_186_0.png"
 >
 </div>
 
@@ -18663,7 +18622,7 @@ best params: OrderedDict([(&#39;rf__max_depth&#39;, 100), (&#39;rf__min_samples_
 
 
 <div class="output_png output_subarea ">
-<img src="output_195_0.png"
+<img src="output_194_0.png"
 >
 </div>
 
@@ -18724,7 +18683,7 @@ best params: OrderedDict([(&#39;rf__max_depth&#39;, 100), (&#39;rf__min_samples_
 
 
 <div class="output_png output_subarea ">
-<img src="output_198_0.png"
+<img src="output_197_0.png"
 >
 </div>
 
@@ -18760,7 +18719,7 @@ best params: OrderedDict([(&#39;rf__max_depth&#39;, 100), (&#39;rf__min_samples_
 
 
 <div class="output_png output_subarea ">
-<img src="output_199_0.png"
+<img src="output_198_0.png"
 >
 </div>
 
@@ -19098,7 +19057,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 
 
 <div class="output_png output_subarea ">
-<img src="output_208_0.png"
+<img src="output_207_0.png"
 >
 </div>
 
@@ -19159,7 +19118,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 
 
 <div class="output_png output_subarea ">
-<img src="output_211_0.png"
+<img src="output_210_0.png"
 >
 </div>
 
@@ -19195,7 +19154,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 
 
 <div class="output_png output_subarea ">
-<img src="output_212_0.png"
+<img src="output_211_0.png"
 >
 </div>
 
@@ -19598,7 +19557,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 
 
 <div class="output_png output_subarea ">
-<img src="output_222_0.png"
+<img src="output_221_0.png"
 >
 </div>
 
@@ -19634,7 +19593,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 
 
 <div class="output_png output_subarea ">
-<img src="output_223_0.png"
+<img src="output_222_0.png"
 >
 </div>
 
@@ -19957,7 +19916,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 
 
 <div class="output_png output_subarea ">
-<img src="output_232_0.png"
+<img src="output_231_0.png"
 >
 </div>
 
@@ -20002,7 +19961,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 
 
 <div class="output_png output_subarea ">
-<img src="output_234_0.png"
+<img src="output_233_0.png"
 >
 </div>
 
@@ -20193,7 +20152,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[147]:</div>
+<div class="prompt input_prompt">In&nbsp;[159]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save a model, otherwise fit</span>
@@ -20241,7 +20200,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[151]:</div>
+<div class="prompt input_prompt">In&nbsp;[160]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">ModelComparison</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Model name&#39;</span><span class="p">)[[</span><span class="s1">&#39;MAE&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;MAE&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
@@ -20265,7 +20224,7 @@ best params: OrderedDict([(&#39;gb__learning_rate&#39;, 0.11413168586297671), (&
 
 
 <div class="output_png output_subarea ">
-<img src="output_242_0.png"
+<img src="output_241_0.png"
 >
 </div>
 
@@ -20445,7 +20404,7 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[154]:</div>
+<div class="prompt input_prompt">In&nbsp;[178]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">willReviseFlag</span><span class="o">=</span><span class="kc">True</span>
@@ -20458,16 +20417,13 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[185]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">imblearn.under_sampling</span> <span class="kn">import</span> <span class="n">RandomUnderSampler</span>
-
-
-<span class="n">rmse</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Initiate an empty list to store RMSE for every iteration</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rmse</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Initiate an empty list to store RMSE for every iteration</span>
 <span class="n">size_considered</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Initiate an empty list to store datasize for every iteration</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">31</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
     
     <span class="c1"># The number of sample</span>
     <span class="n">num</span><span class="o">=</span><span class="n">i</span><span class="o">*</span><span class="mi">1000</span>
@@ -20482,19 +20438,19 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
     <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     
     <span class="c1"># Split df2 into X and y</span>
-    <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">split_X_y</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+    <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">split_X_y</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
     
     <span class="c1"># Generate a stack model</span>
     <span class="n">stack_temp</span> <span class="o">=</span> <span class="n">stackGenerator</span><span class="p">(</span><span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
     
     <span class="c1"># Calcualte prediction</span>
-    <span class="n">predictions</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">stack_temp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
     
     <span class="c1"># Calculate rmse</span>
     <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">))</span>
     
     <span class="c1"># Store rmse</span>
-    <span class="n">size_considered</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="n">rmse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
     
     
 </pre></div>
@@ -20506,17 +20462,73 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[197]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">size_considered</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Observations Considered in the Iteration&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;RMSE Score&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">45</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Effect of Datasize on Modeling Accuracy (RMSE)&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://github.com/jbmouret/matplotlib_for_papers/blob/master/src/plot_variance_matplotlib_white.py</span>
+<span class="k">def</span> <span class="nf">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>
+    <span class="c1"># Delete unnecessary lines</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Remove frame color</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend_</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># y axis grid line</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[200]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">size_considered</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Observations Considered in the Iteration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;RMSE Score&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">45</span><span class="p">);</span>
+<span class="n">clean_layout</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># plt.title(&#39;Effect of Datasize on Modeling Accuracy (RMSE)&#39;)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_252_0.png"
+>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -20538,7 +20550,7 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[194]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save the ModelComparison</span>
@@ -20550,16 +20562,58 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A file already exists with this name.
+
+Do you want to overwrite? (Y/N)y
+Writing file.  &#34;../data/ModelComparison_data_step4_EDA.csv&#34;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[195]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">save_file</span><span class="p">(</span><span class="n">dummies</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[]],</span> <span class="s1">&#39;dummies_in_step4_EDA.csv&#39;</span><span class="p">,</span> <span class="n">datapath</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A file already exists with this name.
+
+Do you want to overwrite? (Y/N)y
+Writing file.  &#34;../data/dummies_in_step4_EDA.csv&#34;
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
