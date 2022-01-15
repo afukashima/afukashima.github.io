@@ -13128,7 +13128,7 @@ div#notebook {
 <script>
 $( document ).ready(function(){
 
-            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "165px"}, "toc_section_display": true, "toc_window_display": false};
+            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "165px"}, "toc_section_display": true, "toc_window_display": true};
 
             // fire the main function with these parameters
             require(['nbextensions/toc2/toc2'], function (toc2) {
@@ -13408,7 +13408,7 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Rating distribution</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># score distribution</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">dfr</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;overall&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">):</span>
     <span class="n">height</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
@@ -13464,6 +13464,7 @@ memory usage: 260.1+ MB
 <span class="n">ax</span> <span class="o">=</span> <span class="n">time_count</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;month&#39;</span><span class="p">])[</span><span class="s1">&#39;overall&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;The number of reviews per month&#39;</span><span class="p">,</span> <span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;year, month&#39;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;Number of reviews&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -13503,7 +13504,7 @@ memory usage: 260.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="reviewer-based-data">reviewer-based data<a class="anchor-link" href="#reviewer-based-data">&#182;</a></h2>
+<h2 id="reviewer-based-analysis">reviewer-based analysis<a class="anchor-link" href="#reviewer-based-analysis">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13512,10 +13513,10 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_rating_per_reviewer</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;overall&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]})</span>
-<span class="n">avg_rating_per_reviewer</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">]</span>
-<span class="n">avg_rating_per_reviewer</span> <span class="o">=</span> <span class="n">avg_rating_per_reviewer</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">avg_rating_per_reviewer</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="s1">&#39;avg_rating&#39;</span><span class="p">],</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_score_per_reviewer</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;overall&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">]})</span>
+<span class="n">avg_score_per_reviewer</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;avg_score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">]</span>
+<span class="n">avg_score_per_reviewer</span> <span class="o">=</span> <span class="n">avg_score_per_reviewer</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">avg_score_per_reviewer</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="s1">&#39;avg_score&#39;</span><span class="p">],</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13552,7 +13553,7 @@ memory usage: 260.1+ MB
     <tr style="text-align: right;">
       <th></th>
       <th>reviewerID</th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <th>num_reviews</th>
     </tr>
   </thead>
@@ -13604,7 +13605,7 @@ memory usage: 260.1+ MB
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># attach the data to review data</span>
-<span class="n">temp</span> <span class="o">=</span> <span class="n">avg_rating_per_reviewer</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">avg_score_per_reviewer</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">temp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">,</span><span class="s1">&#39;ave_reviewer_rate&#39;</span><span class="p">,</span><span class="s1">&#39;reviews_totalCount&#39;</span><span class="p">]</span>
 <span class="n">dfr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dfr</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">)</span>
 </pre></div>
@@ -13626,12 +13627,10 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">avg_rating_per_reviewer</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_rating&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;num_reviews&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.2</span> <span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span>
-<span class="p">);</span>
-<span class="c1"># plt.xlabel(&#39;Average rating&#39;)</span>
-<span class="c1"># plt.ylabel(&#39;reviews&#39;)</span>
-<span class="c1"># plt.title(&#39;Distribution of average ratings and reviews per reviewer&#39;);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">avg_score_per_reviewer</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_score&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;num_reviews&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.2</span> <span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average score&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="c1"># plt.title(&#39;Distribution of average scores and reviews per reviewer&#39;)</span>
 </pre></div>
 
     </div>
@@ -13644,13 +13643,26 @@ memory usage: 260.1+ MB
 
 <div class="output_area">
 
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(-2.700000000000003, 0.5, &#39;Count&#39;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
     <div class="prompt"></div>
 
 
 
 
 <div class="output_png output_subarea ">
-<img src="output_24_0.png"
+<img src="output_24_1.png"
 >
 </div>
 
@@ -13663,7 +13675,7 @@ memory usage: 260.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The larger count, the higher rating</p>
+<p>The larger count, the higher score</p>
 
 </div>
 </div>
@@ -13673,7 +13685,7 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_rating_per_reviewer</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_score_per_reviewer</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 
     </div>
@@ -13721,7 +13733,7 @@ memory usage: 260.1+ MB
   </thead>
   <tbody>
     <tr>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <td>3826085.0000</td>
       <td>4.2351</td>
       <td>1.1786</td>
@@ -13755,13 +13767,14 @@ memory usage: 260.1+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">avg_rating_per_reviewer</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_rating&quot;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of average ratings per reviewer&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average rating&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">avg_score_per_reviewer</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_score&quot;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">)</span>
+<span class="c1"># plt.title(&#39;Distribution of average scores per reviewer&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average score&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -13796,8 +13809,8 @@ memory usage: 260.1+ MB
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Remove reviewers who only reviewed 1 time</span>
-<span class="n">avg_rating_per_reviewer_filtered</span> <span class="o">=</span> <span class="n">avg_rating_per_reviewer</span><span class="p">[</span><span class="n">avg_rating_per_reviewer</span><span class="o">.</span><span class="n">num_reviews</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">][[</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">,</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="s1">&#39;avg_rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">],</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-<span class="n">avg_rating_per_reviewer_filtered</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">avg_score_per_reviewer_filtered</span> <span class="o">=</span> <span class="n">avg_score_per_reviewer</span><span class="p">[</span><span class="n">avg_score_per_reviewer</span><span class="o">.</span><span class="n">num_reviews</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">][[</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">,</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="s1">&#39;avg_score&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;avg_score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">],</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">avg_score_per_reviewer_filtered</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13835,7 +13848,7 @@ memory usage: 260.1+ MB
       <th></th>
       <th>reviewerID</th>
       <th>num_reviews</th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
     </tr>
   </thead>
   <tbody>
@@ -13885,7 +13898,7 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_rating_per_reviewer</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_score_per_reviewer</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13985,7 +13998,7 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sns.histplot(data = avg_rating_per_reviewer, x = &#39;num_reviews&#39;)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sns.histplot(data = avg_score_per_reviewer, x = &#39;num_reviews&#39;)</span>
 <span class="c1"># plt.title(&#39;Distribution of reviews per reviewer&#39;)</span>
 <span class="c1"># plt.xlabel(&#39;reviews&#39;)</span>
 </pre></div>
@@ -14000,7 +14013,7 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_rating_per_reviewer</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_score_per_reviewer</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14036,7 +14049,7 @@ memory usage: 260.1+ MB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <th>num_reviews</th>
     </tr>
   </thead>
@@ -14104,7 +14117,7 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_rating_per_reviewer</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_score_per_reviewer</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -14141,7 +14154,7 @@ memory usage: 260.1+ MB
     <tr style="text-align: right;">
       <th></th>
       <th>reviewerID</th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <th>num_reviews</th>
     </tr>
   </thead>
@@ -14198,7 +14211,7 @@ memory usage: 260.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="movie-based-data">movie-based data<a class="anchor-link" href="#movie-based-data">&#182;</a></h2>
+<h2 id="movie-based-analysis">movie-based analysis<a class="anchor-link" href="#movie-based-analysis">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14207,16 +14220,16 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Average rating per moview</span>
-<span class="n">avg_rating_per_movie</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;asin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;overall&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">]})</span>
-<span class="n">avg_rating_per_movie</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span><span class="s1">&#39;std_rating&#39;</span><span class="p">,</span><span class="s1">&#39;total_rating&#39;</span><span class="p">]</span>
-<span class="n">avg_rating_per_movie</span> <span class="o">=</span> <span class="n">avg_rating_per_movie</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Average score per moview</span>
+<span class="n">avg_score_per_movie</span> <span class="o">=</span> <span class="n">dfr</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;asin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;overall&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">]})</span>
+<span class="n">avg_score_per_movie</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;avg_score&#39;</span><span class="p">,</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span><span class="s1">&#39;std_score&#39;</span><span class="p">,</span><span class="s1">&#39;total_score&#39;</span><span class="p">]</span>
+<span class="n">avg_score_per_movie</span> <span class="o">=</span> <span class="n">avg_score_per_movie</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
 <span class="c1"># # drop any rows with null</span>
-<span class="c1"># avg_rating_per_movie.dropna(inplace=True,axis=0)</span>
+<span class="c1"># avg_score_per_movie.dropna(inplace=True,axis=0)</span>
 
 <span class="c1"># 96% of confidence interval</span>
-<span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="s1">&#39;95ci&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="s1">&#39;std_rating&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">])</span>
+<span class="n">avg_score_per_movie</span><span class="p">[</span><span class="s1">&#39;95ci&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">avg_score_per_movie</span><span class="p">[</span><span class="s1">&#39;std_score&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">avg_score_per_movie</span><span class="p">[</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -14229,7 +14242,7 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_rating_per_movie</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_score_per_movie</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14266,10 +14279,10 @@ memory usage: 260.1+ MB
     <tr style="text-align: right;">
       <th></th>
       <th>asin</th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <th>num_reviews</th>
-      <th>std_rating</th>
-      <th>total_rating</th>
+      <th>std_score</th>
+      <th>total_score</th>
       <th>95ci</th>
     </tr>
   </thead>
@@ -14333,7 +14346,7 @@ memory usage: 260.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="filter-the-asin(unique-ID-for-each-movie)">filter the asin(unique ID for each movie)<a class="anchor-link" href="#filter-the-asin(unique-ID-for-each-movie)">&#182;</a></h3>
+<h3 id="Filter-the-asin(unique-ID-for-each-movie)">Filter the asin(unique ID for each movie)<a class="anchor-link" href="#Filter-the-asin(unique-ID-for-each-movie)">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14423,7 +14436,7 @@ memory usage: 260.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="movie-score">movie score<a class="anchor-link" href="#movie-score">&#182;</a></h3>
+<h3 id="Make-an-priginal-score:-movie-score">Make an priginal score: movie score<a class="anchor-link" href="#Make-an-priginal-score:-movie-score">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14433,22 +14446,9 @@ memory usage: 260.1+ MB
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># def cal_score(df):</span>
-<span class="c1">#     return np.min(1.0,np.tanh((df[&#39;num_reviews&#39;]-1)/100)*(df[&#39;avg_rating&#39;] - df[&#39;std_rating&#39;]))</span>
+<span class="c1">#     return np.min(1.0,np.tanh((df[&#39;num_reviews&#39;]-1)/100)*(df[&#39;avg_score&#39;] - df[&#39;std_score&#39;]))</span>
 
-<span class="c1"># cal_score(avg_rating_per_movie)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<span class="c1"># cal_score(avg_score_per_movie)</span>
 </pre></div>
 
     </div>
@@ -14462,7 +14462,7 @@ memory usage: 260.1+ MB
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># give penalty of tanh to the fewer review</span>
-<span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="s1">&#39;movie_score&#39;</span><span class="p">]</span> <span class="o">=</span><span class="mi">1</span><span class="o">+</span> <span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">((</span><span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="s1">&#39;std_rating&#39;</span><span class="p">])</span>
+<span class="n">avg_score_per_movie</span><span class="p">[</span><span class="s1">&#39;movie_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">((</span><span class="n">avg_score_per_movie</span><span class="p">[</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">avg_score_per_movie</span><span class="p">[</span><span class="s1">&#39;avg_score&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">avg_score_per_movie</span><span class="p">[</span><span class="s1">&#39;std_score&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -14475,8 +14475,8 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_rating_per_movie</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;movie_score&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">avg_rating_per_movie</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_score_per_movie</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;movie_score&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">avg_score_per_movie</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14513,10 +14513,10 @@ memory usage: 260.1+ MB
     <tr style="text-align: right;">
       <th></th>
       <th>asin</th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <th>num_reviews</th>
-      <th>std_rating</th>
-      <th>total_rating</th>
+      <th>std_score</th>
+      <th>total_score</th>
       <th>95ci</th>
       <th>movie_score</th>
     </tr>
@@ -14589,7 +14589,7 @@ memory usage: 260.1+ MB
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of movies per category</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">avg_rating_per_movie</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;movie_score&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;asin&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">avg_score_per_movie</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;movie_score&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;asin&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Movie based rank&#39;</span><span class="p">);</span>
 </pre></div>
 
@@ -14609,7 +14609,7 @@ memory usage: 260.1+ MB
 
 
 <div class="output_png output_subarea ">
-<img src="output_47_0.png"
+<img src="output_46_0.png"
 >
 </div>
 
@@ -14632,7 +14632,7 @@ memory usage: 260.1+ MB
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># attach the data to the data</span>
-<span class="n">merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dfm</span><span class="p">,</span> <span class="n">avg_rating_per_movie</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;asin&#39;</span><span class="p">)</span>
+<span class="n">merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dfm</span><span class="p">,</span> <span class="n">avg_score_per_movie</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;asin&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14700,10 +14700,10 @@ memory usage: 260.1+ MB
       <th>imageURL</th>
       <th>imageURLHighRes</th>
       <th>details</th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <th>num_reviews</th>
-      <th>std_rating</th>
-      <th>total_rating</th>
+      <th>std_score</th>
+      <th>total_score</th>
       <th>95ci</th>
       <th>movie_score</th>
     </tr>
@@ -14793,26 +14793,6 @@ memory usage: 260.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="pairplot">pairplot<a class="anchor-link" href="#pairplot">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Distribution">Distribution<a class="anchor-link" href="#Distribution">&#182;</a></h3>
 </div>
 </div>
@@ -14822,7 +14802,7 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_rating_per_movie</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">avg_score_per_movie</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14858,10 +14838,10 @@ memory usage: 260.1+ MB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <th>num_reviews</th>
-      <th>std_rating</th>
-      <th>total_rating</th>
+      <th>std_score</th>
+      <th>total_score</th>
       <th>95ci</th>
       <th>movie_score</th>
     </tr>
@@ -14955,11 +14935,123 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">avg_rating_per_movie</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_rating&quot;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of average ratings per movie&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average rating&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">avg_score_per_movie</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_score&quot;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of average scores per movie&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average score&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_53_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">avg_score_per_movie</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_score&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;num_reviews&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.2</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average score&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;reviews&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of average scores and reviews per movie&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_54_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># exclude any products which does not have enough 95% confidence</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The #rows of insufficient 95ci is </span><span class="si">{}</span><span class="s1"> with </span><span class="si">{}</span><span class="s1">score &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">avg_score_per_movie</span><span class="p">[</span><span class="n">avg_score_per_movie</span><span class="p">[</span><span class="s1">&#39;95ci&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">0.25</span><span class="o">/</span><span class="mi">2</span><span class="p">]),</span><span class="mf">0.25</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># filter</span>
+<span class="n">avg_score_per_movie_95ci</span> <span class="o">=</span> <span class="n">avg_score_per_movie</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">avg_score_per_movie</span><span class="p">[</span><span class="s1">&#39;95ci&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">0.25</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The #rows of insufficient 95ci is 111575 with 0.125score 
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">avg_score_per_movie_95ci</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_score&quot;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of average scores per movie&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average score&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -14990,15 +15082,15 @@ memory usage: 260.1+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">avg_rating_per_movie</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_rating&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;num_reviews&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.2</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span>
-<span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average rating&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;reviews&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of average ratings and reviews per movie&#39;</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#scores by movie</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">avg_score_per_movie</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of reviews per movie&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;reviews&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -15027,121 +15119,17 @@ memory usage: 260.1+ MB
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># exclude any products which does not have enough 95% confidence</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The #rows of insufficient 95ci is </span><span class="si">{}</span><span class="s1"> with </span><span class="si">{}</span><span class="s1">rating &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="s1">&#39;95ci&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">0.25</span><span class="o">/</span><span class="mi">2</span><span class="p">]),</span><span class="mf">0.25</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
-
-<span class="c1"># filter</span>
-<span class="n">avg_rating_per_movie_95ci</span> <span class="o">=</span> <span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">avg_rating_per_movie</span><span class="p">[</span><span class="s1">&#39;95ci&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">0.25</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
-</pre></div>
-
-    </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-most-popular-movies">The most popular movies<a class="anchor-link" href="#The-most-popular-movies">&#182;</a></h2>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The #rows of insufficient 95ci is 111575 with 0.125rating 
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">avg_rating_per_movie_95ci</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;avg_rating&quot;</span><span class="p">,</span> <span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of average ratings per movie&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average rating&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_59_0.png"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Ratings by movie</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">avg_rating_per_movie</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;num_reviews&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of reviews per movie&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;reviews&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">]);</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_60_0.png"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-most-popular-movies">The most popular movies<a class="anchor-link" href="#The-most-popular-movies">&#182;</a></h3>
+<h3 id="Based-on-the-average-score-per-movie">Based on the average score per movie<a class="anchor-link" href="#Based-on-the-average-score-per-movie">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -15150,8 +15138,8 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># As there are quite a few of momvies that have 5.0 average rating, we use num_reviews as well as ave_rating as metrics</span>
-<span class="n">top5_rated</span> <span class="o">=</span> <span class="n">avg_rating_per_movie</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">],</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># As there are quite a few of momvies that have 5.0 average score, we use num_reviews as well as ave_score as metrics</span>
+<span class="n">top5_rated</span> <span class="o">=</span> <span class="n">avg_score_per_movie</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;avg_score&#39;</span><span class="p">,</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">],</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">top5_rated</span>
 </pre></div>
 
@@ -15189,10 +15177,10 @@ memory usage: 260.1+ MB
     <tr style="text-align: right;">
       <th></th>
       <th>asin</th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <th>num_reviews</th>
-      <th>std_rating</th>
-      <th>total_rating</th>
+      <th>std_score</th>
+      <th>total_score</th>
       <th>95ci</th>
       <th>movie_score</th>
     </tr>
@@ -15261,10 +15249,10 @@ memory usage: 260.1+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check the details of the top priduct</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check the details of the top movies</span>
 <span class="n">dfm</span><span class="p">[</span><span class="n">dfm</span><span class="o">.</span><span class="n">asin</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top5_rated</span><span class="o">.</span><span class="n">asin</span><span class="o">.</span><span class="n">to_list</span><span class="p">())]</span>
 </pre></div>
 
@@ -15278,7 +15266,7 @@ memory usage: 260.1+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[39]:</div>
+    <div class="prompt output_prompt">Out[55]:</div>
 
 
 
@@ -15447,7 +15435,7 @@ memory usage: 260.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-most-reviewed-movies">The most reviewed movies<a class="anchor-link" href="#The-most-reviewed-movies">&#182;</a></h3>
+<h2 id="The-most-reviewed-movies">The most reviewed movies<a class="anchor-link" href="#The-most-reviewed-movies">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15456,7 +15444,7 @@ memory usage: 260.1+ MB
 <div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top5_viewed</span> <span class="o">=</span> <span class="n">avg_rating_per_movie</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top5_viewed</span> <span class="o">=</span> <span class="n">avg_score_per_movie</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">top5_viewed</span>
 </pre></div>
 
@@ -15494,10 +15482,10 @@ memory usage: 260.1+ MB
     <tr style="text-align: right;">
       <th></th>
       <th>asin</th>
-      <th>avg_rating</th>
+      <th>avg_score</th>
       <th>num_reviews</th>
-      <th>std_rating</th>
-      <th>total_rating</th>
+      <th>std_score</th>
+      <th>total_score</th>
       <th>95ci</th>
       <th>movie_score</th>
     </tr>
@@ -15751,7 +15739,7 @@ memory usage: 260.1+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="category-based-data">category-based data<a class="anchor-link" href="#category-based-data">&#182;</a></h2>
+<h2 id="Category-based-data">Category-based data<a class="anchor-link" href="#Category-based-data">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15792,7 +15780,7 @@ memory usage: 260.1+ MB
 
 
 <div class="output_png output_subarea ">
-<img src="output_68_0.png"
+<img src="output_66_0.png"
 >
 </div>
 
@@ -15849,9 +15837,9 @@ dtype: int64
 <div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># groupby category, and aggregate them with average func regarding [avg_rating, num_reviews and total_rating ]</span>
-<span class="n">catRank</span> <span class="o">=</span> <span class="n">merge</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">],</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span><span class="s1">&#39;total_rating&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([(</span>  <span class="s1">&#39;total_rating&#39;</span><span class="p">,</span>  <span class="s1">&#39;sum&#39;</span><span class="p">),(</span>  <span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">)],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">catRank</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([(</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),(</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">)],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># groupby category, and aggregate them with average func regarding [avg_score, num_reviews and total_score ]</span>
+<span class="n">catRank</span> <span class="o">=</span> <span class="n">merge</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;avg_score&#39;</span><span class="p">:[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">],</span><span class="s1">&#39;num_reviews&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span><span class="s1">&#39;total_score&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([(</span>  <span class="s1">&#39;total_score&#39;</span><span class="p">,</span>  <span class="s1">&#39;sum&#39;</span><span class="p">),(</span>  <span class="s1">&#39;avg_score&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">)],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">catRank</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([(</span><span class="s1">&#39;avg_score&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),(</span><span class="s1">&#39;avg_score&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">)],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -15891,9 +15879,9 @@ dtype: int64
   <thead>
     <tr>
       <th></th>
-      <th colspan="3" halign="left">avg_rating</th>
+      <th colspan="3" halign="left">avg_score</th>
       <th>num_reviews</th>
-      <th>total_rating</th>
+      <th>total_score</th>
     </tr>
     <tr>
       <th></th>
@@ -15969,8 +15957,8 @@ dtype: int64
 <div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># category rank based on both mean and then count of avg_rating</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">catRank</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([(</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),(</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">)],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">],</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># category rank based on both mean and then count of avg_score</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">catRank</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([(</span><span class="s1">&#39;avg_score&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),(</span><span class="s1">&#39;avg_score&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">)],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">],</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;avg_score&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of movie per category&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -16003,7 +15991,7 @@ dtype: int64
 
 
 <div class="output_png output_subarea ">
-<img src="output_72_1.png"
+<img src="output_70_1.png"
 >
 </div>
 
@@ -16016,7 +16004,7 @@ dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It is difficult to choose one of these as metric to decide which movie is good or bad. To consider the difference in the #samples, create the pessimistic rating which we define as 'mean of avg_rating' minus 'one-side 95ci'. Furthermore, to deppreciate the rating with lower #samples, mutiply tanh of the num_reviews sum. But, we set minimum score as 1.</p>
+<p>It is difficult to choose one of these as metric to decide which movie is good or bad. To consider the difference in the #samples, create the pessimistic score which we define as 'mean of avg_score' minus 'one-side 95ci'. Furthermore, to deppreciate the score with lower #samples, mutiply tanh of the num_reviews sum. But, we set minimum score as 1.</p>
 
 </div>
 </div>
@@ -16033,8 +16021,8 @@ dtype: int64
 <div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create the column for tanh of (&#39;mean of avg_rating&#39; minus &#39;one-side 95ci&#39;)</span>
-<span class="n">catRank</span><span class="p">[</span><span class="s1">&#39;cat_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span> <span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">((</span><span class="n">catRank</span><span class="p">[(</span>  <span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">catRank</span><span class="p">[(</span>  <span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">)]</span> <span class="o">-</span> <span class="n">catRank</span><span class="p">[(</span>  <span class="s1">&#39;avg_rating&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">)])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create the column for tanh of (&#39;mean of avg_score&#39; minus &#39;one-side 95ci&#39;)</span>
+<span class="n">catRank</span><span class="p">[</span><span class="s1">&#39;cat_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span> <span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">-</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">((</span><span class="n">catRank</span><span class="p">[(</span>  <span class="s1">&#39;num_reviews&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">catRank</span><span class="p">[(</span>  <span class="s1">&#39;avg_score&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">)]</span> <span class="o">-</span> <span class="n">catRank</span><span class="p">[(</span>  <span class="s1">&#39;avg_score&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">)])</span>
  
 <span class="c1"># standardize</span>
 <span class="n">temp</span> <span class="o">=</span> <span class="n">catRank</span><span class="o">.</span><span class="n">cat_score</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
@@ -16090,7 +16078,7 @@ dtype: int64
 
 
 <div class="output_png output_subarea ">
-<img src="output_76_1.png"
+<img src="output_74_1.png"
 >
 </div>
 
@@ -16103,7 +16091,7 @@ dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This scoring method seems more appropriate than the others.</p>
+<p>This score method seems more appropriate than the others.</p>
 
 </div>
 </div>
@@ -16136,7 +16124,6 @@ dtype: int64
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># find all empty cells in the columns of movie_score and cat_score</span>
-
 <span class="n">dfr</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
@@ -16300,10 +16287,9 @@ memory usage: 584.2+ MB
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfr</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;movie_score&#39;</span><span class="p">,</span><span class="n">kde</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of average ratings per movie&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average rating&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of average scores per movie&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average &#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -16322,7 +16308,7 @@ memory usage: 584.2+ MB
 
 
 <div class="output_png output_subarea ">
-<img src="output_84_0.png"
+<img src="output_82_0.png"
 >
 </div>
 

@@ -13128,7 +13128,7 @@ div#notebook {
 <script>
 $( document ).ready(function(){
 
-            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "251.504px"}, "toc_section_display": true, "toc_window_display": true};
+            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {"height": "calc(100% - 180px)", "left": "10px", "top": "150px", "width": "251.504px"}, "toc_section_display": true, "toc_window_display": false};
 
             // fire the main function with these parameters
             require(['nbextensions/toc2/toc2'], function (toc2) {
@@ -13157,17 +13157,18 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this step, we eventually make a simple recommendation system using model-based Collaborative Filtering.</p>
+<p>In this step, we eventually make a simple recommendation system using Collaborative Filtering.</p>
 <blockquote><p>Collaborative recommender systems focus on the attributes of the items and give you recommendations based on the similarity between them.
 For the difference in the 
 types of collaborative systems, refer to this website. <a href="https://towardsdatascience.com/various-implementations-of-collaborative-filtering-100385c6dfe0">https://towardsdatascience.com/various-implementations-of-collaborative-filtering-100385c6dfe0</a></p>
 </blockquote>
 <p>The data is from the previous step, and specifically speaking, the steps for this recommendation system are as follwoing.</p>
 <ol>
-<li>define a target reeviewer</li>
+<li>define a target reviewer</li>
 <li>find specific movies that have been watched by other reviewers who watched the same movies as the target reviewer has watched</li>
 <li>filter out the specific movies using any metric such as movie_score or overall score. The threshold can be arbitrally set.</li>
 </ol>
+<p>ref to this website about collaborative filtering <a href="https://www.amazon.science/the-history-of-amazons-recommendation-algorithm">https://www.amazon.science/the-history-of-amazons-recommendation-algorithm</a></p>
 
 </div>
 </div>
@@ -14019,8 +14020,8 @@ Evaluating RMSE of algorithm KNNWithMeans on 3 split(s).
 
                   Fold 1  Fold 2  Fold 3  Mean    Std     
 RMSE (testset)    1.2886  1.2879  1.2706  1.2824  0.0083  
-Fit time          7.00    7.59    7.34    7.31    0.24    
-Test time         0.10    0.09    0.09    0.09    0.01    
+Fit time          7.53    7.76    7.67    7.65    0.10    
+Test time         0.11    0.11    0.12    0.11    0.01    
 </pre>
 </div>
 </div>
@@ -14092,8 +14093,8 @@ Test time         0.10    0.09    0.09    0.09    0.01
     <tr>
       <th>KNNWithMeans</th>
       <td>1.2824</td>
-      <td>7.3106</td>
-      <td>0.0937</td>
+      <td>7.6543</td>
+      <td>0.1133</td>
     </tr>
   </tbody>
 </table>
@@ -14109,7 +14110,7 @@ Test time         0.10    0.09    0.09    0.09    0.01
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Train-other-Memory-Based/Model-Based-Collaborative-filtering">Train other Memory-Based/Model-Based Collaborative filtering<a class="anchor-link" href="#Train-other-Memory-Based/Model-Based-Collaborative-filtering">&#182;</a></h1>
+<h1 id="Train-other-Collaborative-filtering">Train other Collaborative filtering<a class="anchor-link" href="#Train-other-Collaborative-filtering">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14217,68 +14218,68 @@ Done computing similarity matrix.
     <tr>
       <th>SVDpp</th>
       <td>1.2390</td>
-      <td>1.5027</td>
+      <td>1.5612</td>
       <td>0.0530</td>
     </tr>
     <tr>
       <th>SVD</th>
       <td>1.2438</td>
-      <td>1.0195</td>
-      <td>0.0381</td>
+      <td>1.0183</td>
+      <td>0.0400</td>
     </tr>
     <tr>
       <th>KNNBaseline</th>
       <td>1.2466</td>
-      <td>6.9774</td>
-      <td>0.1143</td>
+      <td>7.5699</td>
+      <td>0.1356</td>
     </tr>
     <tr>
       <th>BaselineOnly</th>
       <td>1.2491</td>
-      <td>0.0506</td>
-      <td>0.0334</td>
+      <td>0.0595</td>
+      <td>0.0358</td>
     </tr>
     <tr>
       <th>KNNWithMeans</th>
       <td>1.2824</td>
-      <td>7.3106</td>
-      <td>0.0937</td>
+      <td>7.6543</td>
+      <td>0.1133</td>
     </tr>
     <tr>
       <th>SlopeOne</th>
       <td>1.2858</td>
-      <td>0.9191</td>
-      <td>0.0411</td>
+      <td>1.0423</td>
+      <td>0.0431</td>
     </tr>
     <tr>
       <th>KNNWithZScore</th>
       <td>1.2867</td>
-      <td>6.6801</td>
-      <td>0.1654</td>
+      <td>7.0249</td>
+      <td>0.1720</td>
     </tr>
     <tr>
       <th>KNNBasic</th>
       <td>1.2931</td>
-      <td>6.2681</td>
-      <td>0.1067</td>
+      <td>7.0566</td>
+      <td>0.1362</td>
     </tr>
     <tr>
       <th>CoClustering</th>
       <td>1.3077</td>
-      <td>1.5992</td>
-      <td>0.0346</td>
+      <td>1.6035</td>
+      <td>0.0326</td>
     </tr>
     <tr>
       <th>NMF</th>
       <td>1.3289</td>
-      <td>2.0310</td>
-      <td>0.0374</td>
+      <td>2.0971</td>
+      <td>0.0396</td>
     </tr>
     <tr>
       <th>NormalPredictor</th>
       <td>1.6518</td>
-      <td>0.0193</td>
-      <td>0.0828</td>
+      <td>0.0205</td>
+      <td>0.0816</td>
     </tr>
   </tbody>
 </table>
@@ -14300,7 +14301,7 @@ Done computing similarity matrix.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">,</span> <span class="n">Integer</span>
@@ -14315,12 +14316,13 @@ Done computing similarity matrix.
 <span class="c1">#     &#39;reg_all&#39;:[n for n in np.arange(0,0.5,0.02)],</span>
 <span class="c1"># }</span>
 
+
 <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;n_factors&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span>
+    <span class="s1">&#39;n_factors&#39;</span><span class="p">:[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">],</span>
     <span class="s1">&#39;n_epochs&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span>
-    <span class="s1">&#39;init_mean&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;init_mean&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
     <span class="s1">&#39;init_std_dev&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span>
-    <span class="s1">&#39;lr_all&#39;</span><span class="p">:[</span><span class="mf">0.003</span><span class="p">,</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.007</span><span class="p">],</span>
+    <span class="s1">&#39;lr_all&#39;</span><span class="p">:[</span><span class="mf">0.003</span><span class="p">,</span><span class="mf">0.007</span><span class="p">,</span><span class="mf">0.009</span><span class="p">],</span>
     <span class="s1">&#39;reg_all&#39;</span><span class="p">:[</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.06</span><span class="p">],</span>
 <span class="p">}</span>
 </pre></div>
@@ -14332,13 +14334,14 @@ Done computing similarity matrix.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">surprise.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
+<span class="kn">from</span> <span class="nn">surprise.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span><span class="n">RandomizedSearchCV</span>
 
-<span class="n">sp_rand</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">SVDpp</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">measures</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">],</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sp_rand</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">SVDpp</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">measures</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">],</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># sp_rand = RandomizedSearchCV(SVDpp, param_grid, measures=[&quot;rmse&quot;], refit=True, cv=3,n_jobs=-1, random_state=42)</span>
 
 <span class="n">sp_rand</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
@@ -14365,8 +14368,8 @@ Done computing similarity matrix.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>BEST RMSE: 	 1.4277991989461263
-BEST params: 	 {&#39;n_factors&#39;: 30, &#39;n_epochs&#39;: 10, &#39;init_mean&#39;: 1, &#39;init_std_dev&#39;: 0, &#39;lr_all&#39;: 0.007, &#39;reg_all&#39;: 0.04}
+<pre>BEST RMSE: 	 1.237207684676439
+BEST params: 	 {&#39;n_factors&#39;: 20, &#39;n_epochs&#39;: 30, &#39;init_mean&#39;: 0, &#39;init_std_dev&#39;: 0.1, &#39;lr_all&#39;: 0.009, &#39;reg_all&#39;: 0.04}
 </pre>
 </div>
 </div>
@@ -14386,6 +14389,16 @@ BEST params: 	 {&#39;n_factors&#39;: 30, &#39;n_epochs&#39;: 10, &#39;init_mean&
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>==GridSearchCV==</p>
+<p>BEST RMSE:   1.237207684676439
+BEST params:     {'n_factors': 20, 'n_epochs': 30, 'init_mean': 0, 'init_std_dev': 0.1, 'lr_all': 0.009, 'reg_all': 0.04}</p>
+<p>==RandomizedSearchCV==
+BEST RMSE:   1.2357877896254303
+BEST params:     {'n_factors': 30, 'n_epochs': 30, 'init_mean': 0, 'init_std_dev': 0, 'lr_all': 0.009, 'reg_all': 0.06}</p>
+<p>BEST RMSE:   1.421920145276997
+BEST params:     {'n_factors': 30, 'n_epochs': 10, 'init_mean': 1, 'init_std_dev': 0.2, 'lr_all': 0.007, 'reg_all': 0.06}</p>
+<p>BEST RMSE:   1.2631167146901368
+BEST params:     {'n_factors': 30, 'n_epochs': 20, 'init_mean': 0, 'init_std_dev': 0.1, 'lr_all': 0.003, 'reg_all': 0.02}</p>
 <p>BEST RMSE:   1.0081786719365071
 BEST params:     {'n_factors': 30, 'n_epochs': 20, 'init_mean': 2, 'init_std_dev': 0.2, 'lr_all': 0.003, 'reg_all': 0.02}
 CPU times: user 2.02 s, sys: 257 ms, total: 2.28 s
@@ -14396,7 +14409,7 @@ Wall time: 2.85 s</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># print out the best parameter in the form for the next step</span>
@@ -14417,7 +14430,7 @@ Wall time: 2.85 s</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A reader is needed but only the rating_scale param is requiered.</span>
@@ -14454,20 +14467,20 @@ Wall time: 2.85 s</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>RMSE: 1.4330
+<pre>RMSE: 1.2497
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[44]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1.4329931157323368</pre>
+<pre>1.249745798946541</pre>
 </div>
 
 </div>
@@ -14478,7 +14491,7 @@ Wall time: 2.85 s</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="p">[]</span>
@@ -14536,12 +14549,12 @@ Wall time: 2.85 s</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">prediction</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;asin&#39;</span><span class="p">:</span> <span class="p">[],</span><span class="s1">&#39;predicted_score&#39;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
 
-<span class="c1"># </span>
+<span class="c1"># add information</span>
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">test_pred</span><span class="p">:</span>
     <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;reviewerID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">uid</span><span class="p">)</span>
     <span class="n">prediction</span><span class="p">[</span><span class="s1">&#39;asin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">iid</span><span class="p">)</span>
@@ -14562,7 +14575,7 @@ Wall time: 2.85 s</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[30]:</div>
+    <div class="prompt output_prompt">Out[46]:</div>
 
 
 
@@ -14593,33 +14606,33 @@ Wall time: 2.85 s</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>A2WWVDVEZQAN33</td>
-      <td>B01BTDOSTK</td>
-      <td>5.0000</td>
+      <td>AJPBPHUIKGRB</td>
+      <td>B00R8GUXPG</td>
+      <td>4.7656</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>A1K44C55Y3HF2Y</td>
-      <td>B00COVV2FA</td>
-      <td>3.7359</td>
+      <td>AL3V7BYRN45CU</td>
+      <td>6303257739</td>
+      <td>4.7867</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>A1N623X1H2HN45</td>
-      <td>B017AD7CDM</td>
-      <td>4.2470</td>
+      <td>A3VUYQ150UW6DQ</td>
+      <td>6303046436</td>
+      <td>3.8159</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>A3RRTQOR5U99M4</td>
-      <td>B00PMDSVTM</td>
-      <td>5.0000</td>
+      <td>AAF96A7246GZY</td>
+      <td>B007ATHNOU</td>
+      <td>4.2492</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>A3R03FTMTV8CMJ</td>
-      <td>B00R8GUXPG</td>
-      <td>5.0000</td>
+      <td>A2IJW6D43VLLU9</td>
+      <td>B000LPR6FQ</td>
+      <td>4.2492</td>
     </tr>
   </tbody>
 </table>
@@ -14634,7 +14647,7 @@ Wall time: 2.85 s</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">prediction_df</span><span class="p">[</span><span class="s2">&quot;predicted_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -14650,19 +14663,19 @@ Wall time: 2.85 s</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[31]:</div>
+    <div class="prompt output_prompt">Out[47]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>count   9000.0000
-mean    4.4600   
-std     0.6126   
-min     1.0000   
-25%     3.8750   
-50%     5.0000   
-75%     5.0000   
+mean    4.2787   
+std     0.3441   
+min     1.9356   
+25%     4.1872   
+50%     4.2492   
+75%     4.4830   
 max     5.0000   
 Name: predicted_score, dtype: float64</pre>
 </div>
@@ -14682,7 +14695,7 @@ Name: predicted_score, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
@@ -14734,7 +14747,7 @@ Name: predicted_score, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># output the recommendation for a user</span>
@@ -14751,7 +14764,7 @@ Name: predicted_score, dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[33]:</div>
+    <div class="prompt output_prompt">Out[49]:</div>
 
 
 
@@ -14784,49 +14797,49 @@ Name: predicted_score, dtype: float64</pre>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>B004K8X136</td>
-      <td>Various</td>
-      <td>Scooby-Doo Fun Pack</td>
-      <td>['Characters &amp; Series', 'Scooby Doo']</td>
-      <td>['Scooby-Doo! Abracadabra Doo:Presto! It’s the all-new Scooby-Doo movie with a magic touch. When a secluded school for magicians faces danger from a fantastical flying creature outside and sinister forces inside, there’s just one thing to say: Abracadabra-Doo!, the newest feature-length case for Scooby-Doo and the Mystery Inc. crew. While visiting Velma’s sister Madelyn, who’s enrolled at the Whirlen Merlin Magic Academy, the gang gets lots more than a rabbit emerging from a hat. A greedy ice-cream mogul wants to close the place, a screaming banshee gives everyone the creeps and a mythological half-dragon, half-lion animal known as a gryphon seems all too real. Can Scooby-Doo, Shaggy, Daphne, Fred and Velma learn enough tricks of the trade to uncover the secrets that will save the school? Abracadabra! With these mystery solvers around, having fun is always magical.Scooby-Doo and the Goblin King:Follows that lovable Great Dane Scooby-Doo and his pal Shaggy as they try to stop a second-rate, carnival magician named the Amazing Krudsky (Wayne Knight) from turning everyone into horrible Halloween monsters, after he steals the light magic from Princess Fairy Willow (Hayden Panettiere). Scooby-Doo and Shaggy board the Grim Reaper Railroad, which is bound for the fantastic world of Halloween land to retrieve the powerful Goblin scepter from the Goblin King (Tim Curry), before Krudsky can. Along the way, the Mystery Inc. crew encounters several enchanting creatures such as the infamous Headless Horseman, the helpful Jack O’Lantern and a frisky broomstick that take them on the ride of their life. The film also features the voice talents of Jay Leno, Lauren Becall, Lary Joe Campbell, Wayne Knight, Wally Shawn, Russi Taylor and Thom Adcox.Scooby-Doo and the Alien Invaders:Get Ready for Close Encounters of the Scooby Kind!  A cosmic case of UFOs, intergalactic intrigue and out-of-this-world romance launches Scooby, Shaggy and the Mystery, Inc. kids into their most unearthly adventure ever! Stranded in a remote desert town, the gang soon discovers the place is crawling with flying saucer buffs, secretive scientists... and less-than-friendly extraterrestrials! Then, after being chased by aliens and beamed aboard a UFO, something even weirder happens to Shaggy and Scooby-- they fall head-over-heels in love! As clues to the mystery of the alien invaders lead them from a top-secret government research base to a huge network of caves hidden under the town, our love-struck heroes join the rest of the gang in a race to crack a case that re-defines the term "far out!"']</td>
-      <td>5.0000</td>
+      <th>5919</th>
+      <td>B001TOD6N4</td>
+      <td>Kevin Bacon</td>
+      <td>Taking Chance</td>
+      <td>['HBO', 'All HBO Titles']</td>
+      <td>['&lt;![CDATA[', 'Taking Chance', 'Based on the true experiences of Lt. Colonel Michael Strobl, who wrote eloquently of them in a widely circulated 2004 article, Taking Chance is a profoundly emotional look at the military rituals taken to honor its war dead, as represented by a fallen Marine killed in Iraq, Lance Corporal Chance Phelps. Working as a strategic analyst at Marine Corps Base Quantico in VA, Lt. Col. Strobl (Kevin Bacon) learns that Phelps had once lived in his hometown, and volunteers to escort the body to its final resting place in Wyoming. As Strobl journeys across America, he discovers the great diligence and dignity in how the military, and all those involved with preparing and transporting the body, handle their duties. Equally important, he encounters hundreds of people affected by Chances death, a vast majority of whom never knew him. This collective grieving eventually causes Lt. Col. Strobl, a veteran of Desert Storm now assigned to office duty, to probe his own guilt about not re-deploying to Iraq for the current conflict. Arriving in Wyoming, Lt. Col. Strobl completes his catharsis when he encounters Chances gracious family and friends, and discovers an extraordinary outpouring of community support.', "The made-for-HBO Taking Chance is based on perhaps the single most moving artifact to come out of the Second Gulf War, Lt. Col. Mike Strobl's first-person narrative of his voluntary mission escorting the body of a fellow Marine killed in Iraq. Strobl (played in the film by Kevin Bacon) hadn't known Lance Cpl. Chance Phelps but, noticing they'd been born in the same western town, he requested temporary leave from his duties as a manpower-deployment analyst at Quantico in order to accompany the 20-year-old's body home. Home, as it turned out, was no longer their shared birthplace in Colorado but the high-country Wyoming town of Dubois. The journey would take Strobl deep into the heart of his nation, and his own heart as well. There's no overstating the power and beauty of what he encountered: one instance after another of not just military personnel but airline employees, passengers, and bystanders doing honor--mostly wordlessly--to Chance's coffin and his escort as they passed by. First-time director Ross Katz deserves credit for declining to inflate any of these moments or underscore their meaning with grandiloquent speechifying, and Bacon--an actor who couldn't hit a false note if his life depended on it--is true to the Desert Storm veteran's self-discipline and emotional discretion. The picture's decency is unimpeachable, and Strobl's story, transcending pro-war and anti-war politics, is itself an act of healing. What's missing is the seasoned hand of a great director (Ang Lee, say) to invest it with the rhythm and movement of a fully achieved feature film. Still, this is a journey you'll feel enriched by sharing. --Richard T. Jameson", "On the DVD Several somewhat overlapping short videos offer testimony to Chance Phelps's fun-loving spirit, heroic death, and spiritual legacy by his family, friends, and fellow Marines. They're good people. There's also a brief deleted scene--actually, portion of a scene--and some not particularly illuminating commentary on the making of the film. --Richard T. Jameson"]</td>
+      <td>4.7948</td>
     </tr>
     <tr>
-      <th>2594</th>
-      <td>B010MJ851Y</td>
-      <td>Ben Kingsley</td>
-      <td>Tut</td>
-      <td>['Paramount Home Entertainment', 'Drama']</td>
-      <td>["Tut recounts the astounding saga of one of history's most extraordinary rulers, Tutankhamun (King Tut), his rise to power and his struggle to lead Egypt to glory, while his closest advisors, friends and lovers scheme for their own nefarious interests. This event series opens up a fascinating window into a world filled with heart-breaking romance, epic battles, political backstabbing, conspiracy, jealousy, and even murder -- proving that Tut's world was not so far removed from our own."]</td>
-      <td>5.0000</td>
+      <th>11658</th>
+      <td>B019NB5EVG</td>
+      <td>Mark Ruffalo</td>
+      <td>Spotlight</td>
+      <td>['Blu-ray', 'Movies']</td>
+      <td>['Michael Keaton, Mark Ruffalo, and Rachel McAdams lead a critically acclaimed cast in this gripping true story about the Pulitzer Prize-winning investigation that uncovered a scandal that rocked one of the world\'s oldest and most trusted institutions. Delving into allegations of child abuse within the local Catholic Archdiocese, a tenacious team of Boston Globe reporters exposes a decades-long cover-up that reaches the highest levels of Boston\'s religious, legal, and government establishment. "Brilliantly acted and flawlessly directed" (New York Post ) Spotlight is a powerful and riveting drama the critics are calling "the All the President\'s Men of our time" (Los Angeles Times ).']</td>
+      <td>4.7827</td>
     </tr>
     <tr>
-      <th>2575</th>
-      <td>6300247945</td>
-      <td>Paul McCartney</td>
-      <td>Give My Regards to Broad Street VHS</td>
-      <td>['Art House &amp; International', 'By Country', 'United Kingdom', 'Music &amp; Musicals']</td>
-      <td>['Screenwriter/Star Paul McCartney creates a rousing musical fantasy about a pop singer/composer (McCartney) who discovers the master tapes of his new unreleased album have disappeared. If he doesn\'t locate them by midnight, businessmen will take over his company. Among the musical highlights are fourteen spectacularly staged McCartney tunes including Beatles classics "Yesterday," "Eleanor Rigby" and "Good Day Sunshine."']</td>
-      <td>5.0000</td>
+      <th>4948</th>
+      <td>B00EDQCIGG</td>
+      <td>Don Bluth</td>
+      <td>Land Before Time: The Complete Collection</td>
+      <td>['Studio Specials', 'Universal Studios Home Entertainment', 'All Universal Studios Titles']</td>
+      <td>['Featuring all 13 feature-length animated films, join everybody’s favorite prehistoric pals in The Land Before Time Complete 13-Movie Collection. Follow along with Littlefoot, Cera, Ducky, Spike and Petrie on their heartwarming adventures filled with delightful songs that will bring an avalanche of fun for the entire family! Includes All 13 The Land Before Time Movies: • The Land Before Time • The Land Before Time II: The Great Valley Adventure • The Land Before Time III: The Time of the Great Giving • The Land Before Time IV: Journey Through the Mists • The Land Before Time V: The Mysterious Island • The Land Before Time VI: The Secret of Saurus Rock • The Land Before Time VII: The Stone of Cold Fire • The Land Before Time VIII: The Big Freeze • The Land Before Time IX: Journey to Big Water  • The Land Before Time X: The Great Longneck Migration • The Land Before Time XI: Invasion of the Tinysauruses • The Land Before Time XII: The Great Day of the Flyers • The Land Before Time XIII: The Wisdom of Friends']</td>
+      <td>4.7827</td>
     </tr>
     <tr>
-      <th>2576</th>
-      <td>B001A5ES9I</td>
-      <td>Various</td>
-      <td>Batman Beyond:Retrn Joker/Myst Btwm(DBFE</td>
-      <td>['Genre for Featured Categories', 'Kids &amp; Family']</td>
-      <td>['&lt;![CDATA[', 'Batman Beyond: The Return of the Joker/Batman: Mystery of the Batwoman Double Feature (DVD)', 'Batman Beyond: The Return of the Joker The greatest villain of all comes out of the past to threaten Batman, Bruce Wayne and all of Gotham City in Batman Beyond: Return of the Joker, the first feature-length Batman Beyond movie. The sleeker, deadlier and seemingly immortal Clown Prince of Crime is back with his own unique brand of havoc and mayhem. While trying to uncover the Joker\'s secrets, the new Batman, Terry McGinnis, discovers the greatest mystery in the life of the original Caped Crusader: What happened the night he fought the Joker for the last time. When Bruce Wayne is almost killed in one of the Joker\'s latest attacks, Batman vows to avenge his mentor and put the Joker to rest forever. Get ready for heart-stomping action, awesomeadventure and amazing revelations in Batman Beyond: Return of the Joker. Batman: Mystery of the Batwoman The Dark Knight is back in this all-new feature-length thriller featuring the voices of Kelly Ripa (Live! With Regis and Kelly), Kyra Sedgwick (Born on the Fourth of July) and Hector Elizondo (The Princess Diaries). The Penguin and Rupert Thorn are criminal cohorts with a scheme to sell illegal weapons. But there\'s a new super hero in Gotham City who has other plans for the evil entrepreneurs - Batwoman! With high-tech gadgets and powerful punches, Batwoman proves to be a formidable crimefighter - the only problem is that the Dark Knight has no clue who she is! And when Batwoman crosses the criminal line, Batman must identify whether or not this new player is really an ally! Join the world\'s greatest detective in this exciting new adventure that will keep you guessing until the mask is pulled off! The DVD includes an exclusive Batman animated short, "Chase Me" from the Emmy(R) Award winning writers Alan Burnett and Paul Dini.']</td>
-      <td>5.0000</td>
+      <th>5721</th>
+      <td>B007REV4LQ</td>
+      <td>Tom Waits</td>
+      <td>Seven Psychopaths</td>
+      <td>['Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']</td>
+      <td>["A struggling screenwriter inadvertently becomes entangled in the Los Angeles criminal underworld after his oddball friends kidnap a gangster's beloved Shih Tzu.", 'At a time when pop culture-savvy assassins run a dime a dozen, In Bruges, the first film from Irish playwright Martin McDonagh, registered as a brilliant anomaly: a literate, mordantly funny hit man movie that didn\'t lean on the standard Tarantinoisms. (If the director had a cinematic inspiration, it was more likely Stephen Frears\'s masterful 1984 film The Hit.) Seven Psychopaths, McDonagh\'s follow-up, strikes a much broader vein, melding parody, self-referential humor, and clever meta-fiction into one big splattery ball. Buckle up, basically. Colin Farrell plays an Irish screenwriter named, er, Martin who is terminally stuck on his latest script, an ultraviolent affair named "Seven Psychopaths." (We mentioned that this is meta, right?) Desperate for an ending, he turns to his lowlife friend (Sam Rockwell) for inspiration. As his new writing partner\'s suggestions get increasingly detailed, Martin realizes that the insanity is no longer constrained to the page. Tom Waits shows up at one point, because this is the kind of movie that this is. It takes a strong director to hold together this amount of whirling chaos, and McDonagh proves himself up to the task (mostly), with the game work from his leads abetted by vivid supporting turns from Kevin Corrigan, Woody Harrelson, and Harry Dean Stanton, whose brief appearance cries out for a spinoff all of his own. McDonagh\'s true ace in the hole, though, is Christopher Walken, who is simply astounding as an aging dognapper with one lulu of a backstory. Walken\'s ability to go way over the top has been well documented, but here he underplays, a decision that ultimately stabilizes the film\'s hurtling, streaky bursts of inspiration. No matter how goofy the movie around him gets, he\'s always one step beyond. --Andrew Wright']</td>
+      <td>4.7736</td>
     </tr>
     <tr>
-      <th>5111</th>
-      <td>B0001OGV0S</td>
-      <td>Victor Jory</td>
-      <td>The Green Archer</td>
-      <td>['Genre for Featured Categories', 'Action &amp; Adventure']</td>
-      <td>['A thunderbolt of thrills await you in the suspense-loaded, action-exploded, super-serial from the mighty pen of author Edgar Wallace. Thru 15 riveting chapters you will be treated to English castles, secret passages and mysterious appearances by the protector of good -- The Green Archer! Released in 1940 by Columbia.  Bonus Features:  Chapter Selection Menus, Bios, Bonus Serial Trailers, VCI Classic Cliffhanger Promo Reel| Slim Double Keepcase  Specs:  2-DVD9s; Dolby Digital Mono; 302 minutes; B&amp;W; 1.33:1 Aspect Ratio; MPAA - NR; Year - 1940; SRP - $19.99.']</td>
-      <td>5.0000</td>
+      <th>6249</th>
+      <td>B00LTO342M</td>
+      <td>Steve Carell</td>
+      <td>The Office: The Complete Series</td>
+      <td>['Boxed Sets', 'Television']</td>
+      <td>["A favorite of critics and audiences alike, The Office is a hilarious documentary-style look at the humorous and sometimes poignant foolishness that plagues the 9-to-5 world. For the first time, all nine seasons are together in one complete set - so you can relive every one of your favorite moments, including Michael's (Steve Carell) infamous encounter with a breakfast grill, Dwight's (Rainn Wilson) power plays, Jim's (John Krasinksi) pranks, Andy's (Ed Helms) struggles with anger management, and of course, Pam (Jenna Fischer) and Jim's evolving romance. Also includes special appearances by Amy Adams, Kathy Bates, Rashida Jones, Amy Ryan, James Spader and more. Developed for American television by Primetime Emmy-award winner Greg Daniels, The Office: The Complete Series includes all 201 episodes on 38 discs that you can watch back-to-back and uninterrupted - plus bonus commentaries, webisodes, blooper reels and over 15 hours of deleted scenes that are guaranteed to leave you satisfied and smiling. That's what she said!"]</td>
+      <td>4.7706</td>
     </tr>
   </tbody>
 </table>
@@ -14849,10 +14862,26 @@ Name: predicted_score, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Although the data has as many as 8M, using my laptop, the practical calculation time was limited to only upto 100k.</p>
-<p>The datum for the start of sampling was the latest data. But as seen in the step 03 EDA, there are imbalance in terms of time frame, it is unknown how the datum has affected the accuracy of this model.</p>
-<p>Overall score instead of movie_score has been used as the metric to filter out movies. The moview_score has not been tested yet. It will be interesting to compare the difference in accuracy caused by the different metrics.</p>
-<p>Based on the RMSE as a metric, although the SVDpp ensemble model procides the best performance at the time when I am writing, top 4 are within 0.1 RMSE, which are SVD, KNNBaseline, and Baselineonly. We are using the SVDpp for this collaborative recommendation. The example of recommendation for the model reviwerer, A37M6XSQAYXBMD, is as shown in the section right above, "Collaborative Filtering".</p>
+<p>This recommendation results can provide some reasonable suggestion for each users in the RMSE range of 1.2-1.5. Obviously, this result cannot be achieved by hand and this is one of the strongest advantages that machine learning can provide. On the other hand some technical problems have also been revealed, one of which is the limited computational space. Although the dataset of review and product we have are more than 8 million rows, my laptop could not afford entire dataset to apply recommendation algorithm in the ‘surprise’. To make things worse, the time of calculation was also serious problem. The size of dataset used to train a model in this project was 80k, but once the dataset exceeded 100k, calculation time increased by more than 30min, which would not be affordable for practical use such as online recommendation. To deal with those problems, some technical arrangement will be expected. Other ides will be discussed in the next section.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="FUTURE-INSIGHTS">FUTURE INSIGHTS<a class="anchor-link" href="#FUTURE-INSIGHTS">&#182;</a></h1><p>To further refine computational time complexity and space complexity to achieve equivalent modeling accuracy, followings can be option to improve recommendation system.</p>
+<ul>
+<li>Filter out target reviewers to who review frequently or filter out movies to ones watched frequently. The cutoff values for such reviewers or movies will be identified by analyzing the CDF plots of #review/user or #reviews/movie to find where the information in dataset and size is balanced.</li>
+<li>Build a Recommend system based on the recent-purchased histories of everyone who bought a given item[2].</li>
+</ul>
+<p>In this project, only overall score was used, but there will be much more options to make use of as feature values. Followings are some of those ideas.</p>
+<ul>
+<li>Apply sentiment analysis to reviewers’ descriptions and combine the result in recommendation system[2].</li>
+<li>Apply chorological order in recent-purchased histories to improve the accuracy of recommendation[2].</li>
+<li>Apply count-vectorizer to the combined information of category, title, brand or any information in product dataset</li>
+<li>Deal with cold start problem. New customers do not have any review, therefore the recommendation system that was bult here will not be able to be applied. In this case, one of the solutions will be to recommend popular products.</li>
+</ul>
 
 </div>
 </div>
