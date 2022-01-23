@@ -13393,6 +13393,21 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Change data type to appropriate form</span>
+<span class="n">toInt</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;buildingType&#39;</span><span class="p">,</span><span class="s1">&#39;elevator&#39;</span><span class="p">,</span><span class="s1">&#39;fiveYearsProperty&#39;</span><span class="p">,</span><span class="s1">&#39;subway&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">toInt</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">toInt</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13424,7 +13439,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">priceDis</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -13460,7 +13475,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">priceDis</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -13482,7 +13497,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_19_0.png"
+<img src="output_20_0.png"
 >
 </div>
 
@@ -13511,7 +13526,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">totalPrice</span><span class="o">&gt;</span><span class="mi">7500</span><span class="p">]</span>
@@ -13527,7 +13542,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13598,14 +13613,14 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
       <td>3</td>
       <td>1</td>
       <td>5</td>
-      <td>5.0000</td>
+      <td>5</td>
       <td>2005</td>
       <td>4</td>
       <td>6</td>
       <td>1.0000</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>7</td>
       <td>2017</td>
       <td>3</td>
@@ -13629,14 +13644,14 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
       <td>3</td>
       <td>1</td>
       <td>4</td>
-      <td>5.0000</td>
+      <td>5</td>
       <td>2008</td>
       <td>1</td>
       <td>6</td>
       <td>1.0000</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>7</td>
       <td>2017</td>
       <td>3</td>
@@ -13656,7 +13671,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">totalPrice</span><span class="o">&lt;=</span><span class="mi">7500</span><span class="p">]</span>
@@ -13679,7 +13694,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_23_0.png"
+<img src="output_24_0.png"
 >
 </div>
 
@@ -13715,7 +13730,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span><span class="mi">10</span><span class="p">):</span>
@@ -13736,16 +13751,16 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>58537 58536.58536585366
-21509 21508.777479044755
-31451 31450.463292943692
-45761 45760.430686406464
-116950 116949.15254237287
-27491 27490.67661161428
-46611 46610.99242571373
-74286 74285.71428571429
-21693 21692.22032935832
-60653 60652.17391304348
+<pre>49767 49766.964215182874
+33332 33331.746107328225
+66910 66909.42193900775
+56057 56056.766345666496
+57500 57500.0
+55794 55793.991416309014
+42975 42974.079126875855
+41412 41411.595246669065
+19656 19655.03409546731
+99654 99653.77088664759
 </pre>
 </div>
 </div>
@@ -13781,7 +13796,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
@@ -13815,7 +13830,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_31_0.png"
+<img src="output_32_0.png"
 >
 </div>
 
@@ -13844,7 +13859,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">timeAve</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;tradeTime&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">();</span>
@@ -13877,7 +13892,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_34_0.png"
+<img src="output_35_0.png"
 >
 </div>
 
@@ -13898,7 +13913,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">2012</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">5</span><span class="p">)]</span><span class="o">.</span><span class="n">tradeTime</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -13914,7 +13929,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -13949,7 +13964,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tradeTime&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="s1">&#39;2012-01-01&#39;</span><span class="p">]</span>
@@ -13962,7 +13977,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tradeTime</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
@@ -13978,7 +13993,7 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -13994,27 +14009,6 @@ Name: tradeTime, dtype: datetime64[ns]</pre>
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The end date of the data which will be useful for this project is 2017-12-31.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tradeTime&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;2017-12-31&#39;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
 
@@ -14691,7 +14685,7 @@ dtype: float64</pre>
 
 
 <div class="output_png output_subarea ">
-<img src="output_58_0.png"
+<img src="output_57_0.png"
 >
 </div>
 
@@ -14814,13 +14808,13 @@ Here, the feature values to compare will be followings.\
 
  
  
-<div id="aea4eaac-eb47-40e8-94bb-28302d0ec7ff"></div>
+<div id="bbd5ffd7-757a-4cc7-9926-dc818dd6f938"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#aea4eaac-eb47-40e8-94bb-28302d0ec7ff');
+var element = $('#bbd5ffd7-757a-4cc7-9926-dc818dd6f938');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "a1f094ee9f2545f180805db4e6185eef", "version_major": 2, "version_minor": 0}
+{"model_id": "abfde72d32db4f3abe6c3d4e14823f5c", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14920,13 +14914,13 @@ var element = $('#aea4eaac-eb47-40e8-94bb-28302d0ec7ff');
 
  
  
-<div id="c29d6645-05d5-480c-b9b1-25c7bb4d2d14"></div>
+<div id="4e371f41-b60c-4825-b548-c79b980dde65"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c29d6645-05d5-480c-b9b1-25c7bb4d2d14');
+var element = $('#4e371f41-b60c-4825-b548-c79b980dde65');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "9adc95a61ec84619b3c658d3f897192d", "version_major": 2, "version_minor": 0}
+{"model_id": "ecc4aa5a2e1b475381c6d080b6d28b13", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14998,13 +14992,13 @@ var element = $('#c29d6645-05d5-480c-b9b1-25c7bb4d2d14');
 
  
  
-<div id="02f92f7e-28b7-403d-9a60-0afad772350b"></div>
+<div id="7c821ccf-9e77-4503-a71f-6786addcf2cd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#02f92f7e-28b7-403d-9a60-0afad772350b');
+var element = $('#7c821ccf-9e77-4503-a71f-6786addcf2cd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "8f5a76ec850c44249e62addeb7e9174b", "version_major": 2, "version_minor": 0}
+{"model_id": "01cdc89c904d433c8fafb6d7dfcd7ca9", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15129,7 +15123,7 @@ var element = $('#02f92f7e-28b7-403d-9a60-0afad772350b');
 
 
 <div class="output_png output_subarea ">
-<img src="output_76_0.png"
+<img src="output_75_0.png"
 >
 </div>
 
@@ -15198,7 +15192,7 @@ var element = $('#02f92f7e-28b7-403d-9a60-0afad772350b');
 
 
 <div class="output_png output_subarea ">
-<img src="output_81_0.png"
+<img src="output_80_0.png"
 >
 </div>
 
@@ -15305,14 +15299,14 @@ var element = $('#02f92f7e-28b7-403d-9a60-0afad772350b');
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>3.0000</td>
+      <td>3</td>
       <td>1992</td>
       <td>1</td>
       <td>6</td>
       <td>10009400.0000</td>
-      <td>1.0000</td>
-      <td>0.0000</td>
-      <td>0.0000</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>7</td>
       <td>2014</td>
       <td>2</td>
@@ -15336,14 +15330,14 @@ var element = $('#02f92f7e-28b7-403d-9a60-0afad772350b');
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>3.0000</td>
+      <td>3</td>
       <td>1992</td>
       <td>4</td>
       <td>6</td>
       <td>10009400.0000</td>
-      <td>1.0000</td>
-      <td>1.0000</td>
-      <td>0.0000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>7</td>
       <td>2017</td>
       <td>2</td>
@@ -15416,7 +15410,7 @@ var element = $('#02f92f7e-28b7-403d-9a60-0afad772350b');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(0.3329999999999999, 0.42082850299401536)</pre>
+<pre>(0.333, 0.420845380564867)</pre>
 </div>
 
 </div>
@@ -15457,7 +15451,7 @@ var element = $('#02f92f7e-28b7-403d-9a60-0afad772350b');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(0.3329999999999999, 0.380635796778225)</pre>
+<pre>(0.333, 0.38064090023603575)</pre>
 </div>
 
 </div>
@@ -15522,7 +15516,7 @@ var element = $('#02f92f7e-28b7-403d-9a60-0afad772350b');
 
 
 <div class="output_png output_subarea ">
-<img src="output_91_0.png"
+<img src="output_90_0.png"
 >
 </div>
 
@@ -15591,7 +15585,7 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 
 
 <div class="output_png output_subarea ">
-<img src="output_95_0.png"
+<img src="output_94_0.png"
 >
 </div>
 
@@ -15663,7 +15657,7 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 
 
 <div class="output_png output_subarea ">
-<img src="output_98_0.png"
+<img src="output_97_0.png"
 >
 </div>
 
@@ -15727,9 +15721,9 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
   <tbody>
     <tr>
       <th>DOM</th>
-      <td>159518.0000</td>
-      <td>28.9669</td>
-      <td>50.3237</td>
+      <td>159739.0000</td>
+      <td>29.0186</td>
+      <td>50.3608</td>
       <td>1.0000</td>
       <td>1.0000</td>
       <td>7.0000</td>
@@ -15886,7 +15880,7 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 
 
 <div class="output_png output_subarea ">
-<img src="output_105_0.png"
+<img src="output_104_0.png"
 >
 </div>
 
@@ -15901,7 +15895,6 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>DOM_cat S means only 1 day of Days on market, and its volatility of price has significantly increased since around June, 2016, compared to the other DOM_categories. The reason of this is considered to be firstly that the Histgram by DOM_category shows the significant deacrease in the transactions of DOM_cat S around June, 2016, leading to low number of samples in category S making the volatility higher. Secondaly, in spite of the fact that Total Sales did not change around June, 2016, it is not natural that the trends of category S and M smoothly continues as the Total Sales by DOM category shows.</p>
 <p>I suspect the definition of DOM in the system used in the real estate company changed in June, 2016, but we have to confirm with the client.</p>
-<p>For now, we exclude DOM because of its inconsistency.</p>
 
 </div>
 </div>
@@ -15911,7 +15904,7 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 <div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DOM_cat&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DOM&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -16001,7 +15994,7 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 
 
 <div class="output_png output_subarea ">
-<img src="output_111_0.png"
+<img src="output_110_0.png"
 >
 </div>
 
@@ -16055,7 +16048,7 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
@@ -16117,7 +16110,7 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 
 
 <div class="output_png output_subarea ">
-<img src="output_115_0.png"
+<img src="output_114_0.png"
 >
 </div>
 
@@ -16226,7 +16219,7 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 
 
 <div class="output_png output_subarea ">
-<img src="output_120_0.png"
+<img src="output_119_0.png"
 >
 </div>
 
@@ -16278,7 +16271,7 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 
 
 <div class="output_png output_subarea ">
-<img src="output_123_0.png"
+<img src="output_122_0.png"
 >
 </div>
 
@@ -16291,8 +16284,9 @@ However, the medians are identical and ladderRatio for entire data is balanced, 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Figure 4 shows that some feature values are interrelated. For example, floorType, buildingStructure, buildingType and elevator are highly interrelated. Therefore, combining these feature values into one feature value by choosing representative feature will save calculation space and time.
-As for DOM, followers, renovationCondition, year and subway, they are the major factors affecting the value of unit price. Therefore, considering these feature values will be effective after or before investing in new real estate.
+<p>Heatmap in Figure 4 shows that some feature values are interrelated. For example, floorType, buildingStructure, buildingType and elevator are highly interrelated. Therefore, combining these feature values into one feature value by choosing representative feature will save calculation space and time.</p>
+<p>Dendrogram shows similar features. For instance, floorhight, buildingStructure and elevator have smaller euclidien distance each other, while bathRoom, square, drawingRoom, livingRoom, ladderRatio and totalPrice are closer group. As for the price, it has smaller distance with renovationCondition and followers.</p>
+<p>As for DOM, followers, renovationCondition, year and subway, they are the major factors affecting the value of unit price. Therefore, considering these feature values will be effective after or before investing in new real estate.
 With regards to the other features that totalPrice are highly interrelated such as ladderRatio, livingRoom, drawingroom, square and bathroom, they contribute more to increase sales price (totalPrice).</p>
 
 </div>
@@ -16363,7 +16357,245 @@ With regards to the other features that totalPrice are highly interrelated such 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[56]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>url</th>
+      <th>id</th>
+      <th>Lng</th>
+      <th>Lat</th>
+      <th>Cid</th>
+      <th>tradeTime</th>
+      <th>followers</th>
+      <th>totalPrice</th>
+      <th>price</th>
+      <th>square</th>
+      <th>livingRoom</th>
+      <th>drawingRoom</th>
+      <th>kitchen</th>
+      <th>bathRoom</th>
+      <th>buildingType</th>
+      <th>constructionTime</th>
+      <th>renovationCondition</th>
+      <th>buildingStructure</th>
+      <th>ladderRatio</th>
+      <th>elevator</th>
+      <th>fiveYearsProperty</th>
+      <th>subway</th>
+      <th>district</th>
+      <th>year</th>
+      <th>month</th>
+      <th>floorType</th>
+      <th>floorHeight</th>
+      <th>DOM_cat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6186</th>
+      <td>https://bj.lianjia.com/chengjiao/BJHD84136716....</td>
+      <td>BJHD84136716</td>
+      <td>116.2843</td>
+      <td>39.9427</td>
+      <td>1111027378362</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>618.0000</td>
+      <td>38868</td>
+      <td>159.0000</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2001</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.5000</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>8</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>6187</th>
+      <td>https://bj.lianjia.com/chengjiao/BJCY84233046....</td>
+      <td>BJCY84233046</td>
+      <td>116.5054</td>
+      <td>39.9391</td>
+      <td>1111027379229</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>95.0000</td>
+      <td>20145</td>
+      <td>47.1600</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1995</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.5000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>6188</th>
+      <td>https://bj.lianjia.com/chengjiao/BJCY84129495....</td>
+      <td>BJCY84129495</td>
+      <td>116.4551</td>
+      <td>39.9315</td>
+      <td>1111027376792</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>223.0000</td>
+      <td>28916</td>
+      <td>77.1200</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1988</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0.3330</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>5</td>
+      <td>6</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>6189</th>
+      <td>https://bj.lianjia.com/chengjiao/BJCY84131603....</td>
+      <td>BJCY84131603</td>
+      <td>116.4595</td>
+      <td>39.9540</td>
+      <td>1111027381384</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>164.4000</td>
+      <td>21885</td>
+      <td>75.1200</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1984</td>
+      <td>1</td>
+      <td>6</td>
+      <td>0.2500</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>3</td>
+      <td>16</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>6190</th>
+      <td>https://bj.lianjia.com/chengjiao/BJHD56417864....</td>
+      <td>BJHD56417864</td>
+      <td>116.3815</td>
+      <td>39.9778</td>
+      <td>1111027381832</td>
+      <td>2012-01-01</td>
+      <td>0</td>
+      <td>107.0000</td>
+      <td>23363</td>
+      <td>45.8000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1996</td>
+      <td>1</td>
+      <td>6</td>
+      <td>0.0710</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>8</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>5</td>
+      <td>9</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save the data </span>
@@ -16374,6 +16606,31 @@ With regards to the other features that totalPrice are highly interrelated such 
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A file already exists with this name.
+
+Do you want to overwrite? (Y/N)y
+Writing file.  &#34;../data/df_data_step3a_EDA.csv&#34;
+A file already exists with this name.
+
+Do you want to overwrite? (Y/N)y
+Writing file.  &#34;../data/time_sales_data_step3a_EDA.csv&#34;
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
